@@ -108,7 +108,7 @@ using namespace ffb;
     controller->SetRootScene(scene);
     
     DrawObject * drawObject = FFBMalloc(DrawObject);
-    drawObject->Create(); 
+    drawObject->Create();
     drawObject->DrawLine(0, 0, 100, 100);
     drawObject->SetColor(1, 1, 1, 1);
     scene->GetRootObject()->AddObject(drawObject);
@@ -118,7 +118,7 @@ using namespace ffb;
     Object * object = FFBMalloc(Object);
     object->ffb::Object::Create(texture);
     scene->GetRootObject()->AddObject(object);
-
+ 
     
     texture->release();
     object->release();
