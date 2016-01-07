@@ -10,7 +10,9 @@
 #define Handle_hpp
 
 #include <stdio.h>
+#include <vector>
 #include <cassert>
+
 
 namespace ffb {
     template <typename TAG>
@@ -42,7 +44,7 @@ namespace ffb {
         
         //生命期
         
-        Handle(void):m_Handle(0){};
+        Handle():m_Handle(0){};
         
         void Init(unsigned int index);
         
@@ -52,7 +54,7 @@ namespace ffb {
         unsigned int GetHandle(void) const {return m_Handle;}
         bool IsNull()   const {return !m_Handle;}
         
-        operator unsigned int (void)const {return m_Handle;}
+        operator unsigned int ()const {return m_Handle;}
     };
     
     
@@ -64,6 +66,58 @@ namespace ffb {
     template <typename TAG>
     inline bool operator == (Handle<TAG> l, Handle<TAG> r)
     { return l.GetHandle() == r.GetHandle(); }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    template <typename DATA, typename HANDLE>
+    class HandleMgr {
+        
+    private:
+        //私有类型
+        typedef std::vector<DATA>           UserVec;
+        typedef std::vector<unsigned int>   MagicVec;
+        typedef std::vector<unsigned int>   FreeVec;
+        
+        //私有数据
+        UserVec m_UserData;             //我们需要获取的数据
+        MagicVec m_MagicNumbers;        //相应的魔术数
+        FreeVec m_FreeSolts;            //数据库中需要跟踪的空闲列表
+        
+    public:
+        
+        
+        //生命周期
+        HandleMgr(){}
+        ~HandleMgr(){}
+        
+        //句柄方法
+        //分配
+        DATA* Acquire(HANDLE& handle);
+        //释放
+        void  Release(HANDLE handle);
+        
+        //解引用
+        DATA* Dereference(HANDLE handle);
+        const DATA* Dereference(HANDLE handle) const;
+        
+        //其他查询
+        unsigned int GetUsedHandleCount(void) const
+        { return m_MagicNumbers.size() - m_FreeSolts.size(); }
+        
+        bool HasUsedHandles(void) const
+        { return !!GetUsedHandleCount(); }
+    };
+
+    
 }
 
 

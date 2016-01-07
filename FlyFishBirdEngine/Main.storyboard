@@ -8,7 +8,7 @@
         <!--GLKit View Controller-->
         <scene sceneID="SfQ-ao-4M1">
             <objects>
-                <glkViewController preferredFramesPerSecond="30" id="0Tj-LO-p3p" customClass="FFBViewController" sceneMemberID="viewController">
+                <glkViewController preferredFramesPerSecond="60" id="0Tj-LO-p3p" customClass="FFBViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2pM-6f-oj2"/>
                         <viewControllerLayoutGuide type="bottom" id="7dd-3N-Zzb"/>

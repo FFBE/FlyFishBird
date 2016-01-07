@@ -21,7 +21,9 @@ namespace ffb {
         
         CreateClassFunctions(Texture2D);
         
-        bool Create(std::string fileName);
+        bool CreateTexture(unsigned char * data, float width, float height);
+        bool CreateImageTexture(std::string fileName);
+        bool CreateStringTexture(std::string fontName, std::string text, float fontSize);
         
         virtual void Render();
         

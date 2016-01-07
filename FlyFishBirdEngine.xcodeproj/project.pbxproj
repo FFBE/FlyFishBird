@@ -19,6 +19,7 @@
 		C3656D811BE45EFC00D4B5D8 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3656D7F1BE45EFC00D4B5D8 /* GameController.cpp */; };
 		C3656D871BE4604600D4B5D8 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3656D851BE4604600D4B5D8 /* Singleton.cpp */; };
 		C36803DF1C200691007997DF /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C36803DD1C200691007997DF /* Renderer.cpp */; };
+		C368351E1C3E0B5C00B520C9 /* FontMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C368351C1C3E0B5C00B520C9 /* FontMgr.cpp */; };
 		C368FE321C04552900F0C5B2 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C368FE301C04552900F0C5B2 /* Matrix.cpp */; };
 		C368FE351C04553C00F0C5B2 /* BasicData2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C368FE331C04553C00F0C5B2 /* BasicData2d.cpp */; };
 		C368FE381C0458AF00F0C5B2 /* GLESCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C368FE361C0458AF00F0C5B2 /* GLESCamera.cpp */; };
@@ -29,7 +30,6 @@
 		C38A03921C21327E00C30815 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C38A03911C21327E00C30815 /* Shader.vsh */; };
 		C38A039F1C2160D700C30815 /* Image-ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38A039E1C2160D700C30815 /* Image-ios.mm */; };
 		C38FEF5C1C3CD3B400D05717 /* Handle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38FEF561C3CD3B400D05717 /* Handle.cpp */; };
-		C38FEF5D1C3CD3B400D05717 /* HandleMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38FEF581C3CD3B400D05717 /* HandleMgr.cpp */; };
 		C38FEF5E1C3CD3B400D05717 /* TextureMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38FEF5A1C3CD3B400D05717 /* TextureMgr.cpp */; };
 		C38FEF631C3CFF2800D05717 /* FFBViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38FEF621C3CFF2800D05717 /* FFBViewController.mm */; };
 		C38FEF641C3D024F00D05717 /* DrawObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C34CF1991C16872000CF842E /* DrawObject.cpp */; };
@@ -69,6 +69,8 @@
 		C3656D861BE4604600D4B5D8 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Singleton.hpp; sourceTree = "<group>"; };
 		C36803DD1C200691007997DF /* Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		C36803DE1C200691007997DF /* Renderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
+		C368351C1C3E0B5C00B520C9 /* FontMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontMgr.cpp; sourceTree = "<group>"; };
+		C368351D1C3E0B5C00B520C9 /* FontMgr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FontMgr.hpp; sourceTree = "<group>"; };
 		C368FE281C044E4000F0C5B2 /* SimpleMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleMath.h; sourceTree = "<group>"; };
 		C368FE301C04552900F0C5B2 /* Matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
 		C368FE311C04552900F0C5B2 /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
@@ -93,8 +95,6 @@
 		C38A03AA1C21668500C30815 /* ReadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadFile.h; sourceTree = "<group>"; };
 		C38FEF561C3CD3B400D05717 /* Handle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Handle.cpp; sourceTree = "<group>"; };
 		C38FEF571C3CD3B400D05717 /* Handle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Handle.hpp; sourceTree = "<group>"; };
-		C38FEF581C3CD3B400D05717 /* HandleMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HandleMgr.cpp; sourceTree = "<group>"; };
-		C38FEF591C3CD3B400D05717 /* HandleMgr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HandleMgr.hpp; sourceTree = "<group>"; };
 		C38FEF5A1C3CD3B400D05717 /* TextureMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureMgr.cpp; sourceTree = "<group>"; };
 		C38FEF5B1C3CD3B400D05717 /* TextureMgr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureMgr.hpp; sourceTree = "<group>"; };
 		C38FEF621C3CFF2800D05717 /* FFBViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FFBViewController.mm; sourceTree = "<group>"; };
@@ -312,10 +312,10 @@
 			children = (
 				C38FEF561C3CD3B400D05717 /* Handle.cpp */,
 				C38FEF571C3CD3B400D05717 /* Handle.hpp */,
-				C38FEF581C3CD3B400D05717 /* HandleMgr.cpp */,
-				C38FEF591C3CD3B400D05717 /* HandleMgr.hpp */,
 				C38FEF5A1C3CD3B400D05717 /* TextureMgr.cpp */,
 				C38FEF5B1C3CD3B400D05717 /* TextureMgr.hpp */,
+				C368351C1C3E0B5C00B520C9 /* FontMgr.cpp */,
+				C368351D1C3E0B5C00B520C9 /* FontMgr.hpp */,
 			);
 			path = handle;
 			sourceTree = "<group>";
@@ -399,6 +399,7 @@
 				C3656D7E1BE45E0A00D4B5D8 /* GLESProgram.cpp in Sources */,
 				C368FE321C04552900F0C5B2 /* Matrix.cpp in Sources */,
 				C3656D811BE45EFC00D4B5D8 /* GameController.cpp in Sources */,
+				C368351E1C3E0B5C00B520C9 /* FontMgr.cpp in Sources */,
 				C368FE351C04553C00F0C5B2 /* BasicData2d.cpp in Sources */,
 				C35921EC1BE8875C008F7ED9 /* GLESFunction.c in Sources */,
 				C38FEF641C3D024F00D05717 /* DrawObject.cpp in Sources */,
@@ -420,7 +421,6 @@
 				C38FEF5E1C3CD3B400D05717 /* TextureMgr.cpp in Sources */,
 				C38FEF661C3D024F00D05717 /* Font-ios.mm in Sources */,
 				C38FEF681C3D024F00D05717 /* Texture2D.cpp in Sources */,
-				C38FEF5D1C3CD3B400D05717 /* HandleMgr.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +517,7 @@
 				INFOPLIST_FILE = FlyFishBirdEngine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DevelopGame.FlyFishBirdEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -533,6 +534,7 @@
 				INFOPLIST_FILE = FlyFishBirdEngine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DevelopGame.FlyFishBirdEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

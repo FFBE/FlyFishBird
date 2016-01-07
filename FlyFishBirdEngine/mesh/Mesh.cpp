@@ -14,8 +14,6 @@ namespace ffb {
     
     void Mesh::Clear()
     {
-        BasicPtrClass::Clear();
-        
         m_rotate = 0;
         m_scale = PointMake(1, 1);
         m_point = PointMake(0, 0);
@@ -31,6 +29,7 @@ namespace ffb {
         m_vertices = nullptr;
         m_indices = nullptr;
         
+        BasicPtrClass::Clear();
     }
     
     bool Mesh::Create()
@@ -74,7 +73,6 @@ namespace ffb {
         
         BasicPtrClass::Destory();
     }
-    
     
 #pragma mark - Render
     

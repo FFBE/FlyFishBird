@@ -10,11 +10,9 @@
 #define TextureMgr_hpp
 
 #include <stdio.h>
-#include <vector>
 #include <map>
 #include <string>
 #include "Handle.cpp"
-#include "HandleMgr.cpp"
 #include "Singleton.hpp"
 #include <OpenGLES/gltypes.h>
 
@@ -25,15 +23,17 @@ namespace ffb {
     
     typedef Handle<tagTexture> HTexture;
     
-    class TextureMgr:public Singleton<TextureMgr> {
+    class TextureMgr:public Singleton<TextureMgr>
+    {
         
+    private:
         struct Texture
         {
             
             std::string m_Name;
             unsigned int m_Width;
             unsigned int m_Height;
-            GLubyte * m_TextureData;
+            unsigned char * m_TextureData;
             
             
             bool Load (const std::string & name);
@@ -48,18 +48,16 @@ namespace ffb {
             { return (::strcasecmp(l.c_str(), r.c_str()) < 0);}
         };
         
-    public:
-        
         typedef std::map <std::string, HTexture, istring_less> NameIndex;
         typedef std::pair <NameIndex::iterator, bool> NameIndexInsertRc;
-        
         
         HTextureMgr m_Textures;
         NameIndex m_NameIndex;
         
-        TextureMgr ( void ) {}
-        ~TextureMgr ( void );
+    public:
         
+        TextureMgr() {}
+        ~TextureMgr ();
         
         HTexture GetTexture (const char * name);
         

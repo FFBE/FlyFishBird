@@ -10,6 +10,7 @@
 #import "GameController.hpp"
 #import "DrawObject.hpp"
 #import "Texture2D.hpp"
+#import <OpenGLES/ES2/glext.h>
 
 using namespace ffb;
 
@@ -45,6 +46,7 @@ using namespace ffb;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     NSLog(@"%@", NSStringFromCGSize(self.view.frame.size));
 
     controller = GameController::GetSingletonPtr();
@@ -113,18 +115,23 @@ using namespace ffb;
     drawObject->SetColor(1, 1, 1, 1);
     scene->GetRootObject()->AddObject(drawObject);
     
+    Texture2D *texture1 = FFBMalloc(Texture2D);
+    texture1->CreateImageTexture("ipad-152.png");
+    Object * object1 = FFBMalloc(Object);
+    object1->Object::Create(texture1);
+    scene->GetRootObject()->AddObject(object1);
+    object1->SetPosition(150, 150);
+    
     Texture2D *texture = FFBMalloc(Texture2D);
-    texture->Create("ipad-152.png");
+    texture->CreateStringTexture("Helvetica", "我的", 20);
     Object * object = FFBMalloc(Object);
-    object->ffb::Object::Create(texture);
+    object->Object::Create(texture);
     scene->GetRootObject()->AddObject(object);
  
-    
     texture->release();
     object->release();
     drawObject->release();
     scene->release();
-
 }
 
 - (void)tearDownGL

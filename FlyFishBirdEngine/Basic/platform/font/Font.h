@@ -18,18 +18,7 @@ extern "C"{
 #include <stdio.h>
     
     
-    typedef struct {
-        float width;
-        float height;
-        char * text;
-        unsigned int length;
-        float * data;
-        char * fontName;
-        float size;
-    }Font;
-    
-    
-    Font GetFontData(char * text, char * fontName, float size, float width);
+    bool GetFontInfo(const char * text, const char * fontName, float size, unsigned char ** fontData, float * width, float * height);
     
     
 #ifdef __cplusplus

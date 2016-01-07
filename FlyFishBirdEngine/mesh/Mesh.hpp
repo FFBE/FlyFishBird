@@ -37,6 +37,8 @@ namespace ffb {
         
     public:
         
+        static void Createa();
+        
         //the key in default create function is defalut program
         CreateClassFunctions(Mesh);
         bool Create(short key);

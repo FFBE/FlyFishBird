@@ -8,9 +8,6 @@
 
 #include "TextureMgr.hpp"
 #include "Image.h"
-#include <cassert>
-#include <iostream>
-
 
 namespace ffb {
     TextureMgr::~TextureMgr()
@@ -55,30 +52,22 @@ namespace ffb {
         m_Name = name;
         
         //...从文件系统载入材质，失败是返回false
-        ImageData imageData = GetImageData(name.c_str());
-        if (imageData.data == nullptr)
-        {
+        unsigned char ** textData;
+        float  height[1];
+        float  width[1];
+        if (!GetImageInfo(name.c_str(), textData, height, width)) {
             return false;
         }
         
-        m_Width = imageData.width;
-        m_Height = imageData.height;
-        
-        m_TextureData = (GLubyte *)malloc(sizeof(GLubyte) * m_Width * m_Height * 4);
-        memcpy(m_TextureData, imageData.data, sizeof(GLubyte)*m_Width*m_Height*4);
-
-        FreeImage(imageData);
+        m_TextureData = *textData;
+        m_Height = *height;
+        m_Width = *width;
         
         return true;
     }
     
     void TextureMgr::Texture::Unload()
     {
-        if(m_TextureData != nullptr)
-        {
-            free(m_TextureData);
-            m_TextureData = nullptr;
-        }
         m_Name.erase();
     }
 }

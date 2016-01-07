@@ -9,18 +9,19 @@
 #include "Texture2D.hpp"
 #include "GameController.hpp"
 #include "TextureMgr.hpp"
+#include "FontMgr.hpp"
 
-#include <iostream>
+#include <string>
 #include "GameController.hpp"
-#include "Font.h"
+
 
 namespace ffb {
     
     void Texture2D::Clear()
     {
-        Mesh::Clear();
         m_textureId = 0;
-        
+
+        Mesh::Clear();
     }
     
     bool Texture2D::Create()
@@ -29,40 +30,57 @@ namespace ffb {
             return false;
         }
         
-        
-        
         return true;
     }
     
-    bool Texture2D::Create(std::string fileName)
+    bool Texture2D::CreateTexture(unsigned char *data, float width, float height)
     {
         if (!Mesh::Create()) {
             return false;
         }
-
-        HTexture m_HTexture = TextureMgr::GetSingletonPtr()->GetTexture(fileName.c_str());
-        m_Width = TextureMgr::GetSingletonPtr()->GetWidth(m_HTexture);
-        m_Height = TextureMgr::GetSingletonPtr()->GetHeight(m_HTexture);
         
         glGenTextures(1, &m_textureId);
         glBindTexture(GL_TEXTURE_2D, m_textureId);
-       
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, TextureMgr::GetSingletonPtr()->GetTextureData(m_HTexture));
+        
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        
+        return true;
+    }
+    
+    bool Texture2D::CreateImageTexture(std::string fileName)
+    {
+        HTexture m_HTexture = TextureMgr::GetSingletonPtr()->GetTexture(fileName.c_str());
+        m_Width = TextureMgr::GetSingletonPtr()->GetWidth(m_HTexture);
+        m_Height = TextureMgr::GetSingletonPtr()->GetHeight(m_HTexture);
         
         float scale = GameController::GetSingleton().GetScreenScale();
         
         m_Width /= scale;
         m_Height /= scale;
         
-        return true;
+        return CreateTexture(TextureMgr::GetSingletonPtr()->GetTextureData(m_HTexture), m_Width*scale, m_Height*scale);
+    }
+    
+    bool Texture2D::CreateStringTexture(std::string fontName, std::string text, float fontSize)
+    {
+        HFont hfont = FontMgr::GetSingletonPtr()->GetFont(fontName, text, fontSize);
+        m_Width = FontMgr::GetSingletonPtr()->GetWidth(hfont);
+        m_Height = FontMgr::GetSingletonPtr()->GetHeight(hfont);
+        
+        float scale = GameController::GetSingleton().GetScreenScale();
+        
+        m_Width /= scale;
+        m_Height /= scale;
+        
+        return CreateTexture(FontMgr::GetSingletonPtr()->GetFontData(hfont), m_Width*scale, m_Height*scale);
     }
     
     void Texture2D::Destory()
     {
         glDeleteTextures(1, &m_textureId);
-        
+
         Mesh::Destory();
     }
     
