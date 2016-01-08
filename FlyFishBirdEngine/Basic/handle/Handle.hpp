@@ -11,14 +11,14 @@
 
 #include <stdio.h>
 #include <vector>
-#include <cassert>
 
 
 namespace ffb {
+    
     template <typename TAG>
     class Handle
     {
-        
+    private:
         enum
         {
             //使用位域（bit fields）的大小
@@ -67,13 +67,7 @@ namespace ffb {
     inline bool operator == (Handle<TAG> l, Handle<TAG> r)
     { return l.GetHandle() == r.GetHandle(); }
     
-    
-    
-    
-    
-    
-    
-    
+
     
     
     
@@ -96,18 +90,18 @@ namespace ffb {
         
         
         //生命周期
-        HandleMgr(){}
-        ~HandleMgr(){}
+        HandleMgr() {}
+        ~HandleMgr() {}
         
         //句柄方法
         //分配
-        DATA* Acquire(HANDLE& handle);
+        DATA* Acquire ( HANDLE & handle );
         //释放
-        void  Release(HANDLE handle);
+        void  Release ( HANDLE handle );
         
         //解引用
-        DATA* Dereference(HANDLE handle);
-        const DATA* Dereference(HANDLE handle) const;
+        DATA* Dereference( HANDLE handle);
+        const DATA* Dereference( HANDLE handle) const;
         
         //其他查询
         unsigned int GetUsedHandleCount(void) const
@@ -116,7 +110,6 @@ namespace ffb {
         bool HasUsedHandles(void) const
         { return !!GetUsedHandleCount(); }
     };
-
     
 }
 

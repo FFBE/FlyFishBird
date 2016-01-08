@@ -25,10 +25,15 @@ unsigned long nextpot(unsigned long x)
     return x + 1;
 }
 
-bool GetFontInfo(const char * text,const char * fontName, float size, unsigned char ** fontData, float * width, float * height)
+bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned char ** fontData, float * width, float * height)
 {
     NSString * string = [NSString stringWithUTF8String:text] ;
-    UIFont * font = [UIFont fontWithName:[NSString stringWithUTF8String:fontName] size:size];
+    NSString * fontName = [NSString stringWithUTF8String:fontNameC];
+    UIFont * font = [UIFont fontWithName:fontName size:size];
+    if(font == NULL)
+    {
+        NSLog(@"未找到相关字体信息：%@", fontName);
+    }
     CGSize boundingSize = CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX);
     CGSize dimensions = [string  sizeWithFont:font
                                  constrainedToSize:boundingSize

@@ -7,13 +7,14 @@
 //
 
 #include "Handle.hpp"
+#include <cassert>
 
 namespace ffb {
     
     
-    
     template <typename TAG>
-    void Handle<TAG>:: Init(unsigned int index) {
+    void Handle<TAG>:: Init(unsigned int index)
+    {
         
         assert(IsNull());                   //不允许重新赋值
         assert(index <= MAX_INDEX);         //有效范围验证
@@ -32,13 +33,8 @@ namespace ffb {
     
     
     
-    
-    
-    
-    
-    
     template <typename DATA, typename HANDLE>
-    DATA* HandleMgr <DATA, HANDLE>::Acquire(HANDLE &handle)
+    DATA* HandleMgr <DATA, HANDLE>::Acquire( HANDLE & handle)
     {
         //如果空闲列表为空，则新增一个，否则使用第一个可用表项
         
@@ -63,7 +59,7 @@ namespace ffb {
     
     
     template <typename DATA, typename HANDLE>
-    void HandleMgr <DATA, HANDLE>::Release(HANDLE handle) {
+    void HandleMgr <DATA, HANDLE>::Release( HANDLE handle) {
         
         //哪一个
         unsigned int index = handle.GetIndex();
@@ -78,7 +74,7 @@ namespace ffb {
     }
     
     template <typename DATA, typename HANDLE>
-    inline DATA* HandleMgr<DATA, HANDLE> :: Dereference(HANDLE handle)
+    inline DATA* HandleMgr<DATA, HANDLE> :: Dereference( HANDLE handle)
     {
         if ( handle.IsNull() )  return 0;
         
@@ -98,9 +94,10 @@ namespace ffb {
     
     
     template <typename DATA, typename HANDLE>
-    inline const DATA* HandleMgr<DATA, HANDLE> :: Dereference(HANDLE handle) const
+    inline const DATA* HandleMgr<DATA, HANDLE> :: Dereference( HANDLE handle) const
     {
         typedef HandleMgr <DATA, HANDLE> ThisType;
         return const_cast<ThisType *>(this) -> Dereference( handle );
     }
+    
 }

@@ -10,11 +10,11 @@
 #define TextureMgr_hpp
 
 #include <stdio.h>
-#include <map>
 #include <string>
-#include "Handle.cpp"
+#include <map>
+
+#include "Handle.hpp"
 #include "Singleton.hpp"
-#include <OpenGLES/gltypes.h>
 
 
 namespace ffb {
@@ -31,8 +31,8 @@ namespace ffb {
         {
             
             std::string m_Name;
-            unsigned int m_Width;
-            unsigned int m_Height;
+            float m_Width;
+            float m_Height;
             unsigned char * m_TextureData;
             
             
@@ -57,7 +57,7 @@ namespace ffb {
     public:
         
         TextureMgr() {}
-        ~TextureMgr ();
+        ~TextureMgr();
         
         HTexture GetTexture (const char * name);
         
@@ -73,7 +73,7 @@ namespace ffb {
         int GetHeight(HTexture htex) const
         { return m_Textures.Dereference(htex)->m_Height; }
         
-        GLubyte * GetTextureData(HTexture htex) const
+        unsigned char * GetTextureData(HTexture htex) const
         { return m_Textures.Dereference(htex)->m_TextureData; }
         
     };

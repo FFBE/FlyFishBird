@@ -12,8 +12,9 @@
 #include <stdio.h>
 #include <string>
 #include <map>
-#include "Singleton.hpp"
+
 #include "Handle.hpp"
+#include "Singleton.hpp"
 
 namespace ffb {
     
@@ -39,12 +40,10 @@ namespace ffb {
             void SetText(std::string text);
             void SetFontSize(float size);
             void SetFontName(std::string fontName);
-            bool Update();
             void UnLoad();
         };
                 
         typedef HandleMgr<Font, HFont> HFontMgr;
-        
         
         typedef std::map <unsigned int , HFont> FontMap;
         typedef std::pair <FontMap::iterator, bool> FontMapInsertRc;

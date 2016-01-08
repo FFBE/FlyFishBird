@@ -33,24 +33,12 @@ namespace ffb {
         return true;
     }
     
-    bool Texture2D::CreateTexture(unsigned char *data, float width, float height)
+    bool Texture2D::CreateImageTexture(std::string fileName)
     {
         if (!Mesh::Create()) {
             return false;
         }
         
-        glGenTextures(1, &m_textureId);
-        glBindTexture(GL_TEXTURE_2D, m_textureId);
-        
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        
-        return true;
-    }
-    
-    bool Texture2D::CreateImageTexture(std::string fileName)
-    {
         HTexture m_HTexture = TextureMgr::GetSingletonPtr()->GetTexture(fileName.c_str());
         m_Width = TextureMgr::GetSingletonPtr()->GetWidth(m_HTexture);
         m_Height = TextureMgr::GetSingletonPtr()->GetHeight(m_HTexture);
@@ -59,12 +47,17 @@ namespace ffb {
         
         m_Width /= scale;
         m_Height /= scale;
+        SetTexture2d(TextureMgr::GetSingletonPtr()->GetTextureData(m_HTexture), m_Width*scale, m_Height*scale);
         
-        return CreateTexture(TextureMgr::GetSingletonPtr()->GetTextureData(m_HTexture), m_Width*scale, m_Height*scale);
+        return  true;
     }
     
     bool Texture2D::CreateStringTexture(std::string fontName, std::string text, float fontSize)
     {
+        if (!Mesh::Create()) {
+            return false;
+        }
+        
         HFont hfont = FontMgr::GetSingletonPtr()->GetFont(fontName, text, fontSize);
         m_Width = FontMgr::GetSingletonPtr()->GetWidth(hfont);
         m_Height = FontMgr::GetSingletonPtr()->GetHeight(hfont);
@@ -74,7 +67,20 @@ namespace ffb {
         m_Width /= scale;
         m_Height /= scale;
         
-        return CreateTexture(FontMgr::GetSingletonPtr()->GetFontData(hfont), m_Width*scale, m_Height*scale);
+        SetTexture2d(FontMgr::GetSingletonPtr()->GetFontData(hfont), m_Width*scale, m_Height*scale);
+        
+        return true;
+    }
+    
+    void Texture2D::SetTexture2d(GLubyte *data, float width, float height)
+    {
+        glGenTextures(1, &m_textureId);
+        glBindTexture(GL_TEXTURE_2D, m_textureId);
+        
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        
     }
     
     void Texture2D::Destory()

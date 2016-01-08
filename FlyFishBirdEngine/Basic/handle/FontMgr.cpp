@@ -69,46 +69,25 @@ namespace ffb {
         m_FontSize = fontSize;
         m_FontData = nullptr;
         
-        return Update();
+        return GetFontInfo(m_Text.c_str(), m_FontName.c_str(), m_FontSize, &m_FontData, &m_Width, &m_Height);
     }
     
     void FontMgr::Font::SetText(std::string text)
     {
         m_Text = text;
-        Update();
+        GetFontInfo(m_Text.c_str(), m_FontName.c_str(), m_FontSize, &m_FontData, &m_Width, &m_Height);
     }
     
     void FontMgr::Font::SetFontName(std::string fontName)
     {
         m_FontName = fontName;
-        Update();
+        GetFontInfo(m_Text.c_str(), m_FontName.c_str(), m_FontSize, &m_FontData, &m_Width, &m_Height);
     }
     
     void FontMgr::Font::SetFontSize(float size)
     {
         m_FontSize = size;
-        Update();
-    }
-    
-    bool FontMgr::Font::Update()
-    {
-        unsigned char ** fontData;
-        float * width;
-        float * height;
-        
-        if( !GetFontInfo(m_Text.c_str(), m_FontName.c_str(), m_FontSize, fontData, width, height) )
-        {
-            return false;
-        }
-        if (m_FontData != nullptr) {
-            free(m_FontData);
-            m_FontData = nullptr;
-        }
-        m_FontData = *fontData;
-        m_Width = *width;
-        m_Height = *height;
-        
-        return true;
+        GetFontInfo(m_Text.c_str(), m_FontName.c_str(), m_FontSize, &m_FontData, &m_Width, &m_Height);
     }
     
     void FontMgr::Font::UnLoad()

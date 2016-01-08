@@ -52,18 +52,8 @@ namespace ffb {
         m_Name = name;
         
         //...从文件系统载入材质，失败是返回false
-        unsigned char ** textData;
-        float  height[1];
-        float  width[1];
-        if (!GetImageInfo(name.c_str(), textData, height, width)) {
-            return false;
-        }
         
-        m_TextureData = *textData;
-        m_Height = *height;
-        m_Width = *width;
-        
-        return true;
+        return GetImageInfo(name.c_str(), &m_TextureData, &m_Height, &m_Width);
     }
     
     void TextureMgr::Texture::Unload()
