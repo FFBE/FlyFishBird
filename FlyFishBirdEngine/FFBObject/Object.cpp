@@ -183,6 +183,7 @@ namespace ffb {
         if (m_objectList.empty()) {
             return;
         }
+        
         ObjectList::iterator itera;
         for (itera=m_objectList.begin(); itera != m_objectList.end(); itera++) {
             Object * object = (Object *)(*itera);

@@ -6,13 +6,13 @@
 //  Copyright © 2015年 FlyFishBird. All rights reserved.
 //
 
-#include "Texture2D.hpp"
+#include <string>
 #include "GameController.hpp"
+
+#include "Texture2D.hpp"
 #include "TextureMgr.hpp"
 #include "FontMgr.hpp"
 
-#include <string>
-#include "GameController.hpp"
 
 
 namespace ffb {
@@ -47,7 +47,7 @@ namespace ffb {
         
         m_Width /= scale;
         m_Height /= scale;
-        SetTexture2d(TextureMgr::GetSingletonPtr()->GetTextureData(m_HTexture), m_Width*scale, m_Height*scale);
+        SetTexture2d(TextureMgr::GetSingletonPtr()->GetTextureData(m_HTexture), m_Width*scale, m_Height*scale, Texture2DPixelFormat_image);
         
         return  true;
     }
@@ -67,21 +67,37 @@ namespace ffb {
         m_Width /= scale;
         m_Height /= scale;
         
-        SetTexture2d(FontMgr::GetSingletonPtr()->GetFontData(hfont), m_Width*scale, m_Height*scale);
+        SetTexture2d(FontMgr::GetSingletonPtr()->GetFontData(hfont), m_Width*scale, m_Height*scale, Texture2DPixelFormat_font);
         
         return true;
     }
     
-    void Texture2D::SetTexture2d(GLubyte *data, float width, float height)
+    void Texture2D::SetTexture2d(unsigned char *data, float width, float height, unsigned short textureType)
     {
         glGenTextures(1, &m_textureId);
         glBindTexture(GL_TEXTURE_2D, m_textureId);
         
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         
+        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
+        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
+        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
+        
+        switch (textureType) {
+            case Texture2DPixelFormat_font:
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE_ALPHA, (GLsizei) width, (GLsizei) height, 0, GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, data);
+                break;
+                
+            case Texture2DPixelFormat_image:
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+                break;
+                
+            default:
+                break;
+        }
     }
+    
+    
     
     void Texture2D::Destory()
     {

@@ -40,7 +40,7 @@ namespace ffb {
             void Unload();
         };
         
-        typedef HandleMgr<Texture, HTexture> HTextureMgr;
+        typedef ffb::HandleMgr<Texture, HTexture> HTextureMgr;
         
         struct istring_less
         {

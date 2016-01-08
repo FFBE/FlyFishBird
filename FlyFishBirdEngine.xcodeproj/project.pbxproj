@@ -14,6 +14,9 @@
 		C351CE781C3A37EB00E47E9D /* MathUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C351CE761C3A37EB00E47E9D /* MathUtil.cpp */; };
 		C35406BB1C22998600D78770 /* GLESBaseProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35406B91C22998600D78770 /* GLESBaseProgram.cpp */; };
 		C35921EC1BE8875C008F7ED9 /* GLESFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = C35921EA1BE8875C008F7ED9 /* GLESFunction.c */; };
+		C35B2CE61C3FA3CE00BC16B6 /* Handle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35B2CE41C3FA3CE00BC16B6 /* Handle.cpp */; };
+		C35B2CE81C3FA95100BC16B6 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C35B2CE71C3FA95100BC16B6 /* libstdc++.6.0.9.tbd */; };
+		C35B2CEA1C3FA98700BC16B6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C35B2CE91C3FA98700BC16B6 /* OpenGLES.framework */; };
 		C361F13F1BDA291600270E80 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C361F13E1BDA291600270E80 /* Default-568h@2x.png */; };
 		C3656D7E1BE45E0A00D4B5D8 /* GLESProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3656D7C1BE45E0A00D4B5D8 /* GLESProgram.cpp */; };
 		C3656D811BE45EFC00D4B5D8 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3656D7F1BE45EFC00D4B5D8 /* GameController.cpp */; };
@@ -29,7 +32,6 @@
 		C38A03901C21327900C30815 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C38A038F1C21327900C30815 /* Shader.fsh */; };
 		C38A03921C21327E00C30815 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C38A03911C21327E00C30815 /* Shader.vsh */; };
 		C38A039F1C2160D700C30815 /* Image-ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38A039E1C2160D700C30815 /* Image-ios.mm */; };
-		C38FEF5C1C3CD3B400D05717 /* Handle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38FEF561C3CD3B400D05717 /* Handle.cpp */; };
 		C38FEF5E1C3CD3B400D05717 /* TextureMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38FEF5A1C3CD3B400D05717 /* TextureMgr.cpp */; };
 		C38FEF631C3CFF2800D05717 /* FFBViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38FEF621C3CFF2800D05717 /* FFBViewController.mm */; };
 		C38FEF641C3D024F00D05717 /* DrawObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C34CF1991C16872000CF842E /* DrawObject.cpp */; };
@@ -60,6 +62,10 @@
 		C35406BA1C22998600D78770 /* GLESBaseProgram.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GLESBaseProgram.hpp; sourceTree = "<group>"; };
 		C35921EA1BE8875C008F7ED9 /* GLESFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLESFunction.c; sourceTree = "<group>"; };
 		C35921EB1BE8875C008F7ED9 /* GLESFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESFunction.h; sourceTree = "<group>"; };
+		C35B2CE41C3FA3CE00BC16B6 /* Handle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Handle.cpp; sourceTree = "<group>"; };
+		C35B2CE51C3FA3CE00BC16B6 /* Handle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Handle.hpp; sourceTree = "<group>"; };
+		C35B2CE71C3FA95100BC16B6 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		C35B2CE91C3FA98700BC16B6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		C361F13E1BDA291600270E80 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C3656D7C1BE45E0A00D4B5D8 /* GLESProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLESProgram.cpp; sourceTree = "<group>"; };
 		C3656D7D1BE45E0A00D4B5D8 /* GLESProgram.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GLESProgram.hpp; sourceTree = "<group>"; };
@@ -93,8 +99,6 @@
 		C38A03A71C21615F00C30815 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		C38A03A91C21668500C30815 /* ReadFile-ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ReadFile-ios.mm"; sourceTree = "<group>"; };
 		C38A03AA1C21668500C30815 /* ReadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadFile.h; sourceTree = "<group>"; };
-		C38FEF561C3CD3B400D05717 /* Handle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Handle.cpp; sourceTree = "<group>"; };
-		C38FEF571C3CD3B400D05717 /* Handle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Handle.hpp; sourceTree = "<group>"; };
 		C38FEF5A1C3CD3B400D05717 /* TextureMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureMgr.cpp; sourceTree = "<group>"; };
 		C38FEF5B1C3CD3B400D05717 /* TextureMgr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureMgr.hpp; sourceTree = "<group>"; };
 		C38FEF621C3CFF2800D05717 /* FFBViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FFBViewController.mm; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C35B2CEA1C3FA98700BC16B6 /* OpenGLES.framework in Frameworks */,
+				C35B2CE81C3FA95100BC16B6 /* libstdc++.6.0.9.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +230,8 @@
 		C36A852B1BD2144C0045B7D3 = {
 			isa = PBXGroup;
 			children = (
+				C35B2CE91C3FA98700BC16B6 /* OpenGLES.framework */,
+				C35B2CE71C3FA95100BC16B6 /* libstdc++.6.0.9.tbd */,
 				C361F13E1BDA291600270E80 /* Default-568h@2x.png */,
 				C36A85361BD2144C0045B7D3 /* FlyFishBirdEngine */,
 				C36A85351BD2144C0045B7D3 /* Products */,
@@ -310,8 +318,8 @@
 		C38FEF551C3CD3B400D05717 /* handle */ = {
 			isa = PBXGroup;
 			children = (
-				C38FEF561C3CD3B400D05717 /* Handle.cpp */,
-				C38FEF571C3CD3B400D05717 /* Handle.hpp */,
+				C35B2CE41C3FA3CE00BC16B6 /* Handle.cpp */,
+				C35B2CE51C3FA3CE00BC16B6 /* Handle.hpp */,
 				C38FEF5A1C3CD3B400D05717 /* TextureMgr.cpp */,
 				C38FEF5B1C3CD3B400D05717 /* TextureMgr.hpp */,
 				C368351C1C3E0B5C00B520C9 /* FontMgr.cpp */,
@@ -404,7 +412,6 @@
 				C35921EC1BE8875C008F7ED9 /* GLESFunction.c in Sources */,
 				C38FEF641C3D024F00D05717 /* DrawObject.cpp in Sources */,
 				C38FEF6A1C3D024F00D05717 /* ReadFile-ios.mm in Sources */,
-				C38FEF5C1C3CD3B400D05717 /* Handle.cpp in Sources */,
 				C38FEF691C3D024F00D05717 /* Mesh.cpp in Sources */,
 				C38FEF631C3CFF2800D05717 /* FFBViewController.mm in Sources */,
 				C38A039F1C2160D700C30815 /* Image-ios.mm in Sources */,
@@ -421,6 +428,7 @@
 				C38FEF5E1C3CD3B400D05717 /* TextureMgr.cpp in Sources */,
 				C38FEF661C3D024F00D05717 /* Font-ios.mm in Sources */,
 				C38FEF681C3D024F00D05717 /* Texture2D.cpp in Sources */,
+				C35B2CE61C3FA3CE00BC16B6 /* Handle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,7 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -524,7 +532,9 @@
 				INFOPLIST_FILE = FlyFishBirdEngine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DevelopGame.FlyFishBirdEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -537,7 +547,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -549,7 +559,9 @@
 				INFOPLIST_FILE = FlyFishBirdEngine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DevelopGame.FlyFishBirdEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";

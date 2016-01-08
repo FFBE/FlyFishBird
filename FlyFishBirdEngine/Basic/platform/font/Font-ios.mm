@@ -30,22 +30,25 @@ bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned 
     NSString * string = [NSString stringWithUTF8String:text] ;
     NSString * fontName = [NSString stringWithUTF8String:fontNameC];
     UIFont * font = [UIFont fontWithName:fontName size:size];
-    if(font == NULL)
+    if(!font)
     {
         NSLog(@"未找到相关字体信息：%@", fontName);
     }
+    
     CGSize boundingSize = CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX);
-    CGSize dimensions = [string  sizeWithFont:font
-                                 constrainedToSize:boundingSize
-                                 lineBreakMode:NSLineBreakByWordWrapping];
-        
+    CGSize dimensions = [string boundingRectWithSize:boundingSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
+
     NSUInteger textureWidth  = nextpot(dimensions.width);
     NSUInteger textureHeight = nextpot(dimensions.height);
     *fontData = (unsigned char *)malloc(textureHeight*textureWidth*2);
     
-    CGContextRef context = CGBitmapContextCreate(*fontData, textureWidth, textureHeight, 8, textureWidth, CGColorSpaceCreateDeviceGray(), kCGImageAlphaNone);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
+    CGContextRef context = CGBitmapContextCreate(*fontData, textureWidth, textureHeight, 8, textureWidth, colorSpace, kCGImageAlphaNone);
+    CGColorSpaceRelease(colorSpace);
+    
     if(!context)
     {
+        NSLog(@"获取字体纹理上下文失败");
         if(*fontData == NULL)
         {
             free(*fontData);
@@ -56,13 +59,19 @@ bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned 
     CGContextSetGrayFillColor(context, 1.0f, 1.0f);
     CGContextTranslateCTM(context, 0.0f, textureHeight);
     CGContextScaleCTM(context, 1.0f, -1.0f);
+    
     UIGraphicsPushContext(context);
-
-    CGSize drawSize = [string sizeWithFont:font constrainedToSize:dimensions lineBreakMode:NSLineBreakByWordWrapping];
+    
+    CGSize drawSize = [string boundingRectWithSize:dimensions options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
     CGRect drawArea = CGRectMake(0, (dimensions.height - drawSize.height) / 2, dimensions.width, drawSize.height);
-    [string drawInRect:drawArea withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentCenter];
+    
+    [string drawInRect:drawArea withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentLeft];
+    
     UIGraphicsPopContext();
     CGContextRelease(context);
+    
+    *width = textureWidth;
+    *height = textureHeight;
     
     return true;
 }

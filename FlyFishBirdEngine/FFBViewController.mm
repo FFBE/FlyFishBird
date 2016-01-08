@@ -109,11 +109,14 @@ using namespace ffb;
     scene->Create();
     controller->SetRootScene(scene);
     
-    DrawObject * drawObject = FFBMalloc(DrawObject);
-    drawObject->Create();
-    drawObject->DrawLine(0, 0, 100, 100);
-    drawObject->SetColor(1, 1, 1, 1);
-    scene->GetRootObject()->AddObject(drawObject);
+//    DrawObject * drawObject = FFBMalloc(DrawObject);
+//    drawObject->Create();
+//    drawObject->DrawLine(0, 0, 100, 100);
+//    drawObject->SetColor(1, 1, 1, 1);
+//    scene->GetRootObject()->AddObject(drawObject);
+//    drawObject->release();
+    
+    
     
     Texture2D *texture1 = FFBMalloc(Texture2D);
     texture1->CreateImageTexture("ipad-152.png");
@@ -121,16 +124,19 @@ using namespace ffb;
     object1->Object::Create(texture1);
     scene->GetRootObject()->AddObject(object1);
     object1->SetPosition(150, 150);
+    texture1->release();
+    object1->release();
+    
+    
     
     Texture2D *texture = FFBMalloc(Texture2D);
-    texture->CreateStringTexture("Helvetica", "我的", 20);
+    texture->CreateStringTexture("Helvetica", "我的", 100);
     Object * object = FFBMalloc(Object);
     object->Object::Create(texture);
     scene->GetRootObject()->AddObject(object);
  
     texture->release();
     object->release();
-    drawObject->release();
     scene->release();
 }
 

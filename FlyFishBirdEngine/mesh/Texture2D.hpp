@@ -19,12 +19,18 @@ namespace ffb {
         
     public:
         
+        enum
+        {
+            Texture2DPixelFormat_image = 1,
+            Texture2DPixelFormat_font = 2
+        };
+        
         CreateClassFunctions(Texture2D);
         
         bool CreateImageTexture(std::string fileName);
         bool CreateStringTexture(std::string fontName, std::string text, float fontSize);
         
-        void SetTexture2d(unsigned char * data, float width, float height);
+        void SetTexture2d(unsigned char * data, float width, float height, unsigned short textureType);
 
         virtual void Render();
         
