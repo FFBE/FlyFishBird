@@ -29,7 +29,7 @@ bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned 
 {
     NSString * string = [NSString stringWithUTF8String:text] ;
     NSString * fontName = [NSString stringWithUTF8String:fontNameC];
-    UIFont * font = [UIFont fontWithName:fontName size:size];
+    UIFont * font = [UIFont fontWithName:fontName size:size*[UIScreen mainScreen].scale];
     if(!font)
     {
         NSLog(@"未找到相关字体信息：%@", fontName);
@@ -38,12 +38,11 @@ bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned 
     CGSize boundingSize = CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX);
     CGSize dimensions = [string boundingRectWithSize:boundingSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
 
-    NSUInteger textureWidth  = nextpot(dimensions.width);
-    NSUInteger textureHeight = nextpot(dimensions.height);
-    *fontData = (unsigned char *)malloc(textureHeight*textureWidth*2);
+    *fontData = (unsigned char *)malloc(dimensions.height*dimensions.width*4);
+    memset(*fontData, 0, dimensions.height*dimensions.width*4);
     
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
-    CGContextRef context = CGBitmapContextCreate(*fontData, textureWidth, textureHeight, 8, textureWidth, colorSpace, kCGImageAlphaNone);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef context = CGBitmapContextCreate(*fontData, dimensions.width, dimensions.height, 8, dimensions.width*4, colorSpace, kCGImageAlphaPremultipliedLast);
     CGColorSpaceRelease(colorSpace);
     
     if(!context)
@@ -56,8 +55,8 @@ bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned 
         return false;
     }
     
-    CGContextSetGrayFillColor(context, 1.0f, 1.0f);
-    CGContextTranslateCTM(context, 0.0f, textureHeight);
+    CGContextSetRGBFillColor(context, 1, 1, 1, 1);
+    CGContextTranslateCTM(context, 0.0f, dimensions.height);
     CGContextScaleCTM(context, 1.0f, -1.0f);
     
     UIGraphicsPushContext(context);
@@ -70,8 +69,8 @@ bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned 
     UIGraphicsPopContext();
     CGContextRelease(context);
     
-    *width = textureWidth;
-    *height = textureHeight;
+    *width = dimensions.width;
+    *height = dimensions.height;
     
     return true;
 }

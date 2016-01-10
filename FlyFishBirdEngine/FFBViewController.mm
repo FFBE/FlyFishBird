@@ -119,18 +119,18 @@ using namespace ffb;
     
     
     Texture2D *texture1 = FFBMalloc(Texture2D);
-    texture1->CreateImageTexture("ipad-152.png");
+    texture1->CreateImageTexture("login.png");
     Object * object1 = FFBMalloc(Object);
     object1->Object::Create(texture1);
     scene->GetRootObject()->AddObject(object1);
-    object1->SetPosition(150, 150);
+    object1->SetPosition(0, 0);
     texture1->release();
     object1->release();
     
     
     
     Texture2D *texture = FFBMalloc(Texture2D);
-    texture->CreateStringTexture("Helvetica", "我的", 100);
+    texture->CreateStringTexture("Helvetica", "我的", 20);
     Object * object = FFBMalloc(Object);
     object->Object::Create(texture);
     scene->GetRootObject()->AddObject(object);

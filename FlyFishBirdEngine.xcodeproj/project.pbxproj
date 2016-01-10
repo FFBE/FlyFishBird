@@ -15,9 +15,6 @@
 		C35406BB1C22998600D78770 /* GLESBaseProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35406B91C22998600D78770 /* GLESBaseProgram.cpp */; };
 		C35921EC1BE8875C008F7ED9 /* GLESFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = C35921EA1BE8875C008F7ED9 /* GLESFunction.c */; };
 		C35B2CE61C3FA3CE00BC16B6 /* Handle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35B2CE41C3FA3CE00BC16B6 /* Handle.cpp */; };
-		C35B2CE81C3FA95100BC16B6 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C35B2CE71C3FA95100BC16B6 /* libstdc++.6.0.9.tbd */; };
-		C35B2CEA1C3FA98700BC16B6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C35B2CE91C3FA98700BC16B6 /* OpenGLES.framework */; };
-		C361F13F1BDA291600270E80 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C361F13E1BDA291600270E80 /* Default-568h@2x.png */; };
 		C3656D7E1BE45E0A00D4B5D8 /* GLESProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3656D7C1BE45E0A00D4B5D8 /* GLESProgram.cpp */; };
 		C3656D811BE45EFC00D4B5D8 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3656D7F1BE45EFC00D4B5D8 /* GameController.cpp */; };
 		C3656D871BE4604600D4B5D8 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3656D851BE4604600D4B5D8 /* Singleton.cpp */; };
@@ -64,9 +61,6 @@
 		C35921EB1BE8875C008F7ED9 /* GLESFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESFunction.h; sourceTree = "<group>"; };
 		C35B2CE41C3FA3CE00BC16B6 /* Handle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Handle.cpp; sourceTree = "<group>"; };
 		C35B2CE51C3FA3CE00BC16B6 /* Handle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Handle.hpp; sourceTree = "<group>"; };
-		C35B2CE71C3FA95100BC16B6 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
-		C35B2CE91C3FA98700BC16B6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		C361F13E1BDA291600270E80 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C3656D7C1BE45E0A00D4B5D8 /* GLESProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLESProgram.cpp; sourceTree = "<group>"; };
 		C3656D7D1BE45E0A00D4B5D8 /* GLESProgram.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GLESProgram.hpp; sourceTree = "<group>"; };
 		C3656D7F1BE45EFC00D4B5D8 /* GameController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameController.cpp; sourceTree = "<group>"; };
@@ -114,8 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C35B2CEA1C3FA98700BC16B6 /* OpenGLES.framework in Frameworks */,
-				C35B2CE81C3FA95100BC16B6 /* libstdc++.6.0.9.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,9 +222,6 @@
 		C36A852B1BD2144C0045B7D3 = {
 			isa = PBXGroup;
 			children = (
-				C35B2CE91C3FA98700BC16B6 /* OpenGLES.framework */,
-				C35B2CE71C3FA95100BC16B6 /* libstdc++.6.0.9.tbd */,
-				C361F13E1BDA291600270E80 /* Default-568h@2x.png */,
 				C36A85361BD2144C0045B7D3 /* FlyFishBirdEngine */,
 				C36A85351BD2144C0045B7D3 /* Products */,
 			);
@@ -393,7 +382,6 @@
 				C35109E61C1C0FC5006BC47D /* Images.xcassets in Resources */,
 				C35109E81C1C10AC006BC47D /* ipad-152.png in Resources */,
 				C35109EC1C1C2162006BC47D /* Main.storyboard in Resources */,
-				C361F13F1BDA291600270E80 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
