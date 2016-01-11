@@ -186,6 +186,7 @@ namespace ffb {
             v[0] = 1, v[1] = 1 ;
         }
         glUniform1iv(m_enableTextureLocation, 2, v);
+        glGetUniformiv(m_enableTextureLocation, 2, v);
     }
 }
 

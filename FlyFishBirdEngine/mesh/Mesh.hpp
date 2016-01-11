@@ -92,6 +92,10 @@ namespace ffb {
         Color GetColor();
         
         
+        //for texture
+        virtual float GetWidth();
+        virtual float GetHeight();
+        
         
         Matrix GetMvpMatrix();
         

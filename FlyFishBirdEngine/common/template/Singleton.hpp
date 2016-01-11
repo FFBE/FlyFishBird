@@ -31,7 +31,6 @@ namespace ffb {
             FFBAssert(!ms_Singleton, "singleton must be nullptr before create");
             int offSet = (long)(T*)1-(long)(Singleton<T>*)(T*)1;//子类相对父类指针的偏移量
             ms_Singleton = (T*)((long)this+offSet);
-            
         }
         
         ~Singleton()

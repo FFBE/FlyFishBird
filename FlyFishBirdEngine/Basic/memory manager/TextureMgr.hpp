@@ -1,13 +1,13 @@
 //
-//  FontMgr.hpp
-//  FlyFishBirdEngine
+//  TextureMgr.hpp
+//  test1
 //
-//  Created by weitoo on 16/1/7.
-//  Copyright © 2016年 FlyFishBird. All rights reserved.
+//  Created by weitoo on 15/12/31.
+//  Copyright © 2015年 weitoo. All rights reserved.
 //
 
-#ifndef FontMgr_hpp
-#define FontMgr_hpp
+#ifndef TextureMgr_hpp
+#define TextureMgr_hpp
 
 #include <stdio.h>
 #include <string>
@@ -16,11 +16,71 @@
 #include "Handle.hpp"
 #include "Singleton.hpp"
 
+
 namespace ffb {
     
-    struct tagFont{};
+    struct tagTexture{ };
     
-    typedef Handle<tagFont> HFont;
+    typedef Handle<tagTexture> HTexture;
+    
+    class TextureMgr:public Singleton<TextureMgr>
+    {
+        
+    private:
+        struct Texture
+        {
+            std::string m_Name;
+            float m_Width;
+            float m_Height;
+            unsigned char * m_TextureData;
+            
+            bool Load (const std::string & name);
+            void Unload();
+        };
+        
+        typedef ffb::HandleMgr<Texture, HTexture> HTextureMgr;
+        
+        struct istring_less
+        {
+            bool operator () (const std::string& l, const std::string& r)const
+            { return (::strcasecmp(l.c_str(), r.c_str()) < 0);}
+        };
+        
+        typedef std::map <std::string, HTexture, istring_less> NameIndex;
+        typedef std::pair <NameIndex::iterator, bool> NameIndexInsertRc;
+        
+        HTextureMgr m_Textures;
+        NameIndex m_NameIndex;
+        
+    public:
+        
+        TextureMgr() {}
+        ~TextureMgr();
+        
+        HTexture GetTexture (const char * name);
+        
+        void    DeleteTexture(HTexture htex);
+        
+        
+        const std::string& GetName(HTexture htex)const
+        { return (m_Textures.Dereference(htex)->m_Name); }
+        
+        int GetWidth(HTexture htex) const
+        { return m_Textures.Dereference(htex)->m_Width; }
+        
+        int GetHeight(HTexture htex) const
+        { return m_Textures.Dereference(htex)->m_Height; }
+        
+        unsigned char * GetTextureData(HTexture htex) const
+        { return m_Textures.Dereference(htex)->m_TextureData; }
+        
+    };
+    
+    
+    
+    
+    
+    typedef Handle<tagTexture> HFont;
     
     class FontMgr: public Singleton<FontMgr>
     {
@@ -42,7 +102,7 @@ namespace ffb {
             void SetFontName(std::string fontName);
             void UnLoad();
         };
-                
+        
         typedef HandleMgr<Font, HFont> HFontMgr;
         
         typedef std::map <unsigned int , HFont> FontMap;
@@ -85,11 +145,21 @@ namespace ffb {
         { return m_Fonts.Dereference(hfont)->m_FontName; }
         
     };
-    
+
 }
 
 
+#endif /* TextureMgr_hpp */
 
 
 
-#endif /* FontMgr_hpp */
+
+
+
+
+
+
+
+
+
+

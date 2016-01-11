@@ -13,13 +13,15 @@
 		C35109EC1C1C2162006BC47D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35109EA1C1C2162006BC47D /* Main.storyboard */; };
 		C351CE781C3A37EB00E47E9D /* MathUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C351CE761C3A37EB00E47E9D /* MathUtil.cpp */; };
 		C35406BB1C22998600D78770 /* GLESBaseProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35406B91C22998600D78770 /* GLESBaseProgram.cpp */; };
+		C355479C1C4372D400C2C3D6 /* sale.png in Resources */ = {isa = PBXBuildFile; fileRef = C355479B1C4372D400C2C3D6 /* sale.png */; };
+		C35547A11C43922100C2C3D6 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C355479F1C43922100C2C3D6 /* Singleton.cpp */; };
+		C35547A41C43926600C2C3D6 /* Handle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35547A21C43926600C2C3D6 /* Handle.cpp */; };
+		C35547A71C4392AF00C2C3D6 /* TextureMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35547A51C4392AF00C2C3D6 /* TextureMgr.cpp */; };
+		C35547AA1C43960500C2C3D6 /* Label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35547A81C43960500C2C3D6 /* Label.cpp */; };
 		C35921EC1BE8875C008F7ED9 /* GLESFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = C35921EA1BE8875C008F7ED9 /* GLESFunction.c */; };
-		C35B2CE61C3FA3CE00BC16B6 /* Handle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35B2CE41C3FA3CE00BC16B6 /* Handle.cpp */; };
 		C3656D7E1BE45E0A00D4B5D8 /* GLESProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3656D7C1BE45E0A00D4B5D8 /* GLESProgram.cpp */; };
 		C3656D811BE45EFC00D4B5D8 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3656D7F1BE45EFC00D4B5D8 /* GameController.cpp */; };
-		C3656D871BE4604600D4B5D8 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3656D851BE4604600D4B5D8 /* Singleton.cpp */; };
 		C36803DF1C200691007997DF /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C36803DD1C200691007997DF /* Renderer.cpp */; };
-		C368351E1C3E0B5C00B520C9 /* FontMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C368351C1C3E0B5C00B520C9 /* FontMgr.cpp */; };
 		C368FE321C04552900F0C5B2 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C368FE301C04552900F0C5B2 /* Matrix.cpp */; };
 		C368FE351C04553C00F0C5B2 /* BasicData2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C368FE331C04553C00F0C5B2 /* BasicData2d.cpp */; };
 		C368FE381C0458AF00F0C5B2 /* GLESCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C368FE361C0458AF00F0C5B2 /* GLESCamera.cpp */; };
@@ -29,7 +31,6 @@
 		C38A03901C21327900C30815 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C38A038F1C21327900C30815 /* Shader.fsh */; };
 		C38A03921C21327E00C30815 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C38A03911C21327E00C30815 /* Shader.vsh */; };
 		C38A039F1C2160D700C30815 /* Image-ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38A039E1C2160D700C30815 /* Image-ios.mm */; };
-		C38FEF5E1C3CD3B400D05717 /* TextureMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38FEF5A1C3CD3B400D05717 /* TextureMgr.cpp */; };
 		C38FEF631C3CFF2800D05717 /* FFBViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38FEF621C3CFF2800D05717 /* FFBViewController.mm */; };
 		C38FEF641C3D024F00D05717 /* DrawObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C34CF1991C16872000CF842E /* DrawObject.cpp */; };
 		C38FEF651C3D024F00D05717 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C393CBA11C1160F1005A5E31 /* Object.cpp */; };
@@ -57,20 +58,23 @@
 		C351CE771C3A37EB00E47E9D /* MathUtil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MathUtil.hpp; sourceTree = "<group>"; };
 		C35406B91C22998600D78770 /* GLESBaseProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLESBaseProgram.cpp; sourceTree = "<group>"; };
 		C35406BA1C22998600D78770 /* GLESBaseProgram.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GLESBaseProgram.hpp; sourceTree = "<group>"; };
+		C355479B1C4372D400C2C3D6 /* sale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sale.png; sourceTree = "<group>"; };
+		C355479F1C43922100C2C3D6 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Singleton.cpp; sourceTree = "<group>"; };
+		C35547A01C43922100C2C3D6 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Singleton.hpp; sourceTree = "<group>"; };
+		C35547A21C43926600C2C3D6 /* Handle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Handle.cpp; sourceTree = "<group>"; };
+		C35547A31C43926600C2C3D6 /* Handle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Handle.hpp; sourceTree = "<group>"; };
+		C35547A51C4392AF00C2C3D6 /* TextureMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureMgr.cpp; sourceTree = "<group>"; };
+		C35547A61C4392AF00C2C3D6 /* TextureMgr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureMgr.hpp; sourceTree = "<group>"; };
+		C35547A81C43960500C2C3D6 /* Label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Label.cpp; sourceTree = "<group>"; };
+		C35547A91C43960500C2C3D6 /* Label.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Label.hpp; sourceTree = "<group>"; };
 		C35921EA1BE8875C008F7ED9 /* GLESFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLESFunction.c; sourceTree = "<group>"; };
 		C35921EB1BE8875C008F7ED9 /* GLESFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESFunction.h; sourceTree = "<group>"; };
-		C35B2CE41C3FA3CE00BC16B6 /* Handle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Handle.cpp; sourceTree = "<group>"; };
-		C35B2CE51C3FA3CE00BC16B6 /* Handle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Handle.hpp; sourceTree = "<group>"; };
 		C3656D7C1BE45E0A00D4B5D8 /* GLESProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLESProgram.cpp; sourceTree = "<group>"; };
 		C3656D7D1BE45E0A00D4B5D8 /* GLESProgram.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GLESProgram.hpp; sourceTree = "<group>"; };
 		C3656D7F1BE45EFC00D4B5D8 /* GameController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameController.cpp; sourceTree = "<group>"; };
 		C3656D801BE45EFC00D4B5D8 /* GameController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameController.hpp; sourceTree = "<group>"; };
-		C3656D851BE4604600D4B5D8 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Singleton.cpp; sourceTree = "<group>"; };
-		C3656D861BE4604600D4B5D8 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Singleton.hpp; sourceTree = "<group>"; };
 		C36803DD1C200691007997DF /* Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		C36803DE1C200691007997DF /* Renderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
-		C368351C1C3E0B5C00B520C9 /* FontMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontMgr.cpp; sourceTree = "<group>"; };
-		C368351D1C3E0B5C00B520C9 /* FontMgr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FontMgr.hpp; sourceTree = "<group>"; };
 		C368FE281C044E4000F0C5B2 /* SimpleMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleMath.h; sourceTree = "<group>"; };
 		C368FE301C04552900F0C5B2 /* Matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
 		C368FE311C04552900F0C5B2 /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
@@ -93,8 +97,6 @@
 		C38A03A71C21615F00C30815 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		C38A03A91C21668500C30815 /* ReadFile-ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ReadFile-ios.mm"; sourceTree = "<group>"; };
 		C38A03AA1C21668500C30815 /* ReadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadFile.h; sourceTree = "<group>"; };
-		C38FEF5A1C3CD3B400D05717 /* TextureMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureMgr.cpp; sourceTree = "<group>"; };
-		C38FEF5B1C3CD3B400D05717 /* TextureMgr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureMgr.hpp; sourceTree = "<group>"; };
 		C38FEF621C3CFF2800D05717 /* FFBViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FFBViewController.mm; sourceTree = "<group>"; };
 		C393CB9E1C11605C005A5E31 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		C393CB9F1C11605C005A5E31 /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
@@ -127,6 +129,26 @@
 			path = mesh;
 			sourceTree = "<group>";
 		};
+		C355479D1C4391D200C2C3D6 /* memory manager */ = {
+			isa = PBXGroup;
+			children = (
+				C35547A51C4392AF00C2C3D6 /* TextureMgr.cpp */,
+				C35547A61C4392AF00C2C3D6 /* TextureMgr.hpp */,
+			);
+			path = "memory manager";
+			sourceTree = "<group>";
+		};
+		C355479E1C43920100C2C3D6 /* template */ = {
+			isa = PBXGroup;
+			children = (
+				C35547A21C43926600C2C3D6 /* Handle.cpp */,
+				C35547A31C43926600C2C3D6 /* Handle.hpp */,
+				C355479F1C43922100C2C3D6 /* Singleton.cpp */,
+				C35547A01C43922100C2C3D6 /* Singleton.hpp */,
+			);
+			path = template;
+			sourceTree = "<group>";
+		};
 		C361F13D1BDA282C00270E80 /* GLProgram */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,8 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				C3A3433D1C102E8B00FF2A86 /* Define.h */,
-				C3656D851BE4604600D4B5D8 /* Singleton.cpp */,
-				C3656D861BE4604600D4B5D8 /* Singleton.hpp */,
+				C355479E1C43920100C2C3D6 /* template */,
 				C368FE261C044E4000F0C5B2 /* math */,
 			);
 			path = common;
@@ -160,10 +181,12 @@
 			children = (
 				C393CBA11C1160F1005A5E31 /* Object.cpp */,
 				C393CBA21C1160F1005A5E31 /* Object.hpp */,
-				C34CF1991C16872000CF842E /* DrawObject.cpp */,
-				C34CF19A1C16872000CF842E /* DrawObject.hpp */,
 				C393CB9E1C11605C005A5E31 /* Scene.cpp */,
 				C393CB9F1C11605C005A5E31 /* Scene.hpp */,
+				C34CF1991C16872000CF842E /* DrawObject.cpp */,
+				C34CF19A1C16872000CF842E /* DrawObject.hpp */,
+				C35547A81C43960500C2C3D6 /* Label.cpp */,
+				C35547A91C43960500C2C3D6 /* Label.hpp */,
 				C368FE1A1C0449A900F0C5B2 /* DrawObject */,
 				C368FE251C044C5C00F0C5B2 /* StaticObject */,
 				C368FE241C044C5C00F0C5B2 /* MoveObject */,
@@ -211,6 +234,7 @@
 		C368FE391C04590C00F0C5B2 /* Basic */ = {
 			isa = PBXGroup;
 			children = (
+				C355479D1C4391D200C2C3D6 /* memory manager */,
 				C38FEF551C3CD3B400D05717 /* handle */,
 				C38A03941C21608600C30815 /* platform */,
 				C368FE3A1C04591E00F0C5B2 /* BasicPtrClass.cpp */,
@@ -251,6 +275,7 @@
 				C38FEF621C3CFF2800D05717 /* FFBViewController.mm */,
 				C35109EA1C1C2162006BC47D /* Main.storyboard */,
 				C35109E71C1C10AC006BC47D /* ipad-152.png */,
+				C355479B1C4372D400C2C3D6 /* sale.png */,
 				C33527DC1C1AD4B200258022 /* login.png */,
 				C36A85481BD2144C0045B7D3 /* Info.plist */,
 				C35109E51C1C0FC5006BC47D /* Images.xcassets */,
@@ -307,12 +332,6 @@
 		C38FEF551C3CD3B400D05717 /* handle */ = {
 			isa = PBXGroup;
 			children = (
-				C35B2CE41C3FA3CE00BC16B6 /* Handle.cpp */,
-				C35B2CE51C3FA3CE00BC16B6 /* Handle.hpp */,
-				C38FEF5A1C3CD3B400D05717 /* TextureMgr.cpp */,
-				C38FEF5B1C3CD3B400D05717 /* TextureMgr.hpp */,
-				C368351C1C3E0B5C00B520C9 /* FontMgr.cpp */,
-				C368351D1C3E0B5C00B520C9 /* FontMgr.hpp */,
 			);
 			path = handle;
 			sourceTree = "<group>";
@@ -380,6 +399,7 @@
 				C38A03921C21327E00C30815 /* Shader.vsh in Resources */,
 				C33527DD1C1AD4B200258022 /* login.png in Resources */,
 				C35109E61C1C0FC5006BC47D /* Images.xcassets in Resources */,
+				C355479C1C4372D400C2C3D6 /* sale.png in Resources */,
 				C35109E81C1C10AC006BC47D /* ipad-152.png in Resources */,
 				C35109EC1C1C2162006BC47D /* Main.storyboard in Resources */,
 			);
@@ -395,28 +415,28 @@
 				C3656D7E1BE45E0A00D4B5D8 /* GLESProgram.cpp in Sources */,
 				C368FE321C04552900F0C5B2 /* Matrix.cpp in Sources */,
 				C3656D811BE45EFC00D4B5D8 /* GameController.cpp in Sources */,
-				C368351E1C3E0B5C00B520C9 /* FontMgr.cpp in Sources */,
 				C368FE351C04553C00F0C5B2 /* BasicData2d.cpp in Sources */,
 				C35921EC1BE8875C008F7ED9 /* GLESFunction.c in Sources */,
 				C38FEF641C3D024F00D05717 /* DrawObject.cpp in Sources */,
+				C35547AA1C43960500C2C3D6 /* Label.cpp in Sources */,
 				C38FEF6A1C3D024F00D05717 /* ReadFile-ios.mm in Sources */,
+				C35547A41C43926600C2C3D6 /* Handle.cpp in Sources */,
 				C38FEF691C3D024F00D05717 /* Mesh.cpp in Sources */,
 				C38FEF631C3CFF2800D05717 /* FFBViewController.mm in Sources */,
+				C35547A11C43922100C2C3D6 /* Singleton.cpp in Sources */,
 				C38A039F1C2160D700C30815 /* Image-ios.mm in Sources */,
 				C35406BB1C22998600D78770 /* GLESBaseProgram.cpp in Sources */,
 				C36A853C1BD2144C0045B7D3 /* AppDelegate.m in Sources */,
 				C368FE381C0458AF00F0C5B2 /* GLESCamera.cpp in Sources */,
 				C368FE3C1C04591E00F0C5B2 /* BasicPtrClass.cpp in Sources */,
-				C3656D871BE4604600D4B5D8 /* Singleton.cpp in Sources */,
 				C36803DF1C200691007997DF /* Renderer.cpp in Sources */,
 				C36A85391BD2144C0045B7D3 /* main.m in Sources */,
 				C38FEF671C3D024F00D05717 /* Scene.cpp in Sources */,
 				C38FEF651C3D024F00D05717 /* Object.cpp in Sources */,
 				C351CE781C3A37EB00E47E9D /* MathUtil.cpp in Sources */,
-				C38FEF5E1C3CD3B400D05717 /* TextureMgr.cpp in Sources */,
 				C38FEF661C3D024F00D05717 /* Font-ios.mm in Sources */,
+				C35547A71C4392AF00C2C3D6 /* TextureMgr.cpp in Sources */,
 				C38FEF681C3D024F00D05717 /* Texture2D.cpp in Sources */,
-				C35B2CE61C3FA3CE00BC16B6 /* Handle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

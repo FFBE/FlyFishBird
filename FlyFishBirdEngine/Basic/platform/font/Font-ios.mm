@@ -71,7 +71,7 @@ bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned 
     
     *width = dimensions.width;
     *height = dimensions.height;
-    
+        
     return true;
 }
 

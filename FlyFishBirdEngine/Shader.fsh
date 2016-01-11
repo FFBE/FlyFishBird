@@ -15,6 +15,8 @@ precision mediump float;
 const int           indx_zero = 0;
 const int           indx_one = 1;
 
+const float         c_zero = 0.0;
+
 uniform bool        enable_tex[NUM_TEXTURES];           // texture enables
 
 in vec2            v_texcoord[NUM_TEXTURES];
@@ -32,8 +34,15 @@ uniform sampler2D s_texcoord1;
 void main()
 {
     outColor = v_front_color;
-    if (enable_tex[indx_zero])
-        outColor = texture(s_texcoord0, v_texcoord[indx_zero]);
-    else if (enable_tex[indx_one])
-        outColor = texture(s_texcoord1, v_texcoord[indx_one]);
+    if (enable_tex[indx_zero] || enable_tex[indx_one]) {
+        vec4 texColor = vec4 (c_zero, c_zero, c_zero, c_zero);
+        if (enable_tex[indx_zero])
+            texColor = texture(s_texcoord0, v_texcoord[indx_zero]);
+        else if (enable_tex[indx_one])
+            texColor = texture(s_texcoord1, v_texcoord[indx_one]);
+        if (texColor.a == 0.0) {
+            discard;
+        }
+        outColor = texColor;
+    }
 }

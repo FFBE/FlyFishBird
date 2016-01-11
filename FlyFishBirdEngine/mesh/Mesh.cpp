@@ -92,11 +92,14 @@ namespace ffb {
         Matrix camera = GameController::GetSingleton().GetCameraMatrix();
         MatrixMultiply(&m_mvpMatrix, &m_mvpMatrix, &camera);
         
-        // Load the vertex data
+        
         m_glprogram->SetMvpMatrix(m_mvpMatrix);
+        
         
         glVertexAttrib4f(m_glprogram->GetColorIndex(), m_shaderColor.r, m_shaderColor.g, m_shaderColor.b, m_shaderColor.a);
         
+        
+        // Load the vertex data
         if (m_vboids[0] == 0 && m_vboids[1] == 0) {
             glGenBuffers(2, m_vboids);
 
@@ -191,6 +194,16 @@ namespace ffb {
     Color Mesh::GetColor()
     {
         return m_shaderColor;
+    }
+    
+    float Mesh::GetWidth()
+    {
+        return 0;
+    }
+    
+    float Mesh::GetHeight()
+    {
+        return 0;
     }
     
     

@@ -27,10 +27,12 @@ namespace ffb {
         
         void DrawCircle(int xc, int yc, GLint radius);
         void DrawCircleAndFill(int xc, int yc, GLint radius);
-        void CirclePlotPoints(int xc, int yc, int x, int y, GLfloat * vertices, GLuint * indices);
         
         
     private:
+        
+        void CirclePlotPoints(int xc, int yc, int x, int y, GLfloat * vertices, GLuint * indices);
+
         
         int m_pixNumber;
     };

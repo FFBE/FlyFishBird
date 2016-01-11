@@ -97,7 +97,6 @@ layout (location = 4) in vec4   a_color;            // available if !enable_ligh
 layout (location = 5) in vec3   a_normal;           // available if xform_normal is set (required for lighting)
 
 
-
 //************************************************
 // output variables of the vertex shader
 //************************************************

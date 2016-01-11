@@ -25,6 +25,7 @@ bool GetImageInfo(const char * imageName, unsigned char ** imageData, float * pH
     CGFloat height = CGImageGetHeight(image);
     
     *imageData = (unsigned char *)malloc(sizeof(unsigned char) * width * height * 4);
+    memset(*imageData, 0, width*height*4);
     
     CGContextRef textureContext = CGBitmapContextCreate(*imageData, width, height, 8, width*4, CGImageGetColorSpace(image), kCGImageAlphaPremultipliedLast);
     CGContextDrawImage(textureContext, CGRectMake(0, 0, width, height), image);

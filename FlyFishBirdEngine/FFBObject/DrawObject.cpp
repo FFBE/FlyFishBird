@@ -43,13 +43,13 @@ namespace ffb {
 #pragma mark - draw
     void DrawObject::DrawLine(int x0, int y0, int xEnd, int yEnd)
     {
-        long size = GameController::GetSingletonPtr()->GetScreenWidth()*GameController::GetSingletonPtr()->GetScreenHeight();
-        GLfloat * vertices = (GLfloat *)malloc(sizeof(GLfloat)*size*2);
-        GLuint * indices = (GLuint *)malloc(sizeof(GLuint)*size);
+        GLuint size = UINT32_MAX;
+        GLfloat * vertices = (GLfloat *)malloc(sizeof(GLfloat)*size);
+        GLuint * indices = (GLuint *)malloc(sizeof(GLuint)*size/2);
         
         if (m_mesh->GetVertices() != nullptr) {
-            memcpy(vertices, m_mesh->GetVertices(), sizeof(GLfloat)*(m_pixNumber*2-2));
-            memcpy(indices, m_mesh->GetIndices(), sizeof(GLuint)*(m_pixNumber-1));
+            memcpy(vertices, m_mesh->GetVertices(), sizeof(GLfloat)*(m_pixNumber*2));
+            memcpy(indices, m_mesh->GetIndices(), sizeof(GLuint)*(m_pixNumber));
         }
         
         int dx = xEnd-x0, dy = yEnd-y0, steps, k;
@@ -92,8 +92,8 @@ namespace ffb {
         GLuint * indices = (GLuint *)malloc(sizeof(GLuint)*size);
         
         if (m_mesh->GetVertices() != nullptr) {
-            memcpy(vertices, m_mesh->GetVertices(), sizeof(GLfloat)*(m_pixNumber*2-2));
-            memcpy(indices, m_mesh->GetIndices(), sizeof(GLuint)*(m_pixNumber-1));
+            memcpy(vertices, m_mesh->GetVertices(), sizeof(GLfloat)*(m_pixNumber*2));
+            memcpy(indices, m_mesh->GetIndices(), sizeof(GLuint)*(m_pixNumber));
         }
         
         GLfloat p = 4.0/5 - radius;

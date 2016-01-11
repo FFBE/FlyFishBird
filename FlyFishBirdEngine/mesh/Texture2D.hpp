@@ -12,30 +12,36 @@
 
 #include <stdio.h>
 #include "Mesh.hpp"
+#include "TextureMgr.hpp"
 
 namespace ffb {
     class Texture2D: public Mesh {
         
-        
     public:
-        
-        enum
-        {
-            Texture2DPixelFormat_image = 1,
-            Texture2DPixelFormat_font = 2
-        };
-        
+    
         CreateClassFunctions(Texture2D);
         
-        bool CreateImageTexture(std::string fileName);
-        bool CreateStringTexture(std::string fontName, std::string text, float fontSize);
         
-        void SetTexture2d(unsigned char * data, float width, float height, unsigned short textureType);
-
+        //texture for image
+        
+        bool CreateImageTexture(std::string fileName);
+        
+        
+        // texture for text
+    
+        bool CreateStringTexture(std::string fontName, std::string text, float fontSize);
+        void updateStirngTexture();
+        void SetString(std::string text);
+        
+        
+        
+        void SetTexture2d(unsigned char * data, float width, float height);
+        HTexture GetTextureHandle();
+        
         virtual void Render();
         
-        float GetWidth();
-        float GetHeight();
+        virtual float GetWidth();
+        virtual float GetHeight();
         
     private:
         
@@ -43,6 +49,7 @@ namespace ffb {
         float m_Height;
         
         GLuint m_textureId;
+        HTexture m_HTexture;
     };
 }
 

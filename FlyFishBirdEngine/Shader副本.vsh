@@ -2,18 +2,29 @@
 
 
 //Position Texture Color shader
-attribute vec4 a_position; attribute vec2 a_texCoord; attribute vec4 a_color;
+attribute vec4 a_position;
+attribute vec2 a_texCoord;
+attribute vec4 a_color;
 #ifdef GL_ES
-varying lowp vec4 v_fragmentColor; varying mediump vec2 v_texCoord;
+varying lowp vec4 v_fragmentColor;
+varying mediump vec2 v_texCoord;
 #else
-varying vec4 v_fragmentColor; varying vec2 v_texCoord;
+varying vec4 v_fragmentColor;
+varying vec2 v_texCoord;
 #endif
 void main() { gl_Position = CC_MVPMatrix * a_position; v_fragmentColor = a_color; v_texCoord = a_texCoord; }
 
 #ifdef GL_ES
 precision lowp float;
 #endif
-varying vec4 v_fragmentColor; varying vec2 v_texCoord; void main() { gl_FragColor = v_fragmentColor * texture2D(CC_Texture0, v_texCoord); }
+varying vec4 v_fragmentColor;
+varying vec2 v_texCoord;
+
+void main()
+{
+    gl_FragColor = v_fragmentColor * texture2D(CC_Texture0, v_texCoord);
+}
+
 // Position Texture Color without MVP shader
 attribute vec4 a_position; attribute vec2 a_texCoord; attribute vec4 a_color;
 #ifdef GL_ES
@@ -27,21 +38,36 @@ void main() { gl_Position = CC_PMatrix * a_position; v_fragmentColor = a_color; 
 precision lowp float;
 #endif
 varying vec4 v_fragmentColor; varying vec2 v_texCoord; void main() { gl_FragColor = v_fragmentColor * texture2D(CC_Texture0, v_texCoord); }
+
 // Position Texture Color alpha test
-attribute vec4 a_position; attribute vec2 a_texCoord; attribute vec4 a_color;
+attribute vec4 a_position;
+attribute vec2 a_texCoord;
+attribute vec4 a_color;
 #ifdef GL_ES
-varying lowp vec4 v_fragmentColor; varying mediump vec2 v_texCoord;
+varying lowp vec4 v_fragmentColor;
+varying mediump vec2 v_texCoord;
 #else
-varying vec4 v_fragmentColor; varying vec2 v_texCoord;
+varying vec4 v_fragmentColor;
+varying vec2 v_texCoord;
 #endif
-void main() { gl_Position = CC_MVPMatrix * a_position; v_fragmentColor = a_color; v_texCoord = a_texCoord; }
+void main() {
+    gl_Position = CC_MVPMatrix * a_position;
+    v_fragmentColor = a_color;
+    v_texCoord = a_texCoord;
+}
 
 #ifdef GL_ES
 precision lowp float;
 #endif
-varying vec4 v_fragmentColor; varying vec2 v_texCoord; uniform float CC_alpha_value; void main() { vec4 texColor = texture2D(CC_Texture0, v_texCoord);
-    
-    if ( texColor.a <= CC_alpha_value ) discard; gl_FragColor = texColor * v_fragmentColor; }
+varying vec4 v_fragmentColor;
+varying vec2 v_texCoord;
+uniform float CC_alpha_value;
+void main()
+{
+    vec4 texColor = texture2D(CC_Texture0, v_texCoord);
+    if ( texColor.a <= CC_alpha_value ) discard;
+    gl_FragColor = texColor * v_fragmentColor;
+}
 // Position Texture Color alpha test
 attribute vec4 a_position; attribute vec2 a_texCoord; attribute vec4 a_color;
 #ifdef GL_ES
