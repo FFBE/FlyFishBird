@@ -14,7 +14,6 @@
 
 #define     CreateClassFunctions(ClassName)\
             ClassName()                    {   Clear();    };       \
-            ~ClassName()                   {   Destory();  };       \
             virtual void Clear();                                   \
             virtual bool Create();                                  \
             virtual void Destory();
@@ -36,8 +35,8 @@ namespace ffb {
         
     public:
         
-        BasicPtrClass()                    {   Clear();  m_retain = 1;};
-        ~BasicPtrClass()                   {   Destory();   };
+        BasicPtrClass()                             {   Clear();  m_retain = 1;};
+        virtual ~BasicPtrClass()                    {   Destory();   };
         
         virtual void Clear();
         virtual bool Create();

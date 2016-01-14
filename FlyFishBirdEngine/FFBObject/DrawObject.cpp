@@ -26,7 +26,7 @@ namespace ffb {
         if (!Object::Create()) {
             return false;
         }
-                
+        
         m_mesh->SetDrawType(FFBDrawTypePoints);
         m_mesh->SetVerticesStep(2);
         
@@ -189,5 +189,111 @@ namespace ffb {
         }
     }
     
+    
+    //bezier
+    
+    void DrawObject::DrawBezier(Point point1, Point control1, Point control2, Point point2)
+    {
+        Point points[] = {point1, control1, control2, point2};
+        DrawBezier(4, points);
+    }
+    
+    void DrawObject::DrawBezier(Point point1, Point control, Point point2)
+    {
+        Point points[] = {point1, control, point2};
+        DrawBezier(3, points);
+    }
+    
+    void DrawObject::DrawBezier(int number, Point *ctrlPts)
+    {
+        long size = GameController::GetSingletonPtr()->GetScreenWidth()*GameController::GetSingletonPtr()->GetScreenHeight();
+        GLfloat * vertices = (GLfloat *)malloc(sizeof(GLfloat)*size*2);
+        GLuint * indices = (GLuint *)malloc(sizeof(GLuint)*size);
+        if (m_pixNumber > 0) {
+            memcpy(vertices, m_mesh->GetVertices(), sizeof(GLfloat)*(m_pixNumber*2));
+            memcpy(indices, m_mesh->GetIndices(), sizeof(GLuint)*(m_pixNumber));
+        }
+        
+        GLuint nCtrlPts = number, nBezCurvePts = 0;
+        Point bezCurvePt ;
+        GLfloat u;
+        GLint *C , i, j;
+        GLint n = nCtrlPts-1;
+
+        for (i = 0; i < number-1; i++) {
+            nBezCurvePts += fabsf(ctrlPts[i+1].x-ctrlPts[i].x);
+            nBezCurvePts += fabsf(ctrlPts[i+1].y-ctrlPts[i].y);
+        }
+        
+        C = (GLint *)malloc(sizeof(GLint)*nBezCurvePts);
+        
+        for (i = 0 ; i <=  n; i++)
+        {
+            C[i] = 1;
+            for (j= n; j >= i + 1; j--)
+            {
+                C[i] *= j;
+            }
+            for (j = n -i; j >= 2; j--)
+            {
+                C[i] /= j;
+            }
+        }
+        
+        for (i = 0; i <= nBezCurvePts; i++) {
+            u = GLfloat(i)/GLfloat(nBezCurvePts);
+            GLfloat bezBlendFcn;
+            
+            bezCurvePt.x = bezCurvePt.y = 0;
+            
+            for (j = 0; j < nCtrlPts; j++)
+            {
+                bezBlendFcn = C[j] * pow(u, j) * pow(1-u, n-j);
+                bezCurvePt.x += ctrlPts [j].x * bezBlendFcn;
+                bezCurvePt.y += ctrlPts [j].y * bezBlendFcn;
+            }
+            
+            vertices[m_pixNumber*2] = bezCurvePt.x, vertices[m_pixNumber*2+1] = bezCurvePt.y, indices[m_pixNumber] = m_pixNumber;
+            m_pixNumber ++;
+        }
+        
+        m_mesh->SetVertices(vertices, m_pixNumber);
+        m_mesh->SetIndices(indices, m_pixNumber);
+        
+        free(vertices);
+        free(indices);
+        free(C);
+    }
+    
+    
+    
+    
+    
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

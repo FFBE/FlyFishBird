@@ -33,7 +33,7 @@ uniform sampler2D s_texcoord1;
 
 void main()
 {
-    outColor = v_front_color;
+    outColor = vec4(1, 1, 1, 0.1);;
     if (enable_tex[indx_zero] || enable_tex[indx_one]) {
         vec4 texColor = vec4 (c_zero, c_zero, c_zero, c_zero);
         if (enable_tex[indx_zero])

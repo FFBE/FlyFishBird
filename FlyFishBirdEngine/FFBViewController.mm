@@ -95,6 +95,7 @@ using namespace ffb;
         self.context = nil;
     }
 }
+//Point ctrlPts[] = {{-40, -40}, {-10, 200}, {10, -200}, {40, 40}};
 
 - (void)setupGL
 {
@@ -111,11 +112,15 @@ using namespace ffb;
     
     DrawObject * drawObject = FFBMalloc(DrawObject);
     drawObject->Create();
-    drawObject->DrawCircleAndFill(0, 0, 200);
     drawObject->SetColor(1, 1, 1, 1);
     scene->GetRootObject()->AddObject(drawObject);
+    drawObject->DrawBezier(PointMake(100, 0), PointMake(200, 0), PointMake(200, 100));
+    drawObject->DrawBezier(PointMake(200, 100), PointMake(200, 200), PointMake(100, 200));
+    drawObject->DrawBezier(PointMake(100, 200), PointMake(0, 200), PointMake(0, 100));
+    drawObject->DrawBezier(PointMake(0, 100), PointMake(0, 0), PointMake(100, 0));
+    drawObject->DrawCircle(100, 100, 100);
     drawObject->release();
-    drawObject->SetPosition(0, 0);
+
     
 //    Texture2D *texture1 = FFBMalloc(Texture2D);
 //    texture1->CreateImageTexture("login.png");
@@ -134,15 +139,15 @@ using namespace ffb;
 //    object2->SetPosition(100, 100);
 //    texture2->release();
 //    object2->release();
-    
-    Texture2D *texture = FFBMalloc(Texture2D);
-    texture->CreateStringTexture("Helvetica", "我的", 20);
-    Object * object = FFBMalloc(Object);
-    object->Object::Create(texture);
-    object->SetPosition(0, 0);
-    scene->GetRootObject()->AddObject(object);
-    texture->release();
-    object->release();
+//    
+//    Texture2D *texture = FFBMalloc(Texture2D);
+//    texture->CreateStringTexture("Helvetica", "我的", 20);
+//    Object * object = FFBMalloc(Object);
+//    object->Object::Create(texture);
+//    object->SetPosition(0, 0);
+//    scene->GetRootObject()->AddObject(object);
+//    texture->release();
+//    object->release();
     
     
     scene->release();

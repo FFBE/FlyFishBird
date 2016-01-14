@@ -25,14 +25,18 @@ namespace ffb {
         /* DDA line-drawing */
         void DrawLine(int x0, int y0, int xEnd, int yEnd);
         
+        
         void DrawCircle(int xc, int yc, GLint radius);
         void DrawCircleAndFill(int xc, int yc, GLint radius);
         
         
+        void DrawBezier(int number, Point * points);
+        void DrawBezier(Point point1, Point control1, Point control2, Point point2);
+        void DrawBezier(Point point1, Point control, Point point2);
+        
     private:
         
         void CirclePlotPoints(int xc, int yc, int x, int y, GLfloat * vertices, GLuint * indices);
-
         
         int m_pixNumber;
     };
