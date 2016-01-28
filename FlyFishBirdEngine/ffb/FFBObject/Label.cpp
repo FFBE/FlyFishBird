@@ -25,22 +25,35 @@ namespace ffb {
         return true;
     }
     
-    
-    bool Label::Create(std::string fontName, std::string text, float size)
+    bool Label::Create(const std::string &text)
     {
-        if (!Object::Create()) {
+        return Create("Helvetica", text, 17);
+    }
+    
+    bool Label::Create(const std::string &text, float fontSize)
+    {
+        return Create("Helvetica", text, fontSize);
+    }
+    
+    bool Label::Create(const std::string &fontName,const std::string & text, float size)
+    {
+        m_Texture = FFBMalloc(Texture2D);
+        if (!m_Texture->CreateStringTexture(fontName, text, size))
+        {
+            m_Texture->release();
             return false;
         }
-        m_Texture = FFBMalloc(Texture2D);
-        m_Texture->CreateStringTexture(fontName, text, size);
+        
         m_fontName = fontName;
         m_text = text;
         m_fontName = size;
         
-        return false;
+        SetRenderer(m_Texture);
+        
+        return true;
     }
     
-    void Label::SetText(std::string text)
+    void Label::SetText(const std::string &text)
     {
         m_text = text;
         m_Texture->Destory();

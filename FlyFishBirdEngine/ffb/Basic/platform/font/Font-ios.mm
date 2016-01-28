@@ -12,18 +12,6 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <UIKit/UIKit.h>
 #include <CoreText/CoreText.h>
-#include "GameController.hpp"
-
-unsigned long nextpot(unsigned long x)
-{
-    x = x - 1;
-    x = x | (x >> 1);
-    x = x | (x >> 2);
-    x = x | (x >> 4);
-    x = x | (x >> 8);
-    x = x | (x >>16);
-    return x + 1;
-}
 
 bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned char ** fontData, float * width, float * height)
 {
@@ -42,7 +30,7 @@ bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned 
     memset(*fontData, 0, dimensions.height*dimensions.width*4);
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef context = CGBitmapContextCreate(*fontData, dimensions.width, dimensions.height, 8, dimensions.width*4, colorSpace, kCGImageAlphaPremultipliedLast);
+    CGContextRef context = CGBitmapContextCreate(*fontData, (GLuint)dimensions.width, (GLuint)dimensions.height, 8, (GLuint)dimensions.width*4, colorSpace, kCGImageAlphaPremultipliedLast);
     CGColorSpaceRelease(colorSpace);
     
     if(!context)

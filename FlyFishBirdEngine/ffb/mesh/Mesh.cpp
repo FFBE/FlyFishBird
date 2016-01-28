@@ -78,10 +78,10 @@ namespace ffb {
             glGenBuffers(2, m_vboids);
 
             glBindBuffer(GL_ARRAY_BUFFER, m_vboids[0]);
-            glBufferData(GL_ARRAY_BUFFER, m_verticesStep*sizeof(GLfloat)*m_numberOfVertices, m_vertices, GL_DYNAMIC_DRAW);
+            glBufferData(GL_ARRAY_BUFFER, m_verticesStep*sizeof(GLfloat)*m_numberOfVertices, m_vertices, GL_STATIC_DRAW);
             
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboids[1]);
-            glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint)*m_numberOfIndeices, m_indices, GL_DYNAMIC_DRAW);
+            glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint)*m_numberOfIndeices, m_indices, GL_STATIC_DRAW);
         }
         
         glBindBuffer(GL_ARRAY_BUFFER, m_vboids[0]);
@@ -89,7 +89,7 @@ namespace ffb {
         glVertexAttribPointer ( m_glprogram->GetPositionIndex(), m_verticesStep, GL_FLOAT, GL_FALSE, m_verticesStep * sizeof ( GLfloat ), 0);
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboids[1]);
-        if (m_drawType == GL_TRIANGLE_FAN+1) {
+        if (m_drawType == FFBDrawTypePoints) {
             glDrawElements(GL_POINTS, m_numberOfIndeices, GL_UNSIGNED_INT, 0);
         }
         else
@@ -139,9 +139,6 @@ namespace ffb {
         m_numberOfIndeices = numberOfIndeices;
         m_indices = (GLuint *)malloc(sizeof(GLuint)*numberOfIndeices);
         memcpy(m_indices, indices, sizeof(GLuint)*numberOfIndeices);
-        
-//        std::cout<<m_numberOfIndeices<<std::endl;
-        
     }
     
     void Mesh::SetVertices(GLfloat *vertices, int numberOfVertices)
@@ -154,7 +151,6 @@ namespace ffb {
         m_numberOfVertices = numberOfVertices;
         m_vertices = (GLfloat *)malloc(sizeof(GLfloat)*numberOfVertices*m_verticesStep);
         memcpy(m_vertices, vertices, sizeof(GLfloat)*numberOfVertices*m_verticesStep);
-       
     }
     
     void Mesh::SetVerticesStep(unsigned int step)

@@ -21,13 +21,11 @@ namespace ffb {
         if (!BasicPtrClass::Create()) {
             return false;
         }
+        
         Renderer * render = FFBMalloc(Renderer);
         render->Create();
-        Object * object = FFBMalloc(Object);
-        object->Create(render);
-        m_rootObject = (Object *)object->retain();
-        
-        object -> release();
+        m_rootObject = FFBMalloc(Object);
+        m_rootObject->Create(render);
         
         return true;
     }

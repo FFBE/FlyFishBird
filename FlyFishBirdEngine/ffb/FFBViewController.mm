@@ -107,8 +107,8 @@ using namespace ffb;
     
     CGFloat scale = [UIScreen mainScreen].scale;
     
-    controller->SetScreenScale(scale);
-    controller->SetScreenSize(self.view.frame.size.width, self.view.frame.size.height);
+    controller->GetDevice()->SetScreenScale(scale);
+    controller->GetDevice()->SetScreenSize(self.view.frame.size.width, self.view.frame.size.height);
     
     Scene * scene = FFBMalloc(Scene);
     scene->Create();
@@ -132,7 +132,6 @@ using namespace ffb;
     _newTime = [[NSDate date]timeIntervalSince1970];
     controller->update(_newTime-_lastTime);
     _lastTime = [[NSDate date]timeIntervalSince1970];
-    controller->render();
 
     poolManager->GetMainPool()->Clear();
 }

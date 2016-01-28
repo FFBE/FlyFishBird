@@ -26,7 +26,7 @@ namespace ffb {
         
         CreateClassFunctions(GLESBaseProgram);
         
-        bool Create(std::string vertexShaderFile, std::string fragmentShaderFile);
+        bool Create(const std::string &vertexShaderFile, const std::string &fragmentShaderFile);
         bool Create(const char * vertexShader, const char * fragmentShader);
         
         //create gl programe
@@ -40,10 +40,6 @@ namespace ffb {
         
         //shut down gl programe
         void ShutDownGL();
-        
-        
-        /*shader set*/
-        virtual void ResetShader() = 0;
         
     protected:
         

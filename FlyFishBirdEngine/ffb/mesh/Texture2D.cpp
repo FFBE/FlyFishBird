@@ -28,11 +28,12 @@ namespace ffb {
         return true;
     }
     
-    bool Texture2D::CreateImageTexture(std::string fileName)
+    bool Texture2D::CreateImageTexture(const std::string &fileName)
     {
         if (!Renderer::Create()) {
             return false;
         }
+        
         unsigned char * data;
         if (!GetImageInfo(fileName.c_str(), &data, &m_Height, &m_Width)) {
             printf("faild to create texture");
@@ -43,7 +44,7 @@ namespace ffb {
         return  true;
     }
     
-    bool Texture2D::CreateStringTexture(std::string fontName, std::string text, float fontSize)
+    bool Texture2D::CreateStringTexture(const std::string &fontName, const std::string &text, float fontSize)
     {
         if (!Renderer::Create()) {
             return false;
@@ -77,7 +78,7 @@ namespace ffb {
                 
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
         
-        float scale = GameController::GetSingleton().GetScreenScale();
+        float scale = Device::GetSingleton().GetScreenScale();
         
         m_Width /= scale;
         m_Height /= scale;
@@ -101,7 +102,7 @@ namespace ffb {
         Matrix camera = GameController::GetSingleton().GetCameraMatrix();
         MatrixMultiply(&m_mvpMatrix, &m_mvpMatrix, &camera);
         
-        Size screenSize = GameController::GetSingletonPtr()->GetScreenSize();
+        Size screenSize = Device::GetSingletonPtr()->GetScreenSize();
         Point point = PointMake(m_point.x*2, m_point.y*2);
         GLfloat vVertices[] = {
             (-m_Width+point.x)/screenSize.width,  (m_Height+point.y)/screenSize.height, 0.0f,                      // Position 0

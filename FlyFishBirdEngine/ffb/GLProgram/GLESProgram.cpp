@@ -32,8 +32,6 @@ namespace ffb {
             return false;
         }
         
-        
-        
         //attribute
         
         m_positionIndex = glGetAttribLocation(m_programObject, "a_position");
@@ -100,9 +98,6 @@ namespace ffb {
         
         m_enableUcpLocation = glGetUniformLocation(m_programObject, "enable_ucp");
         
-        ResetShader();
-        
-        
         return true;
     }
     
@@ -114,46 +109,6 @@ namespace ffb {
     
 #pragma mark - shader state
     
-    void GLESProgram::ResetShader()
-    {
-        Matrix m[2];
-        MatrixLoadIdentity(&m[0]);
-        MatrixLoadIdentity(&m[1]);
-        
-        int f[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-        
-        glUniformMatrix4fv(m_mvpMatrixLocation, 1, GL_FALSE, (GLfloat *)m);
-        glUniformMatrix4fv(m_mvMatrixLocation, 1, GL_FALSE, (GLfloat *)m);
-        glUniformMatrix4fv(m_invTransposemvMatrixLocation, 1, GL_FALSE, (GLfloat *)m);
-        
-        glUniform1iv(m_enableTextureLocation, 2, f);
-        glUniform1iv(m_enableTexutreMatrixLocation, 2, f);
-        glUniformMatrix4fv(m_textureMatrixLocation, 2, GL_FALSE, (GLfloat *)m);
-        
-        glUniform4f(m_ambientSecenColorLocation, 0.0, 0.0, 0.0, 1.0);
-        glUniform1iv(m_lightEnableStateLocation, 8, f);
-        glUniform1iv(m_numLightsLocation, 8, f);
-        glUniform1i(m_enableLightingLocation, f[0]);
-        glUniform1i(m_lightModelTwoSideLocation, f[0]);
-        glUniform1i(m_enableColorMaterialLocation, f[0]);
-        
-        glUniform1i(m_enableFogLocation, f[0]);
-        glUniform1i(m_fogDensityLocation, f[0]);
-        glUniform1i(m_fogStartLocation, f[0]);
-        glUniform1i(m_fogEndLocation, f[0]);
-        glUniform1i(m_fogEndLocation, f[0]);
-        
-        glUniform1i(m_xformEyePeopleLoction, f[0]);
-        glUniform1i(m_rescaleNormalLocation, f[0]);
-        glUniform1i(m_normalizeNormalLocation, f[0]);
-        glUniform1i(m_rescaleNormaFactorLocation, f[0]);
-        
-        glUniform4f(m_ucpEqnLocation, 0.0, 0.0 ,0.0, 1.0);
-        glUniform1i(m_enableUcpLocation, f[0]);
-        
-        glUniform1f(m_sTexcoord0Location, 0);
-        glUniform1f(m_sTexcoord0Location, 1);
-    }
     
     GLuint GLESProgram::GetPositionIndex()
     {
@@ -201,7 +156,6 @@ namespace ffb {
             v[0] = 1, v[1] = 1 ;
         }
         glUniform1iv(m_enableTextureLocation, 2, v);
-        glGetUniformiv(m_enableTextureLocation, 2, v);
     }
 }
 

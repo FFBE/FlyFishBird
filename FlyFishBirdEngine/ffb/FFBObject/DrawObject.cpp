@@ -7,7 +7,7 @@
 //
 
 #include "DrawObject.hpp"
-#include "GameController.hpp"
+#include "Device.hpp"
 #include <math.h>
 
 namespace ffb {
@@ -27,9 +27,16 @@ namespace ffb {
         if (!Object::Create(m_mesh)) {
             return false;
         }
-        m_mesh->Create();
+        if (!m_mesh->Create())
+        {
+            m_mesh->release();
+            return false;
+        }
         m_mesh->SetDrawType(FFBDrawTypePoints);
         m_mesh->SetVerticesStep(2);
+        
+        m_render = m_mesh;
+        m_mesh->retain();
         
         return true;
     }
@@ -62,10 +69,10 @@ namespace ffb {
     
     void DrawObject::DrawLine(int x0, int y0, int xEnd, int yEnd)
     {
-        float scale = GameController::GetSingleton().GetScreenScale();
+        float scale = Device::GetSingleton().GetScreenScale();
         x0 *= scale; y0 *= scale; xEnd *= scale; yEnd *= scale;
         
-        GLuint size = UINT32_MAX;
+        long size = Device::GetSingletonPtr()->GetScreenWidth()*Device::GetSingletonPtr()->GetScreenHeight();
         GLfloat * vertices = (GLfloat *)malloc(sizeof(GLfloat)*size);
         GLuint * indices = (GLuint *)malloc(sizeof(GLuint)*size/2);
         
@@ -102,17 +109,19 @@ namespace ffb {
         m_mesh->SetVertices(vertices, m_pixNumber);
         m_mesh->SetIndices(indices, m_pixNumber);
         
-        free(vertices), vertices = nullptr;
-        free(indices), vertices = nullptr;
+        free(vertices);
+        vertices = nullptr;
+        free(indices);
+        indices = nullptr;
     }
     
     
     void DrawObject::DrawCircle(int xc, int yc, GLint radius)
     {
-        float scale = GameController::GetSingleton().GetScreenScale();
+        float scale = Device::GetSingleton().GetScreenScale();
         xc *= scale; yc *= scale; radius *= scale;
         
-        long size = GameController::GetSingletonPtr()->GetScreenWidth()*GameController::GetSingletonPtr()->GetScreenHeight();
+        long size = Device::GetSingletonPtr()->GetScreenWidth()*Device::GetSingletonPtr()->GetScreenHeight();
         GLfloat * vertices = (GLfloat *)malloc(sizeof(GLfloat)*size*2);
         GLuint * indices = (GLuint *)malloc(sizeof(GLuint)*size);
         
@@ -231,9 +240,9 @@ namespace ffb {
     
     void DrawObject::DrawBezier(int nCtrlPts, Point *ctrlPts)
     {
-        float scale = GameController::GetSingleton().GetScreenScale();
+        float scale = Device::GetSingleton().GetScreenScale();
         
-        long size = GameController::GetSingletonPtr()->GetScreenWidth()*GameController::GetSingletonPtr()->GetScreenHeight();
+        long size = Device::GetSingletonPtr()->GetScreenWidth()*Device::GetSingletonPtr()->GetScreenHeight();
         GLfloat * vertices = (GLfloat *)malloc(sizeof(GLfloat)*size*2);
         GLuint * indices = (GLuint *)malloc(sizeof(GLuint)*size);
         if (m_pixNumber > 0) {

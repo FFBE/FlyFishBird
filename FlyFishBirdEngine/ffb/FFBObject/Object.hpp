@@ -23,6 +23,7 @@ namespace ffb {
     
     class Object:public BasicPtrClass{
         
+        typedef std::vector<Object *> ObjectList;
 
     public:
         
@@ -32,7 +33,7 @@ namespace ffb {
         
         void AddObject(Object *object);
         void RemoveObject(Object *object);
-        
+        void RemoveFromSuperObject();
         
         
         //position
@@ -56,20 +57,22 @@ namespace ffb {
         virtual void update(double dt);
         
     protected:
+        
+        
+        void SetRenderer(Renderer *);
+        
         Point        m_scale;
-
-        
-    private:
-        
-        typedef std::vector<Object *> ObjectList;
-        
         Point        m_position;
         float           m_rotate;
         
         Object     * m_supObject;
         ObjectList      m_objectList;
-        
         Renderer       * m_render;
+        
+    private:
+        
+        
+        
 
     };
     

@@ -31,7 +31,7 @@ namespace ffb {
         //rootObject
         Object * GetRootObject();
         
-    private:
+    protected:
         
         Object * m_rootObject;
         

@@ -29,10 +29,6 @@ namespace ffb {
       
         CreateClassFunctions(GLESProgram);
         
-        
-        /*shader set*/
-        void ResetShader();
-        
         GLuint GetPositionIndex();
         GLuint GetTexcoord0Index();
         GLuint GetTexcoord1Index();

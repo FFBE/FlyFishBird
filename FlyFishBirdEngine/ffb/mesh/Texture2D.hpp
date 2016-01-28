@@ -23,14 +23,14 @@ namespace ffb {
         
         //texture for image
         
-        bool CreateImageTexture(std::string fileName);
+        bool CreateImageTexture(const std::string &fileName);
         
         
         // texture for text
     
-        bool CreateStringTexture(std::string fontName, std::string text, float fontSize);
+        bool CreateStringTexture(const std::string &fontName,const std::string &text, float fontSize);
         void updateStirngTexture();
-        void SetString(std::string text);
+        void SetString(const std::string &text);
         
         void SetTexture2d(unsigned char * data, float width, float height);
         

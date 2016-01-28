@@ -15,8 +15,7 @@ namespace ffb {
     
     static const char * platformES3VertexShaderMacro    =   "#version 300 es                            \n";
     
-    static const char * platformES3FragmentShaderMacro  =   "#version 300 es                            \n"
-                                                            "#define texture2D texture                  \n";
+    static const char * platformES3FragmentShaderMacro  =   "#version 300 es                            \n";
     
     static const char * platformES2VertexShaderMacro    =   "#ifndef ES2 \n#define ES2                  \n"
                                                             "#endif \n#define in attribute              \n"
@@ -27,7 +26,9 @@ namespace ffb {
                                                             "#define ES2                                \n"
                                                             "#endif                                     \n"
                                                             "#define in varying                         \n"
-                                                            "#define layout(a)                          \n";
+                                                            "#define layout(a)                          \n"
+                                                            "#define texture texture2D                  \n";
+
 
     
     void GLESBaseProgram::Clear()
@@ -48,7 +49,7 @@ namespace ffb {
         return true;
     }
     
-    bool GLESBaseProgram::Create(std::string vertexShaderFile, std::string fragmentShaderFile)
+    bool GLESBaseProgram::Create(const std::string &vertexShaderFile, const std::string &fragmentShaderFile)
     {
         if (!BasicPtrClass::Create()) {
             return false;

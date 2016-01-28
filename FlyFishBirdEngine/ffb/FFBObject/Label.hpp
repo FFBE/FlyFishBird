@@ -23,9 +23,11 @@ namespace ffb {
         
         CreateClassFunctions(Label);
         
-        bool Create(std::string fontName, std::string text, float fontSize);
+        bool Create(const std::string &text);
+        bool Create(const std::string &text, float fontSize);
+        bool Create(const std::string &fontName,const std::string &text, float fontSize);
         
-        void SetText(std::string text);
+        void SetText(const std::string &text);
         std::string GetText();
         
         void SetColor(float r, float g, float b);

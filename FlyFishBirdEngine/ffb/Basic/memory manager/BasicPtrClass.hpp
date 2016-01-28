@@ -32,7 +32,7 @@ namespace ffb {
         virtual void Destory();
 
         //memory
-        void * retain();
+        void retain();
         
         void release();
         

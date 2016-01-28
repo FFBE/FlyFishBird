@@ -28,6 +28,7 @@ namespace ffb {
         {
             ptr->release();
         }
+        m_managerVector.clear();
     }
     
     void AutoReleasePool::Destory()

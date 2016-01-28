@@ -317,7 +317,7 @@ bool ResManager::CheckForOverallocation()
 	if(m_nCurrentUsedMemory > m_nMaximumMemory)
 	{
 		// Attempt to remove iMemToPurge bytes from the managed resource
-		int iMemToPurge = m_nCurrentUsedMemory - m_nMaximumMemory;
+//		int iMemToPurge = m_nCurrentUsedMemory - m_nMaximumMemory;
 
 		// create a temporary priority queue to store the managed items
 		priority_queue<BaseResource*, vector<BaseResource*>, ptr_greater<BaseResource*> > PriQueue;

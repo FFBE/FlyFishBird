@@ -70,8 +70,21 @@ namespace ffb {
         }
     }
     
+    void Object::RemoveFromSuperObject()
+    {
+        m_supObject->RemoveObject(this);
+    }
     
     
+    void Object::SetRenderer(ffb::Renderer * renderer)
+    {
+        if (m_render != nullptr) {
+            m_render->release();
+        }
+        
+        m_render = renderer;
+        m_render->retain();
+    }
     
     
 #pragma mark - position
@@ -153,6 +166,7 @@ namespace ffb {
         if (m_objectList.empty()) {
             return;
         }
+        
         ObjectList::iterator itera;
         for (itera=m_objectList.begin(); itera != m_objectList.end(); itera++) {
             Object * object = (Object *)(*itera);
@@ -167,7 +181,7 @@ namespace ffb {
         }
         
         ObjectList::iterator itera;
-        for (itera=m_objectList.begin(); itera != m_objectList.end(); itera++) {
+        for (itera = m_objectList.begin(); itera != m_objectList.end(); itera++) {
             Object * object = (Object *)(*itera);
             object->update(dt);
         }

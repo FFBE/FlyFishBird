@@ -32,12 +32,10 @@ namespace ffb {
     
 #pragma mark - memory
     
-    void * BasicPtrClass::retain()
+    void  BasicPtrClass::retain()
     {
         FFBAssert(m_retain, "retain can not be 0");
         m_retain++;
-        
-        return this;
     }
     
     void BasicPtrClass::release()

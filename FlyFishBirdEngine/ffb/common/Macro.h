@@ -10,6 +10,17 @@
 #define Macro_hpp
 
 
+
+
+#ifdef __APPLE__
+#define FFBDEBUG        DEBUG
+#else
+#define FFBDEBUG        1
+#endif
+
+
+
+
 #define UnsignedIntMax                          4394967295
 
 
@@ -37,9 +48,6 @@ virtual void Destory();
 
 
 #define     FFBMalloc(classname)        new classname()
-
-
-
 
 
 
