@@ -89,10 +89,10 @@ using namespace ffb;
 {
     [EAGLContext setCurrentContext:self.context];
     
-    CGFloat scale = [UIScreen mainScreen].scale;
+    float scale = self.view.frame.size.height/320.0;
 
-    controller->GetDevice()->SetScreenScale(scale);
-    controller->GetDevice()->SetScreenSize(self.view.frame.size.width, self.view.frame.size.height);
+    controller->GetDevice()->SetScreenScale(scale * [UIScreen mainScreen].scale);
+    controller->GetDevice()->SetScreenSize(self.view.frame.size.width/scale, 320);
 
     GameScene * scene = FFBMalloc(GameScene);
     scene->Create();

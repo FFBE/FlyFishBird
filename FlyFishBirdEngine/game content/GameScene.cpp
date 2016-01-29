@@ -26,7 +26,7 @@ bool GameScene::Create()
     
     DrawObject * draw = FFBMalloc(DrawObject);
     draw->Create();
-    draw->DrawCircleAndFill(0, 0, 30);
+    draw->DrawCircleAndFill(0, 0, 100);
     draw->SetColor(0, 0, 0, 1);
     m_rootObject->AddObject(draw);
     draw->release();
