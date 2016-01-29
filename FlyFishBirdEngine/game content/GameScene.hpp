@@ -10,8 +10,18 @@
 #define GameScene_hpp
 
 #include <stdio.h>
+#include "FlyFishBird.h"
 
-
+class GameScene: public ffb::Scene {
+    
+    
+    
+public:
+    
+    CreateClassFunctions(GameScene);
+    
+    
+};
 
 
 

@@ -16,16 +16,7 @@ namespace ffb {
     {
         m_shaderColor = ColorMake(0, 0, 0, 1);
         
-        m_drawType = FFBDrawTypePoints;
-        
-        m_verticesStep = 3;
-        m_numberOfIndeices = 0;
-        m_numberOfVertices = 0;
-        
-        m_vertices = nullptr;
-        m_indices = nullptr;
-        
-        m_vboids[0] = 0; m_vboids[1] = 0;
+        m_vboids = nullptr;
         
         Renderer::Clear();
     }
@@ -36,14 +27,19 @@ namespace ffb {
             return false;
         }
         
+        m_meshVector.reserve(10);
+        
         return true;
     }
 
     void Mesh::Destory()
     {
-        FFBSaveFreeBaseType(m_vertices);
-        FFBSaveFreeBaseType(m_indices);
-        
+        for (MeshAttribute mesh : m_meshVector) {
+            FFBSaveFreeBaseType(mesh.vertices);
+            FFBSaveFreeBaseType(mesh.indices);
+        }
+        FFBSaveFreeBaseType(m_vboids);
+        m_meshVector.clear();
         Renderer::Destory();
     }
     
@@ -51,7 +47,7 @@ namespace ffb {
     
     void Mesh::Render()
     {
-        if (m_vertices == nullptr)
+        if (m_meshVector.empty())
         {
             return;
         }
@@ -66,7 +62,6 @@ namespace ffb {
         Matrix camera = GameController::GetSingleton().GetCameraMatrix();
         MatrixMultiply(&m_mvpMatrix, &m_mvpMatrix, &camera);
         
-        
         m_glprogram->SetMvpMatrix(m_mvpMatrix);
         
         
@@ -74,32 +69,46 @@ namespace ffb {
         
         
         // Load the vertex data
-        if (m_vboids[0] == 0 && m_vboids[1] == 0) {
-            glGenBuffers(2, m_vboids);
-
-            glBindBuffer(GL_ARRAY_BUFFER, m_vboids[0]);
-            glBufferData(GL_ARRAY_BUFFER, m_verticesStep*sizeof(GLfloat)*m_numberOfVertices, m_vertices, GL_STATIC_DRAW);
+        if (m_vboids == nullptr) {
             
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboids[1]);
-            glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint)*m_numberOfIndeices, m_indices, GL_STATIC_DRAW);
+            int i = 0, number = m_meshVector.size()*2;
+            m_vboids = (GLuint *)malloc(sizeof(GLuint) * number);
+            glGenBuffers(number, m_vboids);
+            
+            MeshAttributeVector::iterator itera = m_meshVector.begin(), end = m_meshVector.end();
+            for (; itera != end; ++itera, ++i) {
+                MeshAttribute meshAttribute = *itera;
+                
+                glBindBuffer(GL_ARRAY_BUFFER, m_vboids[2*i]);
+                glBufferData(GL_ARRAY_BUFFER, meshAttribute.verticesStep*sizeof(GLfloat)*meshAttribute.numberOfVertices, meshAttribute.vertices, GL_STATIC_DRAW);
+                
+                glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboids[2*i+1]);
+                glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint)*meshAttribute.numberOfIndeices, meshAttribute.indices, GL_STATIC_DRAW);
+            }
         }
         
-        glBindBuffer(GL_ARRAY_BUFFER, m_vboids[0]);
-        glEnableVertexAttribArray ( m_glprogram->GetPositionIndex() );
-        glVertexAttribPointer ( m_glprogram->GetPositionIndex(), m_verticesStep, GL_FLOAT, GL_FALSE, m_verticesStep * sizeof ( GLfloat ), 0);
-        
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboids[1]);
-        if (m_drawType == FFBDrawTypePoints) {
-            glDrawElements(GL_POINTS, m_numberOfIndeices, GL_UNSIGNED_INT, 0);
+        int i = 0;
+        MeshAttributeVector::iterator itera = m_meshVector.begin(), end = m_meshVector.end();
+        for (; itera != end; ++itera, ++i) {
+            MeshAttribute meshAttribute = *itera;
+            
+            glBindBuffer(GL_ARRAY_BUFFER, m_vboids[2*i]);
+            glEnableVertexAttribArray ( m_glprogram->GetPositionIndex() );
+            glVertexAttribPointer ( m_glprogram->GetPositionIndex(), meshAttribute.verticesStep, GL_FLOAT, GL_FALSE, meshAttribute.verticesStep * sizeof ( GLfloat ), 0);
+            
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vboids[2*i+1]);
+            if (meshAttribute.drawType == FFBDrawTypePoints) {
+                glDrawElements(GL_POINTS, meshAttribute.numberOfIndeices, GL_UNSIGNED_INT, 0);
+            }
+            else
+                glDrawElements(meshAttribute.drawType, meshAttribute.numberOfIndeices, GL_UNSIGNED_INT, 0);
+            
+            glDisableVertexAttribArray(m_glprogram->GetPositionIndex());
+            
+            glBindBuffer(GL_ARRAY_BUFFER, 0);
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
         }
-        else
-            glDrawElements(m_drawType, m_numberOfIndeices, GL_UNSIGNED_INT, 0);
-        
-        glDisableVertexAttribArray(m_glprogram->GetPositionIndex());
-        
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-        
+       
     }
     
 #pragma mark - Transform
@@ -125,79 +134,26 @@ namespace ffb {
     
 #pragma mark - Shap data
     
-    void Mesh::SetDrawType(FFBDrawType type)
-    {
-        m_drawType = type;
-    }
     
-    void Mesh::SetIndices(GLuint *indices, int numberOfIndeices)
+    void Mesh::AddShapData(GLuint *indices, int numberOfIndeices, GLfloat *vertices, int numberOfVertices, FFBDrawType type, VerticesStep verticesStep)
     {
-        if (m_indices != nullptr) {
-            free(m_indices);
-            m_indices = nullptr;
-        }
-        m_numberOfIndeices = numberOfIndeices;
-        m_indices = (GLuint *)malloc(sizeof(GLuint)*numberOfIndeices);
-        memcpy(m_indices, indices, sizeof(GLuint)*numberOfIndeices);
-    }
-    
-    void Mesh::SetVertices(GLfloat *vertices, int numberOfVertices)
-    {
-        if (m_vertices != nullptr) {
-            free(m_vertices);
-            m_vertices = nullptr;
-        }
+        MeshAttribute meshAttribute;
         
-        m_numberOfVertices = numberOfVertices;
-        m_vertices = (GLfloat *)malloc(sizeof(GLfloat)*numberOfVertices*m_verticesStep);
-        memcpy(m_vertices, vertices, sizeof(GLfloat)*numberOfVertices*m_verticesStep);
-    }
-    
-    void Mesh::SetVerticesStep(unsigned int step)
-    {
-        m_verticesStep = step;
-    }
-    
-    void Mesh::SetShapData(GLuint *indices, int numberOfIndeices, GLfloat *vertices, int numberOfVertices, FFBDrawType type)
-    {
-        SetIndices(indices, numberOfIndeices);
-        SetVertices(vertices, numberOfVertices);
-        SetDrawType(type);
-    }
-    
-    
-    
-    FFBDrawType Mesh::GetDrawType()
-    {
-        return m_drawType;
-    }
-    
-    unsigned int Mesh::GetVerticesStep()
-    {
-        return m_verticesStep;
-    }
-    
-    int Mesh::GetNumberIndeices()
-    {
-        return m_numberOfIndeices;
-    }
-    
-    GLuint * Mesh::GetIndices()
-    {
-        return m_indices;
-    }
-    
-    GLfloat * Mesh::GetVertices()
-    {
-        return m_vertices;
-    }
-    
-    
-#pragma mark - mvp matrix
-    
-    Matrix Mesh::GetMvpMatrix()
-    {
-        return m_mvpMatrix;
+        meshAttribute.verticesStep = verticesStep;
+        meshAttribute.drawType = type;
+        
+        //set indices
+        meshAttribute.numberOfIndeices = numberOfIndeices;
+        meshAttribute.indices = (GLuint *)malloc(sizeof(GLuint) * numberOfIndeices);
+        memcpy(meshAttribute.indices, indices, sizeof(GLuint) * numberOfIndeices);
+        
+        
+        //set vertices
+        meshAttribute.numberOfVertices = numberOfVertices;
+        meshAttribute.vertices = (GLfloat *)malloc(sizeof(GLfloat) * numberOfVertices * verticesStep);
+        memcpy(meshAttribute.vertices, vertices, sizeof(GLfloat) * numberOfVertices * verticesStep);
+        
+        m_meshVector.push_back(meshAttribute);
     }
     
 }

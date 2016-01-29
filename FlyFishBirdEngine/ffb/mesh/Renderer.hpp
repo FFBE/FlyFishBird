@@ -54,12 +54,12 @@ namespace ffb {
         Point            m_scale;
         
         //360r   default 0    clock wise
-        float               m_rotate;
+        float            m_rotate;
         
         
-        GLESProgram        *m_glprogram;
+        GLESProgram      *m_glprogram;
         
-        Matrix      m_mvpMatrix;
+        Matrix           m_mvpMatrix;
         
         
     };

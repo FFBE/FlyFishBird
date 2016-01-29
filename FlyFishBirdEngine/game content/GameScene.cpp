@@ -7,3 +7,36 @@
 //
 
 #include "GameScene.hpp"
+
+
+using namespace ffb;
+
+
+void GameScene::Clear()
+{
+    Scene::Clear();
+}
+
+
+bool GameScene::Create()
+{
+    if (!Scene::Create()) {
+        return false;
+    }
+    
+    DrawObject * draw = FFBMalloc(DrawObject);
+    draw->Create();
+    draw->DrawCircleAndFill(0, 0, 30);
+    draw->SetColor(0, 0, 0, 1);
+    m_rootObject->AddObject(draw);
+    draw->release();
+    
+    return true;
+}
+
+
+void GameScene::Destory()
+{
+    Scene::Destory();
+}
+

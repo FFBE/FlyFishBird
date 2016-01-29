@@ -24,11 +24,12 @@ namespace ffb {
     
     bool Sprite::Create(const std::string &fileName)
     {
-        if (!Object::Create()) {
+        m_texture = FFBMalloc(Texture2D);
+
+        if (!Object::Create(m_texture)) {
             return false;
         }
         
-        m_texture = FFBMalloc(Texture2D);
         if (!m_texture->CreateImageTexture(CreateFileName(fileName)))
         {
             m_texture->release();
@@ -42,11 +43,11 @@ namespace ffb {
     
     bool Sprite::CreateLaunchImageForApple()
     {
-        if (!Object::Create()) {
+        m_texture = FFBMalloc(Texture2D);
+
+        if (!Object::Create(m_texture)) {
             return false;
         }
-        
-        m_texture = FFBMalloc(Texture2D);
         
         bool createSuccess = false;
         
@@ -70,9 +71,7 @@ namespace ffb {
             m_texture->release();
             return false;
         }
-        
-        SetRenderer(m_texture);
-        
+                
         return true;
     }
     
@@ -90,7 +89,7 @@ namespace ffb {
         
         size_t index = fileName.find(".");
         std::string fileHead = fileName.substr(0, index);
-        std::string fileType = fileName.substr(fileName.length()-index);
+        std::string fileType = fileName.substr(fileName.length()-index+1);
         if (scale == 2.0)
         {
             return (fileHead + "@2x" + fileType) ;

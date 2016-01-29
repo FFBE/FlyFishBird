@@ -53,7 +53,7 @@ namespace ffb {
         
         
         
-        virtual void Render();
+        void Render();
         virtual void update(double dt);
         
     protected:

@@ -11,22 +11,17 @@
 #import <OpenGLES/ES2/glext.h>
 
 #import "GameController.hpp"
-#import "DrawObject.hpp"
-#import "AutoReleasePool.hpp"
+#import "GameScene.hpp"
 
 using namespace ffb;
 
 @interface FFBViewController()
 {
     GameController * controller;
-    PoolManager * poolManager;
 }
 
 @property (strong, nonatomic) EAGLContext * context;
-@property (strong, nonatomic) GLKBaseEffect * effect;
 
-@property (nonatomic, assign)NSTimeInterval lastTime;
-@property (nonatomic, assign)NSTimeInterval newTime;
 
 - (void)setupGL;
 - (void)tearDownGL;
@@ -36,23 +31,12 @@ using namespace ffb;
 
 @implementation FFBViewController
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        _newTime = 0;
-        _lastTime = [[NSDate date]timeIntervalSince1970];
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     NSLog(@"%@", NSStringFromCGSize(self.view.frame.size));
 
-    poolManager = PoolManager::GetSingletonPtr();
     controller = GameController::GetSingletonPtr();
     controller->SetGLVersion(3.0);
     self.context = [[EAGLContext alloc]initWithAPI:kEAGLRenderingAPIOpenGLES3];
@@ -106,20 +90,13 @@ using namespace ffb;
     [EAGLContext setCurrentContext:self.context];
     
     CGFloat scale = [UIScreen mainScreen].scale;
-    
+
     controller->GetDevice()->SetScreenScale(scale);
     controller->GetDevice()->SetScreenSize(self.view.frame.size.width, self.view.frame.size.height);
-    
-    Scene * scene = FFBMalloc(Scene);
+
+    GameScene * scene = FFBMalloc(GameScene);
     scene->Create();
     controller->SetRootScene(scene);
-    
-    DrawObject * draw = FFBMalloc(DrawObject);
-    draw->Create();
-    draw->DrawLine(0, 0, 100, 100);
-    draw->SetColor(1, 1, 1, 1);
-    scene->GetRootObject()->AddObject(draw);
-    draw->release();
 }
 
 - (void)tearDownGL
@@ -129,11 +106,7 @@ using namespace ffb;
 
 - (void)update
 {
-    _newTime = [[NSDate date]timeIntervalSince1970];
-    controller->update(_newTime-_lastTime);
-    _lastTime = [[NSDate date]timeIntervalSince1970];
-
-    poolManager->GetMainPool()->Clear();
+    controller->update(self.timeSinceLastUpdate);
 }
 
 @end

@@ -32,14 +32,17 @@
 		C31B63B21C5A1D0500755914 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B63961C5A1D0500755914 /* Mesh.cpp */; };
 		C31B63B31C5A1D0500755914 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B63981C5A1D0500755914 /* Renderer.cpp */; };
 		C31B63B41C5A1D0500755914 /* Texture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B639A1C5A1D0500755914 /* Texture2D.cpp */; };
+		C31B63C01C5A207800755914 /* ipad-152.png in Resources */ = {isa = PBXBuildFile; fileRef = C31B63BA1C5A207800755914 /* ipad-152.png */; };
+		C31B63C11C5A207800755914 /* login@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31B63BB1C5A207800755914 /* login@3x.png */; };
+		C31B63C21C5A207800755914 /* sale.png in Resources */ = {isa = PBXBuildFile; fileRef = C31B63BC1C5A207800755914 /* sale.png */; };
+		C31B63C31C5A207800755914 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C31B63BE1C5A207800755914 /* Shader.fsh */; };
+		C31B63C41C5A207800755914 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C31B63BF1C5A207800755914 /* Shader.vsh */; };
+		C31B63C61C5A209500755914 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31B63C51C5A209500755914 /* Default-568h@2x.png */; };
 		C35109E61C1C0FC5006BC47D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C35109E51C1C0FC5006BC47D /* Images.xcassets */; };
 		C35109EC1C1C2162006BC47D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35109EA1C1C2162006BC47D /* Main.storyboard */; };
 		C36A85391BD2144C0045B7D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C36A85381BD2144C0045B7D3 /* main.m */; };
 		C3882B441C4F8B6100871F16 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3882AF61C4F8B6100871F16 /* AppDelegate.m */; };
 		C3882B591C4F8B6100871F16 /* FFBViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3882B2B1C4F8B6100871F16 /* FFBViewController.mm */; };
-		C3882B5E1C4F8B6100871F16 /* ipad-152.png in Resources */ = {isa = PBXBuildFile; fileRef = C3882B351C4F8B6100871F16 /* ipad-152.png */; };
-		C3882B5F1C4F8B6100871F16 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = C3882B361C4F8B6100871F16 /* login.png */; };
-		C3882B641C4F8B6100871F16 /* sale.png in Resources */ = {isa = PBXBuildFile; fileRef = C3882B401C4F8B6100871F16 /* sale.png */; };
 		C3882B691C4F8BDB00871F16 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3882B671C4F8BDB00871F16 /* GameScene.cpp */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +101,12 @@
 		C31B63991C5A1D0500755914 /* Renderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
 		C31B639A1C5A1D0500755914 /* Texture2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture2D.cpp; sourceTree = "<group>"; };
 		C31B639B1C5A1D0500755914 /* Texture2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Texture2D.hpp; sourceTree = "<group>"; };
+		C31B63BA1C5A207800755914 /* ipad-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-152.png"; sourceTree = "<group>"; };
+		C31B63BB1C5A207800755914 /* login@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login@3x.png"; sourceTree = "<group>"; };
+		C31B63BC1C5A207800755914 /* sale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sale.png; sourceTree = "<group>"; };
+		C31B63BE1C5A207800755914 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		C31B63BF1C5A207800755914 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		C31B63C51C5A209500755914 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C35109E51C1C0FC5006BC47D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C35109EA1C1C2162006BC47D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C36A85341BD2144C0045B7D3 /* FlyFishBirdEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyFishBirdEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,9 +116,6 @@
 		C3882AF61C4F8B6100871F16 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C3882B2A1C4F8B6100871F16 /* FFBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFBViewController.h; sourceTree = "<group>"; };
 		C3882B2B1C4F8B6100871F16 /* FFBViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FFBViewController.mm; sourceTree = "<group>"; };
-		C3882B351C4F8B6100871F16 /* ipad-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-152.png"; sourceTree = "<group>"; };
-		C3882B361C4F8B6100871F16 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
-		C3882B401C4F8B6100871F16 /* sale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sale.png; sourceTree = "<group>"; };
 		C3882B671C4F8BDB00871F16 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		C3882B681C4F8BDB00871F16 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,10 +136,10 @@
 			children = (
 				C31B635A1C5A1D0500755914 /* GameController.cpp */,
 				C31B635B1C5A1D0500755914 /* GameController.hpp */,
-				C31B635C1C5A1D0500755914 /* memory manager */,
-				C31B63631C5A1D0500755914 /* platform */,
 				C31B63701C5A1D0500755914 /* TimeSchedule.cpp */,
 				C31B63711C5A1D0500755914 /* TimeSchedule.hpp */,
+				C31B635C1C5A1D0500755914 /* memory manager */,
+				C31B63631C5A1D0500755914 /* platform */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -141,10 +147,10 @@
 		C31B635C1C5A1D0500755914 /* memory manager */ = {
 			isa = PBXGroup;
 			children = (
-				C31B635D1C5A1D0500755914 /* AutoReleasePool.cpp */,
-				C31B635E1C5A1D0500755914 /* AutoReleasePool.hpp */,
 				C31B635F1C5A1D0500755914 /* BasicPtrClass.cpp */,
 				C31B63601C5A1D0500755914 /* BasicPtrClass.hpp */,
+				C31B635D1C5A1D0500755914 /* AutoReleasePool.cpp */,
+				C31B635E1C5A1D0500755914 /* AutoReleasePool.hpp */,
 				C31B63611C5A1D0500755914 /* ResourceManager.cpp */,
 				C31B63621C5A1D0500755914 /* ResourceManager.hpp */,
 			);
@@ -278,9 +284,30 @@
 			path = mesh;
 			sourceTree = "<group>";
 		};
+		C31B63B91C5A207800755914 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				C31B63BA1C5A207800755914 /* ipad-152.png */,
+				C31B63BB1C5A207800755914 /* login@3x.png */,
+				C31B63BC1C5A207800755914 /* sale.png */,
+				C31B63BD1C5A207800755914 /* shader */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		C31B63BD1C5A207800755914 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				C31B63BE1C5A207800755914 /* Shader.fsh */,
+				C31B63BF1C5A207800755914 /* Shader.vsh */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
 		C36A852B1BD2144C0045B7D3 = {
 			isa = PBXGroup;
 			children = (
+				C31B63C51C5A209500755914 /* Default-568h@2x.png */,
 				C36A85361BD2144C0045B7D3 /* FlyFishBirdEngine */,
 				C36A85351BD2144C0045B7D3 /* Products */,
 			);
@@ -322,14 +349,12 @@
 				C3882AF61C4F8B6100871F16 /* AppDelegate.m */,
 				C3882B2A1C4F8B6100871F16 /* FFBViewController.h */,
 				C3882B2B1C4F8B6100871F16 /* FFBViewController.mm */,
+				C31B63B91C5A207800755914 /* source */,
 				C31B63591C5A1D0500755914 /* Basic */,
 				C31B63721C5A1D0500755914 /* common */,
-				C31B63831C5A1D0500755914 /* FFBObject */,
 				C31B638E1C5A1D0500755914 /* GLProgram */,
 				C31B63951C5A1D0500755914 /* mesh */,
-				C3882B351C4F8B6100871F16 /* ipad-152.png */,
-				C3882B401C4F8B6100871F16 /* sale.png */,
-				C3882B361C4F8B6100871F16 /* login.png */,
+				C31B63831C5A1D0500755914 /* FFBObject */,
 			);
 			path = ffb;
 			sourceTree = "<group>";
@@ -402,9 +427,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3882B5E1C4F8B6100871F16 /* ipad-152.png in Resources */,
-				C3882B641C4F8B6100871F16 /* sale.png in Resources */,
-				C3882B5F1C4F8B6100871F16 /* login.png in Resources */,
+				C31B63C31C5A207800755914 /* Shader.fsh in Resources */,
+				C31B63C41C5A207800755914 /* Shader.vsh in Resources */,
+				C31B63C01C5A207800755914 /* ipad-152.png in Resources */,
+				C31B63C21C5A207800755914 /* sale.png in Resources */,
+				C31B63C11C5A207800755914 /* login@3x.png in Resources */,
+				C31B63C61C5A209500755914 /* Default-568h@2x.png in Resources */,
 				C35109E61C1C0FC5006BC47D /* Images.xcassets in Resources */,
 				C35109EC1C1C2162006BC47D /* Main.storyboard in Resources */,
 			);
