@@ -55,11 +55,15 @@ namespace ffb {
         
         //root scene controller
         void SetRootScene(Scene *rootScene);
-        Scene * GetRootScene();
+        Scene * GetCurrentScene();
+        void PushScene(Scene * scene);
+        void PopScene();
         
         //update
         void update(double dt);
-
+        
+        typedef std::vector<Scene *> SceneVector;
+        
     private:
         
         Device * m_device;
@@ -70,7 +74,7 @@ namespace ffb {
         //camera of screen
         GLESCamera m_camera;
         
-        Scene * m_rootScene;
+        SceneVector m_sceneVector;
         
         float   m_glVersion;
                 

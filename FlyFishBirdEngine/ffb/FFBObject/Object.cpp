@@ -20,6 +20,7 @@ namespace ffb {
         m_position = PointMake(0, 0);
         m_scale = PointMake(1, 1);
         m_rotate = 0;
+        m_touchEnable = true;
     }
     
     bool Object::Create()
@@ -27,6 +28,8 @@ namespace ffb {
         if (!BasicPtrClass::Create()) {
             return false;
         }
+        
+        m_render = FFBMalloc(Renderer);
         
         return true;
     }
@@ -45,8 +48,9 @@ namespace ffb {
     
     void Object::Destory()
     {
-        FFBSaveFree(m_render);
+        m_touchEnable = false;
         m_supObject = nullptr;
+        FFBSaveFree(m_render);
         BasicPtrClass::Destory();
     }
     
@@ -187,5 +191,37 @@ namespace ffb {
         }
     }
     
+    
+#pragma mark - touch
+    
+    bool Object::TouchShouldBegin(Point touchPoint)
+    {
+        return false;
+    }
+    
+    void Object::TouchMoved(Point movePoint)
+    {
+    }
+    
+    void Object::TouchEnd(Point endPoint)
+    {
+    }
+    
+    Object * Object::TouchCheck(Point touchPoint)
+    {
+        if (!m_touchEnable) {
+            return nullptr;
+        }
+        if (TouchShouldBegin(touchPoint)) {
+            return this;
+        }
+        for (Object * object : m_objectList)
+        {
+            if (object->TouchCheck(touchPoint) != nullptr) {
+                return object;
+            }
+        }
+        return nullptr;
+    }
 }
 

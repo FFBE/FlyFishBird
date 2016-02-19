@@ -24,7 +24,7 @@ namespace ffb {
         Color GetColor();
         void SetColor(float r, float g, float b, float a);
         void SetColor(Color color);
-    
+        
         void DrawLine(GLfloat x0, GLfloat y0, GLfloat xEnd, GLfloat yEnd);
         
         
@@ -32,7 +32,7 @@ namespace ffb {
         void DrawCircleAndFill(GLfloat xc, GLfloat yc, GLfloat radius);
         
         
-        void DrawBezier(int number, Point * points);
+        void DrawBezier(int number, Point * points, int width);
         void DrawBezier(Point point1, Point control1, Point control2, Point point2);
         void DrawBezier(Point point1, Point control, Point point2);
         
@@ -41,8 +41,8 @@ namespace ffb {
         
     private:
         
-        void CirclePlotPoints(int xc, int yc, int x, int y, GLfloat * vertices, GLuint * indices);
-                
+        void CirclePlotPoints(int xc, int yc, int x, int y, GLfloat * vertices, GLuint * indices, int &startNumber);
+        
         Mesh * m_mesh;
     };
 }

@@ -60,9 +60,9 @@ namespace ffb {
         m_Texture->CreateStringTexture(m_fontName, m_text, m_fontSize);
     }
     
-    void Label::SetColor(float r, float g, float b)
+    void Label::SetColor(float r, float g, float b, float a)
     {
-        
+        m_Texture->SetStringColor(r, g, b, a);
     }
     
     std::string Label::GetText()

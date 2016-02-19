@@ -60,6 +60,16 @@ namespace ffb {
         return true;
     }
     
+    void Texture2D::SetString(const std::string &text)
+    {
+        
+    }
+    
+    void Texture2D::SetStringColor(float r, float g, float b, float a)
+    {
+        
+    }
+    
     void Texture2D::SetTexture2d(unsigned char *data, float width, float height)
     {
         if (m_textureId) {

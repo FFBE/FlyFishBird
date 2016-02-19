@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182550BC1C6C4C3D002E6ECF /* TouchTestObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182550BA1C6C4C3D002E6ECF /* TouchTestObject.cpp */; };
+		18EB826C1C6C531C0050A824 /* DrawObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18EB826A1C6C531C0050A824 /* DrawObject.cpp */; };
 		C31B639C1C5A1D0500755914 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B635A1C5A1D0500755914 /* GameController.cpp */; };
 		C31B639D1C5A1D0500755914 /* AutoReleasePool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B635D1C5A1D0500755914 /* AutoReleasePool.cpp */; };
 		C31B639E1C5A1D0500755914 /* BasicPtrClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B635F1C5A1D0500755914 /* BasicPtrClass.cpp */; };
@@ -21,7 +23,6 @@
 		C31B63A71C5A1D0500755914 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B637B1C5A1D0500755914 /* Matrix.cpp */; };
 		C31B63A81C5A1D0500755914 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B637E1C5A1D0500755914 /* Vector3.cpp */; };
 		C31B63A91C5A1D0500755914 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B63811C5A1D0500755914 /* Singleton.cpp */; };
-		C31B63AA1C5A1D0500755914 /* DrawObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B63841C5A1D0500755914 /* DrawObject.cpp */; };
 		C31B63AB1C5A1D0500755914 /* Label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B63861C5A1D0500755914 /* Label.cpp */; };
 		C31B63AC1C5A1D0500755914 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B63881C5A1D0500755914 /* Object.cpp */; };
 		C31B63AD1C5A1D0500755914 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B638A1C5A1D0500755914 /* Scene.cpp */; };
@@ -47,6 +48,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		182550BA1C6C4C3D002E6ECF /* TouchTestObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchTestObject.cpp; sourceTree = "<group>"; };
+		182550BB1C6C4C3D002E6ECF /* TouchTestObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TouchTestObject.hpp; sourceTree = "<group>"; };
+		18EB826A1C6C531C0050A824 /* DrawObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawObject.cpp; sourceTree = "<group>"; };
+		18EB826B1C6C531C0050A824 /* DrawObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DrawObject.hpp; sourceTree = "<group>"; };
 		C31B635A1C5A1D0500755914 /* GameController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameController.cpp; sourceTree = "<group>"; };
 		C31B635B1C5A1D0500755914 /* GameController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameController.hpp; sourceTree = "<group>"; };
 		C31B635D1C5A1D0500755914 /* AutoReleasePool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AutoReleasePool.cpp; sourceTree = "<group>"; };
@@ -79,8 +84,6 @@
 		C31B637F1C5A1D0500755914 /* Vector3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector3.hpp; sourceTree = "<group>"; };
 		C31B63811C5A1D0500755914 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Singleton.cpp; sourceTree = "<group>"; };
 		C31B63821C5A1D0500755914 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Singleton.hpp; sourceTree = "<group>"; };
-		C31B63841C5A1D0500755914 /* DrawObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawObject.cpp; sourceTree = "<group>"; };
-		C31B63851C5A1D0500755914 /* DrawObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DrawObject.hpp; sourceTree = "<group>"; };
 		C31B63861C5A1D0500755914 /* Label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Label.cpp; sourceTree = "<group>"; };
 		C31B63871C5A1D0500755914 /* Label.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Label.hpp; sourceTree = "<group>"; };
 		C31B63881C5A1D0500755914 /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
@@ -244,14 +247,14 @@
 		C31B63831C5A1D0500755914 /* FFBObject */ = {
 			isa = PBXGroup;
 			children = (
-				C31B63841C5A1D0500755914 /* DrawObject.cpp */,
-				C31B63851C5A1D0500755914 /* DrawObject.hpp */,
-				C31B63861C5A1D0500755914 /* Label.cpp */,
-				C31B63871C5A1D0500755914 /* Label.hpp */,
-				C31B63881C5A1D0500755914 /* Object.cpp */,
-				C31B63891C5A1D0500755914 /* Object.hpp */,
 				C31B638A1C5A1D0500755914 /* Scene.cpp */,
 				C31B638B1C5A1D0500755914 /* Scene.hpp */,
+				18EB826A1C6C531C0050A824 /* DrawObject.cpp */,
+				18EB826B1C6C531C0050A824 /* DrawObject.hpp */,
+				C31B63881C5A1D0500755914 /* Object.cpp */,
+				C31B63891C5A1D0500755914 /* Object.hpp */,
+				C31B63861C5A1D0500755914 /* Label.cpp */,
+				C31B63871C5A1D0500755914 /* Label.hpp */,
 				C31B638C1C5A1D0500755914 /* Sprite.cpp */,
 				C31B638D1C5A1D0500755914 /* Sprite.hpp */,
 			);
@@ -263,10 +266,10 @@
 			children = (
 				C31B638F1C5A1D0500755914 /* GLESBaseProgram.cpp */,
 				C31B63901C5A1D0500755914 /* GLESBaseProgram.hpp */,
-				C31B63911C5A1D0500755914 /* GLESCamera.cpp */,
-				C31B63921C5A1D0500755914 /* GLESCamera.hpp */,
 				C31B63931C5A1D0500755914 /* GLESProgram.cpp */,
 				C31B63941C5A1D0500755914 /* GLESProgram.hpp */,
+				C31B63911C5A1D0500755914 /* GLESCamera.cpp */,
+				C31B63921C5A1D0500755914 /* GLESCamera.hpp */,
 			);
 			path = GLProgram;
 			sourceTree = "<group>";
@@ -274,10 +277,10 @@
 		C31B63951C5A1D0500755914 /* mesh */ = {
 			isa = PBXGroup;
 			children = (
-				C31B63961C5A1D0500755914 /* Mesh.cpp */,
-				C31B63971C5A1D0500755914 /* Mesh.hpp */,
 				C31B63981C5A1D0500755914 /* Renderer.cpp */,
 				C31B63991C5A1D0500755914 /* Renderer.hpp */,
+				C31B63961C5A1D0500755914 /* Mesh.cpp */,
+				C31B63971C5A1D0500755914 /* Mesh.hpp */,
 				C31B639A1C5A1D0500755914 /* Texture2D.cpp */,
 				C31B639B1C5A1D0500755914 /* Texture2D.hpp */,
 			);
@@ -364,6 +367,8 @@
 			children = (
 				C3882B671C4F8BDB00871F16 /* GameScene.cpp */,
 				C3882B681C4F8BDB00871F16 /* GameScene.hpp */,
+				182550BA1C6C4C3D002E6ECF /* TouchTestObject.cpp */,
+				182550BB1C6C4C3D002E6ECF /* TouchTestObject.hpp */,
 			);
 			path = "game content";
 			sourceTree = "<group>";
@@ -462,11 +467,12 @@
 				C31B63A81C5A1D0500755914 /* Vector3.cpp in Sources */,
 				C31B63AF1C5A1D0500755914 /* GLESBaseProgram.cpp in Sources */,
 				C31B63A11C5A1D0500755914 /* ReadFile-ios.mm in Sources */,
+				182550BC1C6C4C3D002E6ECF /* TouchTestObject.cpp in Sources */,
 				C31B63A21C5A1D0500755914 /* Font-ios.mm in Sources */,
 				C31B63A31C5A1D0500755914 /* Image-ios.mm in Sources */,
+				18EB826C1C6C531C0050A824 /* DrawObject.cpp in Sources */,
 				C31B63AC1C5A1D0500755914 /* Object.cpp in Sources */,
 				C31B63A51C5A1D0500755914 /* BasicData2d.cpp in Sources */,
-				C31B63AA1C5A1D0500755914 /* DrawObject.cpp in Sources */,
 				C3882B441C4F8B6100871F16 /* AppDelegate.m in Sources */,
 				C31B63A41C5A1D0500755914 /* TimeSchedule.cpp in Sources */,
 				C36A85391BD2144C0045B7D3 /* main.m in Sources */,

@@ -19,7 +19,7 @@ namespace ffb {
 #define InsertProgramMapType(key, value) std::map< short, GLESProgram *>::value_type(key, value)
 
     
-    GameController::GameController():m_rootScene(nullptr)
+    GameController::GameController()
     {
         m_device = Device::GetSingletonPtr();
     }
@@ -151,20 +151,37 @@ namespace ffb {
     
     void GameController::SetRootScene(ffb::Scene *scene)
     {
-        if (m_rootScene != nullptr) {
-            m_rootScene->release();
+        if (!m_sceneVector.empty()) {
+            for (Scene * sc : m_sceneVector)
+            {
+                sc->release();
+            }
         }
-        scene->retain();
-        m_rootScene = scene;
+        if (scene != nullptr) {
+            PushScene(scene);
+        }
+        
     }
     
-    Scene * GameController::GetRootScene()
+    Scene * GameController::GetCurrentScene()
     {
-        return m_rootScene;
+        if (m_sceneVector.empty()) {
+            return nullptr;
+        }
+        return m_sceneVector.back();
     }
     
+    void GameController::PushScene(ffb::Scene *scene)
+    {
+        scene->retain();
+        m_sceneVector.push_back(scene);
+    }
     
-    
+    void GameController::PopScene()
+    {
+        m_sceneVector[m_sceneVector.size()-1]->release();
+        m_sceneVector.pop_back();
+    }
     
     
 #pragma mark - update
@@ -174,16 +191,24 @@ namespace ffb {
     {
         TimeSchedule::GetSingletonPtr()->Update(dt);
         
-        m_rootScene->update(dt);
+        Scene * currentScene = GetCurrentScene();
+        if (currentScene) {
+            currentScene->update(dt);
+        }
         
         glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glClearColor(1.0, 1.0, 1.0, 1.0);
-        m_rootScene->render();
-        
+        if (currentScene) {
+            currentScene->render();
+        }
         PoolManager::GetSingletonPtr()->GetMainPool()->Clear();
 
     }
     
+    
+    
+#pragma mark - touch
+
     
 }
 

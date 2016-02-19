@@ -8,6 +8,7 @@
 
 #include "Scene.hpp"
 #include "Macro.h"
+#include "GameController.hpp"
 
 namespace ffb {
     
@@ -22,10 +23,12 @@ namespace ffb {
             return false;
         }
         
+        Size screenSize = GameController::GetSingletonPtr()->GetDevice()->GetScreenSize();
         Renderer * render = FFBMalloc(Renderer);
         render->Create();
         m_rootObject = FFBMalloc(Object);
         m_rootObject->Create(render);
+        m_rootObject->SetPosition(PointMake(-screenSize.width/2, -screenSize.height/2));
         
         return true;
     }
@@ -43,6 +46,15 @@ namespace ffb {
         return m_rootObject;
     }
     
+    Object * Scene::GetTouchObject()
+    {
+        return m_touchObject;
+    }
+    
+    void Scene::SetTouchObject(ffb::Object *touchObject)
+    {
+        m_touchObject = touchObject;
+    }
     
     
     void Scene::render()
@@ -54,4 +66,6 @@ namespace ffb {
     {
         m_rootObject->update(dt);
     }
+    
+    
 }

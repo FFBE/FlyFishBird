@@ -31,6 +31,7 @@ namespace ffb {
         bool CreateStringTexture(const std::string &fontName,const std::string &text, float fontSize);
         void updateStirngTexture();
         void SetString(const std::string &text);
+        void SetStringColor(float r, float g, float b, float a);
         
         void SetTexture2d(unsigned char * data, float width, float height);
         

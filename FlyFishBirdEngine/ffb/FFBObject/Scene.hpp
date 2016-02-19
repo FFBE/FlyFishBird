@@ -31,10 +31,15 @@ namespace ffb {
         //rootObject
         Object * GetRootObject();
         
+        Object * GetTouchObject();
+        
+        void SetTouchObject(Object * touchObject);
+        
     protected:
         
         Object * m_rootObject;
         
+        Object * m_touchObject;
     };
 
 }

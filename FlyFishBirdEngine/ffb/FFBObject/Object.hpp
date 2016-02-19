@@ -23,9 +23,10 @@ namespace ffb {
     
     class Object:public BasicPtrClass{
         
+    public:
+        
         typedef std::vector<Object *> ObjectList;
 
-    public:
         
         CreateClassFunctions(Object);
         
@@ -56,21 +57,37 @@ namespace ffb {
         void Render();
         virtual void update(double dt);
         
+        
+        //touch enable
+        void SetTouchEnable(bool touchEnable);
+        void GetTouchEnable();
+        
+        //touch event
+        virtual bool TouchShouldBegin( Point touchPoint );
+        virtual void TouchMoved(Point movePoint);
+        virtual void TouchEnd(Point endPoint);
+        
+        //touch check
+        Object * TouchCheck(Point touchPoint);
+        
+
+        
     protected:
         
-        
+
         void SetRenderer(Renderer *);
         
-        Point        m_scale;
-        Point        m_position;
+        Point           m_scale;
+        Point           m_position;
         float           m_rotate;
         
-        Object     * m_supObject;
+        Object        * m_supObject;
         ObjectList      m_objectList;
-        Renderer       * m_render;
+        Renderer      * m_render;
         
     private:
         
+        bool            m_touchEnable;
         
         
 

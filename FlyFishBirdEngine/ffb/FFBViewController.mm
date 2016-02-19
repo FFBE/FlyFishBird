@@ -7,7 +7,7 @@
 //
 
 #import "FFBViewController.h"
-
+#import <objc/runtime.h>
 #import <OpenGLES/ES2/glext.h>
 
 #import "GameController.hpp"
@@ -53,6 +53,7 @@ using namespace ffb;
     GLKView * view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+    view.multipleTouchEnabled = YES;
     
     [self setupGL];
 }
@@ -97,6 +98,7 @@ using namespace ffb;
     GameScene * scene = FFBMalloc(GameScene);
     scene->Create();
     controller->SetRootScene(scene);
+    scene->release();
 }
 
 - (void)tearDownGL
@@ -107,6 +109,42 @@ using namespace ffb;
 - (void)update
 {
     controller->update(self.timeSinceLastUpdate);
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch * touch = [event allTouches].anyObject;
+    ffb::Point point = [self converViewPointToGamePoint:[touch locationInView:self.view]];
+    Object * touchObject = controller->GetCurrentScene()->GetRootObject()->TouchCheck(point);
+    controller->GetCurrentScene()->SetTouchObject(touchObject);
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch * touch = [event allTouches].anyObject;
+    ffb::Point point = [self converViewPointToGamePoint:[touch locationInView:self.view]];
+    Object * touchObject = controller->GetCurrentScene()->GetTouchObject();
+    if(touchObject != nullptr)
+    {
+        touchObject->TouchMoved(point);
+    }
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch * touch = [event allTouches].anyObject;
+    ffb::Point point = [self converViewPointToGamePoint:[touch locationInView:self.view]];
+    Object * touchObject = controller->GetCurrentScene()->GetTouchObject();
+    if(touchObject != nullptr)
+    {
+        touchObject->TouchEnd(point);
+    }
+}
+
+- (ffb::Point)converViewPointToGamePoint:(CGPoint)viewPoint
+{
+    ffb::Size screenSize = controller->GetDevice()->GetScreenSize();
+    return PointMake(viewPoint.x, screenSize.height-viewPoint.y);
 }
 
 @end

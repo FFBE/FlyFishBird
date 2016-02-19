@@ -7,7 +7,7 @@
 //
 
 #include "GameScene.hpp"
-
+#include "TouchTestObject.hpp"
 
 using namespace ffb;
 
@@ -24,12 +24,19 @@ bool GameScene::Create()
         return false;
     }
     
-    DrawObject * draw = FFBMalloc(DrawObject);
-    draw->Create();
-    draw->DrawCircleAndFill(0, 0, 100);
-    draw->SetColor(0, 0, 0, 1);
-    m_rootObject->AddObject(draw);
-    draw->release();
+    Size screenSize = GameController::GetSingletonPtr()->GetDevice()->GetScreenSize();
+    
+    Label * startGame = FFBMalloc(Label);
+    startGame->Create("开始游戏", 30);
+    m_rootObject->AddObject(startGame);
+    startGame->SetColor(1, 0, 0, 1);
+    startGame->SetPosition(PointMake(screenSize.width/2, screenSize.height/2));
+    startGame->release();
+    
+    TouchTestObject * touchTest = FFBMalloc(TouchTestObject);
+    touchTest->Create();
+    m_rootObject->AddObject(touchTest);
+    touchTest->release();
     
     return true;
 }

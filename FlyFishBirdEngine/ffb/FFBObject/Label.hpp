@@ -30,7 +30,7 @@ namespace ffb {
         void SetText(const std::string &text);
         std::string GetText();
         
-        void SetColor(float r, float g, float b);
+        void SetColor(float r, float g, float b, float a);
         Color GetColor();
     private:
         

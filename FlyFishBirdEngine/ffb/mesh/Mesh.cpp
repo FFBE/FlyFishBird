@@ -92,6 +92,8 @@ namespace ffb {
         for (; itera != end; ++itera, ++i) {
             MeshAttribute meshAttribute = *itera;
             
+            glLineWidth(meshAttribute.lineWidth);
+            
             glBindBuffer(GL_ARRAY_BUFFER, m_vboids[2*i]);
             glEnableVertexAttribArray ( m_glprogram->GetPositionIndex() );
             glVertexAttribPointer ( m_glprogram->GetPositionIndex(), meshAttribute.verticesStep, GL_FLOAT, GL_FALSE, meshAttribute.verticesStep * sizeof ( GLfloat ), 0);
@@ -108,7 +110,7 @@ namespace ffb {
             glBindBuffer(GL_ARRAY_BUFFER, 0);
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
         }
-       
+        glLineWidth(1.0);
     }
     
 #pragma mark - Transform
@@ -135,10 +137,11 @@ namespace ffb {
 #pragma mark - Shap data
     
     
-    void Mesh::AddShapData(GLuint *indices, int numberOfIndeices, GLfloat *vertices, int numberOfVertices, FFBDrawType type, VerticesStep verticesStep)
+    void Mesh::AddShapData(GLuint *indices, int numberOfIndeices, GLfloat *vertices, int numberOfVertices, FFBDrawType type, VerticesStep verticesStep, GLfloat lineWidth)
     {
         MeshAttribute meshAttribute;
         
+        meshAttribute.lineWidth = lineWidth;
         meshAttribute.verticesStep = verticesStep;
         meshAttribute.drawType = type;
         

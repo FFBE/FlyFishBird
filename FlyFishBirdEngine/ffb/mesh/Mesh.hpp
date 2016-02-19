@@ -53,6 +53,7 @@ namespace ffb {
             GLfloat         * vertices;
             FFBDrawType     drawType;
             VerticesStep    verticesStep;
+            GLfloat         lineWidth;
         };
         
         
@@ -65,7 +66,7 @@ namespace ffb {
         
         //set shape data
         
-        void AddShapData(GLuint * indices, int numberOfIndeices, GLfloat * vertices, int numberOfVertices, FFBDrawType type, VerticesStep verticesStep);
+        void AddShapData(GLuint * indices, int numberOfIndeices, GLfloat * vertices, int numberOfVertices, FFBDrawType type, VerticesStep verticesStep, GLfloat lineWidth);
         
         
         /* color */
