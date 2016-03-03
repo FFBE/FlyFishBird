@@ -40,26 +40,25 @@ namespace ffb {
            
             NoneParameter parameter = m_noneParaList.top();
             
-            while (parameter.delay < m_delte) {
-#if FFBDEBUG
-                printf("%f\n", m_delte);
-#endif
+            while (parameter.delay <= m_delte) {
+                
                 parameter.function();
+                
                 m_noneParaList.pop();
                 if (m_noneParaList.empty()) {
                     break;
                 }
+                
                 parameter = m_noneParaList.top();
             }
         }
         
         if (!m_oneParaList.empty()) {
+            
             OneParameter parameter = m_oneParaList.top();
             
             while (parameter.delay < m_delte) {
-#if FFBDEBUG
-                printf("%f\n", m_delte);
-#endif
+                
                 parameter.function(parameter.firstParameter);
                 m_noneParaList.pop();
                 
@@ -75,9 +74,7 @@ namespace ffb {
             TwoParameter parameter = m_twoParaList.top();
             
             while (parameter.delay < m_delte) {
-#if FFBDEBUG
-                printf("%f\n", m_delte);
-#endif
+
                 parameter.function(parameter.firstParameter, parameter.secondParameter);
                 m_noneParaList.pop();
                 

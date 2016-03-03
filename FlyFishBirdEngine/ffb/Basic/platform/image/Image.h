@@ -18,7 +18,7 @@ extern "C"{
 #include <stdio.h>
     
         
-    bool GetImageInfo(const char * imageName, unsigned char ** imageData, float * height, float * width);
+    bool GetImageInfo(const char * imageName, unsigned char ** imageData, float * width, float * height, float * textureWidth, float * textureHeight);
 
 
 #ifdef __cplusplus

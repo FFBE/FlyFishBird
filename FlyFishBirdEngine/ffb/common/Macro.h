@@ -51,11 +51,28 @@ virtual void Destory();
 
 
 
+#define function0st(__selector__,__target__, ...) std::bind(&__selector__,__target__, ##__VA_ARGS__)
+#define function1st(__selector__,__target__, ...) std::bind(&__selector__,__target__, std::placeholders::_1, ##__VA_ARGS__)
+#define function2st(__selector__,__target__, ...) std::bind(&__selector__,__target__, std::placeholders::_1, std::placeholders::_2, ##__VA_ARGS__)
 
 
 
-
-
+#define CreateSimpleClass( Class , SuperClass)\
+void Class::Clear()\
+{\
+    SuperClass::Clear();\
+}\
+void Class::Destory()\
+{\
+    SuperClass::Destory();\
+}\
+bool Class::Create()\
+{\
+    if (!SuperClass::Create()) {\
+        return false;\
+    }\
+    return true;\
+}
 
 
 #endif /* Macro_hpp */

@@ -28,6 +28,9 @@ namespace ffb {
         void DrawLine(GLfloat x0, GLfloat y0, GLfloat xEnd, GLfloat yEnd);
         
         
+        void DrawRectangle(Point leftDownPoint, Size size);
+        
+        
         void DrawCircle(int xc, int yc, GLint radius);
         void DrawCircleAndFill(GLfloat xc, GLfloat yc, GLfloat radius);
         
@@ -38,6 +41,8 @@ namespace ffb {
         
         
         void Draw(GLuint * indices, int numberOfIndeices, GLfloat * vertices, int numberOfVertices, FFBDrawType type, VerticesStep verticesStep);
+        
+        void RemoveAllLine();
         
     private:
         

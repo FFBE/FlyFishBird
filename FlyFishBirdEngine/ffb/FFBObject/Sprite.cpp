@@ -14,8 +14,17 @@ namespace ffb {
     
     void Sprite::Clear()
     {
+        m_texture = FFBMalloc(Texture2D);
+        m_touchEnable = false;
         Object::Clear();
     }
+    
+    void Sprite::Destory()
+    {
+        FFBSaveFree(m_texture);
+        Object::Destory();
+    }
+
     
     bool Sprite::Create()
     {
@@ -24,19 +33,25 @@ namespace ffb {
     
     bool Sprite::Create(const std::string &fileName)
     {
-        m_texture = FFBMalloc(Texture2D);
-
+        return Create(fileName, TextureWrapModelClampToEdge);
+    }
+    
+    bool Sprite::Create(const std::string  &fileName, TextureWrapModel model)
+    {
         if (!Object::Create(m_texture)) {
             return false;
         }
         
-        if (!m_texture->CreateImageTexture(CreateFileName(fileName)))
+        m_texture -> SetTextureWrapModel(model);
+        
+        if (!m_texture->CreateImageTexture(fileName))
         {
             m_texture->release();
             return false;
         }
         
         SetRenderer(m_texture);
+        m_fileName = fileName;
         
         return true;
     }
@@ -75,32 +90,35 @@ namespace ffb {
         return true;
     }
     
-    void Sprite::Destory()
+    Size Sprite::GetSize()
     {
-        m_texture->release();
-        Object::Destory();
+        return m_texture->GetSize();
     }
     
-    
-    
-    std::string Sprite::CreateFileName(const std::string & fileName)
+    std::string Sprite::GetFileName()
     {
-        int scale = Device::GetSingleton().GetScreenScale();
-        
-        size_t index = fileName.find(".");
-        std::string fileHead = fileName.substr(0, index);
-        std::string fileType = fileName.substr(fileName.length()-index+1);
-        if (scale == 2.0)
-        {
-            return (fileHead + "@2x" + fileType) ;
-        }
-        else if (scale == 3.0)
-        {
-            return (fileHead + "@3x" + fileType) ;
-        }
-        else
-            return fileName;
+        return m_fileName;
     }
+    
+//    std::string Sprite::CreateFileName(const std::string & fileName)
+//    {
+//        int scale = Device::GetSingleton().GetScreenScale();
+//        
+//        size_t index = fileName.find(".");
+//        std::string fileHead = fileName.substr(0, index);
+//        std::string fileType = fileName.substr(index);
+//        
+//        if (scale == 2.0)
+//        {
+//            return (fileHead + "@2x" + fileType) ;
+//        }
+//        else if (scale == 3.0)
+//        {
+//            return (fileHead + "@3x" + fileType) ;
+//        }
+//        else
+//            return fileName;
+//    }
     
 }
 

@@ -17,12 +17,19 @@ namespace ffb {
     
     void DrawObject::Clear()
     {
+        m_mesh = FFBMalloc(Mesh);
         Object::Clear();
     }
     
+    void DrawObject::Destory()
+    {
+        FFBSaveFree(m_mesh);
+        Object::Destory();
+    }
+
+    
     bool DrawObject::Create()
     {
-        m_mesh = FFBMalloc(Mesh);
         if (!Object::Create(m_mesh)) {
             return false;
         }
@@ -35,12 +42,10 @@ namespace ffb {
         return true;
     }
     
-    void DrawObject::Destory()
+    void DrawObject::RemoveAllLine()
     {
-        FFBSaveFree(m_mesh);
-        Object::Destory();
+        m_mesh->RemoveAllShap();
     }
-    
     
     
     void DrawObject::SetColor(float r, float g, float b, float a)
@@ -69,6 +74,11 @@ namespace ffb {
         GLuint indices[2] = {0, 1};
         GLfloat vertices[4] = {x0, y0, xEnd, yEnd};
         m_mesh->AddShapData(indices, 2, vertices, 2, FFBDrawTypeLines, VerticesStepTwo,  Device::GetSingleton().GetScreenScale());
+    }
+    
+    void DrawObject::DrawRectangle(Point leftDownPoint, Size size)
+    {
+        
     }
     
     void DrawObject::DrawCircle(int xc, int yc, GLint radius)

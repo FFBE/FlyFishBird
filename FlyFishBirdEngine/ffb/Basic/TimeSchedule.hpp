@@ -16,11 +16,6 @@
 #include <vector>
 
 namespace ffb {
-    
-    
-#define function0st(target, function)       std::bind(&function, target)
-#define function1st(target, function)       std::bind(&function, target)
-#define function2st(target, function)       std::bind(&function, target)
 
     
     typedef std::function<void(void * , void *)> TwoParameterFunction;

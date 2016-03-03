@@ -19,14 +19,16 @@ namespace ffb {
     {
     }
     
+    void BasicPtrClass::Destory()
+    {
+    }
+    
     bool BasicPtrClass::Create()
     {
         return true;
     }
     
-    void BasicPtrClass::Destory()
-    {
-    }
+   
     
     
     
@@ -42,6 +44,7 @@ namespace ffb {
     {
         m_retain--;
         if (m_retain == 0) {
+            Destory();
             delete this;
         }
     }

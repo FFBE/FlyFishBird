@@ -332,7 +332,7 @@ bool ResManager::CheckForOverallocation()
 
 		while((!PriQueue.empty()) && (m_nCurrentUsedMemory > m_nMaximumMemory))
 		{
-			UINT nDisposalSize = PriQueue.top()->GetSize();
+			UINT nDisposalSize = (UINT)PriQueue.top()->GetSize();
 			PriQueue.top()->Dispose();
 			if(PriQueue.top()->IsDisposed())
 				RemoveMemory(nDisposalSize);

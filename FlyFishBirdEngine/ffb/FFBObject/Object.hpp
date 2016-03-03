@@ -12,16 +12,42 @@
 #include <stdio.h>
 #include <vector>
 
+#include "SimpleFunction.h"
+
 #include "BasicPtrClass.hpp"
-
 #include "Renderer.hpp"
-
-#include "Texture2D.hpp"
+#include "Action.hpp"
 
 namespace ffb {
     
+    class Touch:public BasicPtrClass
+    {
+        
+    public:
+        
+        CreateClassFunctions(Touch);
+        bool Create(Point point, double timestamp);
+        
+        Point GetTouchPoint() {return m_point;}
+        double GetTouchTimestamp() {return m_touchTimestamp;}
+        Point ConverTouchPointToObject(Object * object);
+        
+    private:
+        
+        Point m_point;
+        double m_touchTimestamp;
+        
+    };
+    
+    
+#define TouchEventFuncation\
+    virtual bool TouchShouldBegin( ffb::Touch * touch );\
+    virtual void TouchMoved(ffb::Touch * touch);\
+    virtual void TouchEnd(ffb::Touch * touch)
     
     class Object:public BasicPtrClass{
+        
+        friend Touch;
         
     public:
         
@@ -32,10 +58,20 @@ namespace ffb {
         
         bool Create(Renderer * render);
         
+        
+        //object
         void AddObject(Object *object);
         void RemoveObject(Object *object);
+        void RemoveAllObject();
         void RemoveFromSuperObject();
         
+        void SetTag(int tag);
+        int GetTag();
+        
+        //hidden
+        
+        void SetHidden(bool hidden);
+        bool GetHidden();
         
         //position
         void SetPosition(Point point);
@@ -53,24 +89,28 @@ namespace ffb {
         float GetRotate();
         
         
+        //action
+        void AddAction(Action * action);
+        void RemoveAction(Action * action);
+        void RemoveActionByTag(int tag);
         
-        void Render();
-        virtual void update(double dt);
+        //render
+        virtual void Render();
+        virtual void Update(double dt);
         
         
         //touch enable
         void SetTouchEnable(bool touchEnable);
-        void GetTouchEnable();
+        bool GetTouchEnable();
         
         //touch event
-        virtual bool TouchShouldBegin( Point touchPoint );
-        virtual void TouchMoved(Point movePoint);
-        virtual void TouchEnd(Point endPoint);
+        TouchEventFuncation;
         
         //touch check
-        Object * TouchCheck(Point touchPoint);
+        virtual Object * TouchCheck(Touch * touch);
         
-
+        
+        Renderer * GetRenderer();
         
     protected:
         
@@ -83,16 +123,18 @@ namespace ffb {
         
         Object        * m_supObject;
         ObjectList      m_objectList;
-        Renderer      * m_render;
+        Renderer      * m_renderer;
+        
+        bool            m_touchEnable;
+        bool            m_hidden;
+        int             m_tag;
         
     private:
         
-        bool            m_touchEnable;
         
         
 
     };
-    
     
 }
 

@@ -19,6 +19,7 @@
 #include "Singleton.hpp"
 
 
+
 // basic
 
 #include "BasicPtrClass.hpp"
@@ -28,7 +29,8 @@
 #include "ReadFile.h"
 #include "Font.h"
 #include "Image.h"
-
+#include "TextInput.hpp"
+#include "DiskCache.hpp"
 
 // gl program
 
@@ -37,11 +39,14 @@
 #include "GLESCamera.hpp"
 
 
+
 //mesh and texture
 
 #include "Renderer.hpp"
+#include "SimpleRender.hpp"
 #include "Mesh.hpp"
 #include "Texture2D.hpp"
+
 
 
 // object
@@ -51,10 +56,23 @@
 #include "Object.hpp"
 #include "Scene.hpp"
 #include "Sprite.hpp"
+#include "TouchObject.hpp"
+#include "TouchLabel.hpp"
+#include "TouchSprite.hpp"
+#include "RepeatSprite.hpp"
+#include "Scroll.hpp"
+
 
 // game controller
+
 #include "GameController.hpp"
 #include "TimeSchedule.hpp"
+
+
+
+// action
+
+#include "Action.hpp"
 
 
 #endif /* FlyFishBird_hpp */

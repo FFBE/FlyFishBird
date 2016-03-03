@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "Object.hpp"
+#include "Texture2D.hpp"
 
 namespace ffb {
     
@@ -23,15 +24,21 @@ namespace ffb {
         CreateClassFunctions(Sprite);
         
         bool Create(const std::string  &fileName);
+        bool Create(const std::string  &fileName, TextureWrapModel model);
+
         bool CreateLaunchImageForApple();
         
-    private:
+        std::string GetFileName();
+        
+        Size GetSize();
+        
+    protected:
         
         
         Texture2D * m_texture;
         
-        
-        inline std::string CreateFileName(const std::string &fileName);
+        std::string m_fileName;
+//        inline std::string CreateFileName(const std::string &fileName);
     };
 }
 

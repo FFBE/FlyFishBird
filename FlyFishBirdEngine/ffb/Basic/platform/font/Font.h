@@ -17,8 +17,8 @@ extern "C"{
     
 #include <stdio.h>
     
+    bool GetFontInfo(const char * text, const char * fontNameC, float size, unsigned char ** fontData, float * width, float * height, float r, float g, float b, float a);
     
-    bool GetFontInfo(const char * text, const char * fontName, float size, unsigned char ** fontData, float * width, float * height);
     
     
 #ifdef __cplusplus

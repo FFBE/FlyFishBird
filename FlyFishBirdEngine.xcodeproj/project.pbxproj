@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		182550BC1C6C4C3D002E6ECF /* TouchTestObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182550BA1C6C4C3D002E6ECF /* TouchTestObject.cpp */; };
+		186D27781C7953DA0074CC49 /* FirstPeople.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 186D27761C7953DA0074CC49 /* FirstPeople.cpp */; };
+		18A614D31C78953600BC40DF /* LaunchImage-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A614D11C78953600BC40DF /* LaunchImage-568@2x.png */; };
+		18A614D41C78953600BC40DF /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A614D21C78953600BC40DF /* LaunchImage@2x.png */; };
+		18A614D61C78954900BC40DF /* LaunchImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A614D51C78954900BC40DF /* LaunchImage@3x.png */; };
+		18A614DF1C7898D300BC40DF /* ChoseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18A614D81C7898D300BC40DF /* ChoseScene.cpp */; };
+		18A614E01C7898D300BC40DF /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18A614DA1C7898D300BC40DF /* GameScene.cpp */; };
+		18A614E11C7898D300BC40DF /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18A614DC1C7898D300BC40DF /* LevelScene.cpp */; };
+		18A614E41C78990600BC40DF /* People.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18A614E21C78990600BC40DF /* People.cpp */; };
+		18DE51451C7858D200458C9E /* TouchLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18DE51431C7858D200458C9E /* TouchLabel.cpp */; };
+		18DE51481C7858E600458C9E /* TouchSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18DE51461C7858E600458C9E /* TouchSprite.cpp */; };
 		18EB826C1C6C531C0050A824 /* DrawObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18EB826A1C6C531C0050A824 /* DrawObject.cpp */; };
 		C31B639C1C5A1D0500755914 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B635A1C5A1D0500755914 /* GameController.cpp */; };
 		C31B639D1C5A1D0500755914 /* AutoReleasePool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B635D1C5A1D0500755914 /* AutoReleasePool.cpp */; };
@@ -33,23 +42,46 @@
 		C31B63B21C5A1D0500755914 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B63961C5A1D0500755914 /* Mesh.cpp */; };
 		C31B63B31C5A1D0500755914 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B63981C5A1D0500755914 /* Renderer.cpp */; };
 		C31B63B41C5A1D0500755914 /* Texture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C31B639A1C5A1D0500755914 /* Texture2D.cpp */; };
-		C31B63C01C5A207800755914 /* ipad-152.png in Resources */ = {isa = PBXBuildFile; fileRef = C31B63BA1C5A207800755914 /* ipad-152.png */; };
-		C31B63C11C5A207800755914 /* login@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31B63BB1C5A207800755914 /* login@3x.png */; };
-		C31B63C21C5A207800755914 /* sale.png in Resources */ = {isa = PBXBuildFile; fileRef = C31B63BC1C5A207800755914 /* sale.png */; };
 		C31B63C31C5A207800755914 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C31B63BE1C5A207800755914 /* Shader.fsh */; };
 		C31B63C41C5A207800755914 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C31B63BF1C5A207800755914 /* Shader.vsh */; };
 		C31B63C61C5A209500755914 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31B63C51C5A209500755914 /* Default-568h@2x.png */; };
+		C33C95BD1C7C5BE8000C84B4 /* SimpleRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C33C95BB1C7C5BE8000C84B4 /* SimpleRender.cpp */; };
+		C34F15361C7EF2A5003B9B29 /* Scroll.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C34F15341C7EF2A5003B9B29 /* Scroll.cpp */; };
+		C34F15391C7F0A5A003B9B29 /* TouchObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C34F15371C7F0A5A003B9B29 /* TouchObject.cpp */; };
 		C35109E61C1C0FC5006BC47D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C35109E51C1C0FC5006BC47D /* Images.xcassets */; };
 		C35109EC1C1C2162006BC47D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35109EA1C1C2162006BC47D /* Main.storyboard */; };
+		C3635D291C85285B00410343 /* SelectSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3635D271C85285B00410343 /* SelectSprite.cpp */; };
+		C3635D2C1C852D2500410343 /* TextInput.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3635D2A1C852D2500410343 /* TextInput.mm */; };
+		C3635D301C853BE200410343 /* DiskCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3635D2E1C853BE200410343 /* DiskCache.mm */; };
+		C3635D331C853E9100410343 /* GameLevelAnalysis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3635D311C853E9100410343 /* GameLevelAnalysis.cpp */; };
+		C3664ACE1C83DF6D008565E0 /* RepeatSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3664ACC1C83DF6D008565E0 /* RepeatSprite.cpp */; };
+		C3664AD61C841610008565E0 /* gamelevel.txt in Resources */ = {isa = PBXBuildFile; fileRef = C3664AD51C841610008565E0 /* gamelevel.txt */; };
+		C3664ADC1C8444B9008565E0 /* MapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3664ADA1C8444B9008565E0 /* MapObject.cpp */; };
 		C36A85391BD2144C0045B7D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C36A85381BD2144C0045B7D3 /* main.m */; };
+		C36BDA871C8020310038C5A1 /* SimpleFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = C36BDA851C8020310038C5A1 /* SimpleFunction.c */; };
+		C36DAAC81C7BEDB300DBB561 /* Action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C36DAAC61C7BEDB300DBB561 /* Action.cpp */; };
 		C3882B441C4F8B6100871F16 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3882AF61C4F8B6100871F16 /* AppDelegate.m */; };
 		C3882B591C4F8B6100871F16 /* FFBViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3882B2B1C4F8B6100871F16 /* FFBViewController.mm */; };
-		C3882B691C4F8BDB00871F16 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3882B671C4F8BDB00871F16 /* GameScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		182550BA1C6C4C3D002E6ECF /* TouchTestObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchTestObject.cpp; sourceTree = "<group>"; };
-		182550BB1C6C4C3D002E6ECF /* TouchTestObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TouchTestObject.hpp; sourceTree = "<group>"; };
+		186D27761C7953DA0074CC49 /* FirstPeople.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FirstPeople.cpp; sourceTree = "<group>"; };
+		186D27771C7953DA0074CC49 /* FirstPeople.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FirstPeople.hpp; sourceTree = "<group>"; };
+		18A614D11C78953600BC40DF /* LaunchImage-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-568@2x.png"; sourceTree = "<group>"; };
+		18A614D21C78953600BC40DF /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
+		18A614D51C78954900BC40DF /* LaunchImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@3x.png"; sourceTree = "<group>"; };
+		18A614D81C7898D300BC40DF /* ChoseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChoseScene.cpp; sourceTree = "<group>"; };
+		18A614D91C7898D300BC40DF /* ChoseScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ChoseScene.hpp; sourceTree = "<group>"; };
+		18A614DA1C7898D300BC40DF /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
+		18A614DB1C7898D300BC40DF /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
+		18A614DC1C7898D300BC40DF /* LevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelScene.cpp; sourceTree = "<group>"; };
+		18A614DD1C7898D300BC40DF /* LevelScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LevelScene.hpp; sourceTree = "<group>"; };
+		18A614E21C78990600BC40DF /* People.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = People.cpp; sourceTree = "<group>"; };
+		18A614E31C78990600BC40DF /* People.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = People.hpp; sourceTree = "<group>"; };
+		18DE51431C7858D200458C9E /* TouchLabel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchLabel.cpp; sourceTree = "<group>"; };
+		18DE51441C7858D200458C9E /* TouchLabel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TouchLabel.hpp; sourceTree = "<group>"; };
+		18DE51461C7858E600458C9E /* TouchSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchSprite.cpp; sourceTree = "<group>"; };
+		18DE51471C7858E600458C9E /* TouchSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TouchSprite.hpp; sourceTree = "<group>"; };
 		18EB826A1C6C531C0050A824 /* DrawObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawObject.cpp; sourceTree = "<group>"; };
 		18EB826B1C6C531C0050A824 /* DrawObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DrawObject.hpp; sourceTree = "<group>"; };
 		C31B635A1C5A1D0500755914 /* GameController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameController.cpp; sourceTree = "<group>"; };
@@ -104,23 +136,41 @@
 		C31B63991C5A1D0500755914 /* Renderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
 		C31B639A1C5A1D0500755914 /* Texture2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture2D.cpp; sourceTree = "<group>"; };
 		C31B639B1C5A1D0500755914 /* Texture2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Texture2D.hpp; sourceTree = "<group>"; };
-		C31B63BA1C5A207800755914 /* ipad-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-152.png"; sourceTree = "<group>"; };
-		C31B63BB1C5A207800755914 /* login@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login@3x.png"; sourceTree = "<group>"; };
-		C31B63BC1C5A207800755914 /* sale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sale.png; sourceTree = "<group>"; };
 		C31B63BE1C5A207800755914 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		C31B63BF1C5A207800755914 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		C31B63C51C5A209500755914 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C33C95BB1C7C5BE8000C84B4 /* SimpleRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleRender.cpp; sourceTree = "<group>"; };
+		C33C95BC1C7C5BE8000C84B4 /* SimpleRender.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SimpleRender.hpp; sourceTree = "<group>"; };
+		C34F15341C7EF2A5003B9B29 /* Scroll.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scroll.cpp; sourceTree = "<group>"; };
+		C34F15351C7EF2A5003B9B29 /* Scroll.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Scroll.hpp; sourceTree = "<group>"; };
+		C34F15371C7F0A5A003B9B29 /* TouchObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchObject.cpp; sourceTree = "<group>"; };
+		C34F15381C7F0A5A003B9B29 /* TouchObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TouchObject.hpp; sourceTree = "<group>"; };
 		C35109E51C1C0FC5006BC47D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C35109EA1C1C2162006BC47D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C3635D271C85285B00410343 /* SelectSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectSprite.cpp; sourceTree = "<group>"; };
+		C3635D281C85285B00410343 /* SelectSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectSprite.hpp; sourceTree = "<group>"; };
+		C3635D2A1C852D2500410343 /* TextInput.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextInput.mm; sourceTree = "<group>"; };
+		C3635D2B1C852D2500410343 /* TextInput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextInput.hpp; sourceTree = "<group>"; };
+		C3635D2E1C853BE200410343 /* DiskCache.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DiskCache.mm; sourceTree = "<group>"; };
+		C3635D2F1C853BE200410343 /* DiskCache.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DiskCache.hpp; sourceTree = "<group>"; };
+		C3635D311C853E9100410343 /* GameLevelAnalysis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLevelAnalysis.cpp; sourceTree = "<group>"; };
+		C3635D321C853E9100410343 /* GameLevelAnalysis.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameLevelAnalysis.hpp; sourceTree = "<group>"; };
+		C3664ACC1C83DF6D008565E0 /* RepeatSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RepeatSprite.cpp; sourceTree = "<group>"; };
+		C3664ACD1C83DF6D008565E0 /* RepeatSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RepeatSprite.hpp; sourceTree = "<group>"; };
+		C3664AD51C841610008565E0 /* gamelevel.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gamelevel.txt; sourceTree = "<group>"; };
+		C3664ADA1C8444B9008565E0 /* MapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapObject.cpp; sourceTree = "<group>"; };
+		C3664ADB1C8444B9008565E0 /* MapObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MapObject.hpp; sourceTree = "<group>"; };
 		C36A85341BD2144C0045B7D3 /* FlyFishBirdEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyFishBirdEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36A85381BD2144C0045B7D3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C36A85481BD2144C0045B7D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C36BDA851C8020310038C5A1 /* SimpleFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SimpleFunction.c; sourceTree = "<group>"; };
+		C36BDA861C8020310038C5A1 /* SimpleFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleFunction.h; sourceTree = "<group>"; };
+		C36DAAC61C7BEDB300DBB561 /* Action.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Action.cpp; sourceTree = "<group>"; };
+		C36DAAC71C7BEDB300DBB561 /* Action.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Action.hpp; sourceTree = "<group>"; };
 		C3882AF51C4F8B6100871F16 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3882AF61C4F8B6100871F16 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C3882B2A1C4F8B6100871F16 /* FFBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFBViewController.h; sourceTree = "<group>"; };
 		C3882B2B1C4F8B6100871F16 /* FFBViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FFBViewController.mm; sourceTree = "<group>"; };
-		C3882B671C4F8BDB00871F16 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
-		C3882B681C4F8BDB00871F16 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +184,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18A614CF1C78953600BC40DF /* image */ = {
+			isa = PBXGroup;
+			children = (
+				18A614D01C78953600BC40DF /* LaunchImage */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		18A614D01C78953600BC40DF /* LaunchImage */ = {
+			isa = PBXGroup;
+			children = (
+				18A614D11C78953600BC40DF /* LaunchImage-568@2x.png */,
+				18A614D21C78953600BC40DF /* LaunchImage@2x.png */,
+				18A614D51C78954900BC40DF /* LaunchImage@3x.png */,
+			);
+			path = LaunchImage;
+			sourceTree = "<group>";
+		};
+		18A614D71C7898D300BC40DF /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				18A614D81C7898D300BC40DF /* ChoseScene.cpp */,
+				18A614D91C7898D300BC40DF /* ChoseScene.hpp */,
+				18A614DC1C7898D300BC40DF /* LevelScene.cpp */,
+				18A614DD1C7898D300BC40DF /* LevelScene.hpp */,
+				18A614DA1C7898D300BC40DF /* GameScene.cpp */,
+				18A614DB1C7898D300BC40DF /* GameScene.hpp */,
+			);
+			path = scene;
+			sourceTree = "<group>";
+		};
+		18A614DE1C7898D300BC40DF /* sprite */ = {
+			isa = PBXGroup;
+			children = (
+				C3635D261C85285B00410343 /* design sprite */,
+				18A614E21C78990600BC40DF /* People.cpp */,
+				18A614E31C78990600BC40DF /* People.hpp */,
+				186D27761C7953DA0074CC49 /* FirstPeople.cpp */,
+				186D27771C7953DA0074CC49 /* FirstPeople.hpp */,
+				C3664ADA1C8444B9008565E0 /* MapObject.cpp */,
+				C3664ADB1C8444B9008565E0 /* MapObject.hpp */,
+				C3635D311C853E9100410343 /* GameLevelAnalysis.cpp */,
+				C3635D321C853E9100410343 /* GameLevelAnalysis.hpp */,
+			);
+			path = sprite;
+			sourceTree = "<group>";
+		};
 		C31B63591C5A1D0500755914 /* Basic */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +260,8 @@
 		C31B63631C5A1D0500755914 /* platform */ = {
 			isa = PBXGroup;
 			children = (
+				C3635D2D1C853B9F00410343 /* cache */,
+				C3664AE01C84561F008565E0 /* textinput */,
 				C31B63641C5A1D0500755914 /* device */,
 				C31B63671C5A1D0500755914 /* file read */,
 				C31B636A1C5A1D0500755914 /* font */,
@@ -214,6 +313,8 @@
 				C31B63741C5A1D0500755914 /* Macro.h */,
 				C31B63751C5A1D0500755914 /* math */,
 				C31B63801C5A1D0500755914 /* template */,
+				C36BDA851C8020310038C5A1 /* SimpleFunction.c */,
+				C36BDA861C8020310038C5A1 /* SimpleFunction.h */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -244,7 +345,7 @@
 			path = template;
 			sourceTree = "<group>";
 		};
-		C31B63831C5A1D0500755914 /* FFBObject */ = {
+		C31B63831C5A1D0500755914 /* Object */ = {
 			isa = PBXGroup;
 			children = (
 				C31B638A1C5A1D0500755914 /* Scene.cpp */,
@@ -257,7 +358,18 @@
 				C31B63871C5A1D0500755914 /* Label.hpp */,
 				C31B638C1C5A1D0500755914 /* Sprite.cpp */,
 				C31B638D1C5A1D0500755914 /* Sprite.hpp */,
+				C34F15371C7F0A5A003B9B29 /* TouchObject.cpp */,
+				C34F15381C7F0A5A003B9B29 /* TouchObject.hpp */,
+				18DE51431C7858D200458C9E /* TouchLabel.cpp */,
+				18DE51441C7858D200458C9E /* TouchLabel.hpp */,
+				18DE51461C7858E600458C9E /* TouchSprite.cpp */,
+				18DE51471C7858E600458C9E /* TouchSprite.hpp */,
+				C3664ACC1C83DF6D008565E0 /* RepeatSprite.cpp */,
+				C3664ACD1C83DF6D008565E0 /* RepeatSprite.hpp */,
+				C34F15341C7EF2A5003B9B29 /* Scroll.cpp */,
+				C34F15351C7EF2A5003B9B29 /* Scroll.hpp */,
 			);
+			name = Object;
 			path = FFBObject;
 			sourceTree = "<group>";
 		};
@@ -279,6 +391,8 @@
 			children = (
 				C31B63981C5A1D0500755914 /* Renderer.cpp */,
 				C31B63991C5A1D0500755914 /* Renderer.hpp */,
+				C33C95BB1C7C5BE8000C84B4 /* SimpleRender.cpp */,
+				C33C95BC1C7C5BE8000C84B4 /* SimpleRender.hpp */,
 				C31B63961C5A1D0500755914 /* Mesh.cpp */,
 				C31B63971C5A1D0500755914 /* Mesh.hpp */,
 				C31B639A1C5A1D0500755914 /* Texture2D.cpp */,
@@ -290,9 +404,7 @@
 		C31B63B91C5A207800755914 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				C31B63BA1C5A207800755914 /* ipad-152.png */,
-				C31B63BB1C5A207800755914 /* login@3x.png */,
-				C31B63BC1C5A207800755914 /* sale.png */,
+				18A614CF1C78953600BC40DF /* image */,
 				C31B63BD1C5A207800755914 /* shader */,
 			);
 			path = source;
@@ -305,6 +417,42 @@
 				C31B63BF1C5A207800755914 /* Shader.vsh */,
 			);
 			path = shader;
+			sourceTree = "<group>";
+		};
+		C3635D261C85285B00410343 /* design sprite */ = {
+			isa = PBXGroup;
+			children = (
+				C3635D271C85285B00410343 /* SelectSprite.cpp */,
+				C3635D281C85285B00410343 /* SelectSprite.hpp */,
+			);
+			path = "design sprite";
+			sourceTree = "<group>";
+		};
+		C3635D2D1C853B9F00410343 /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				C3635D2E1C853BE200410343 /* DiskCache.mm */,
+				C3635D2F1C853BE200410343 /* DiskCache.hpp */,
+			);
+			name = cache;
+			sourceTree = "<group>";
+		};
+		C3664AD21C8415FE008565E0 /* file */ = {
+			isa = PBXGroup;
+			children = (
+				C3664AD51C841610008565E0 /* gamelevel.txt */,
+			);
+			path = file;
+			sourceTree = "<group>";
+		};
+		C3664AE01C84561F008565E0 /* textinput */ = {
+			isa = PBXGroup;
+			children = (
+				C3635D2A1C852D2500410343 /* TextInput.mm */,
+				C3635D2B1C852D2500410343 /* TextInput.hpp */,
+			);
+			name = textinput;
+			path = textwrite;
 			sourceTree = "<group>";
 		};
 		C36A852B1BD2144C0045B7D3 = {
@@ -345,6 +493,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C36DAAC51C7BED7600DBB561 /* action */ = {
+			isa = PBXGroup;
+			children = (
+				C36DAAC61C7BEDB300DBB561 /* Action.cpp */,
+				C36DAAC71C7BEDB300DBB561 /* Action.hpp */,
+			);
+			path = action;
+			sourceTree = "<group>";
+		};
 		C3882AF41C4F8B6100871F16 /* ffb */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,7 +514,8 @@
 				C31B63721C5A1D0500755914 /* common */,
 				C31B638E1C5A1D0500755914 /* GLProgram */,
 				C31B63951C5A1D0500755914 /* mesh */,
-				C31B63831C5A1D0500755914 /* FFBObject */,
+				C31B63831C5A1D0500755914 /* Object */,
+				C36DAAC51C7BED7600DBB561 /* action */,
 			);
 			path = ffb;
 			sourceTree = "<group>";
@@ -365,10 +523,9 @@
 		C3882B431C4F8B6100871F16 /* game content */ = {
 			isa = PBXGroup;
 			children = (
-				C3882B671C4F8BDB00871F16 /* GameScene.cpp */,
-				C3882B681C4F8BDB00871F16 /* GameScene.hpp */,
-				182550BA1C6C4C3D002E6ECF /* TouchTestObject.cpp */,
-				182550BB1C6C4C3D002E6ECF /* TouchTestObject.hpp */,
+				C3664AD21C8415FE008565E0 /* file */,
+				18A614D71C7898D300BC40DF /* scene */,
+				18A614DE1C7898D300BC40DF /* sprite */,
 			);
 			path = "game content";
 			sourceTree = "<group>";
@@ -432,13 +589,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A614D41C78953600BC40DF /* LaunchImage@2x.png in Resources */,
 				C31B63C31C5A207800755914 /* Shader.fsh in Resources */,
+				18A614D31C78953600BC40DF /* LaunchImage-568@2x.png in Resources */,
 				C31B63C41C5A207800755914 /* Shader.vsh in Resources */,
-				C31B63C01C5A207800755914 /* ipad-152.png in Resources */,
-				C31B63C21C5A207800755914 /* sale.png in Resources */,
-				C31B63C11C5A207800755914 /* login@3x.png in Resources */,
 				C31B63C61C5A209500755914 /* Default-568h@2x.png in Resources */,
 				C35109E61C1C0FC5006BC47D /* Images.xcassets in Resources */,
+				C3664AD61C841610008565E0 /* gamelevel.txt in Resources */,
+				18A614D61C78954900BC40DF /* LaunchImage@3x.png in Resources */,
 				C35109EC1C1C2162006BC47D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,32 +611,48 @@
 				C31B63B21C5A1D0500755914 /* Mesh.cpp in Sources */,
 				C31B63A71C5A1D0500755914 /* Matrix.cpp in Sources */,
 				C31B639C1C5A1D0500755914 /* GameController.cpp in Sources */,
+				C3635D2C1C852D2500410343 /* TextInput.mm in Sources */,
+				18A614DF1C7898D300BC40DF /* ChoseScene.cpp in Sources */,
+				186D27781C7953DA0074CC49 /* FirstPeople.cpp in Sources */,
 				C31B63A01C5A1D0500755914 /* Device.cpp in Sources */,
 				C31B63B41C5A1D0500755914 /* Texture2D.cpp in Sources */,
 				C31B63B31C5A1D0500755914 /* Renderer.cpp in Sources */,
 				C31B63AE1C5A1D0500755914 /* Sprite.cpp in Sources */,
-				C3882B691C4F8BDB00871F16 /* GameScene.cpp in Sources */,
+				C36BDA871C8020310038C5A1 /* SimpleFunction.c in Sources */,
 				C31B639D1C5A1D0500755914 /* AutoReleasePool.cpp in Sources */,
+				C3635D331C853E9100410343 /* GameLevelAnalysis.cpp in Sources */,
 				C3882B591C4F8B6100871F16 /* FFBViewController.mm in Sources */,
 				C31B63B11C5A1D0500755914 /* GLESProgram.cpp in Sources */,
+				C36DAAC81C7BEDB300DBB561 /* Action.cpp in Sources */,
+				C34F15391C7F0A5A003B9B29 /* TouchObject.cpp in Sources */,
+				C3664ACE1C83DF6D008565E0 /* RepeatSprite.cpp in Sources */,
 				C31B63AD1C5A1D0500755914 /* Scene.cpp in Sources */,
 				C31B63B01C5A1D0500755914 /* GLESCamera.cpp in Sources */,
 				C31B63AB1C5A1D0500755914 /* Label.cpp in Sources */,
 				C31B63A81C5A1D0500755914 /* Vector3.cpp in Sources */,
+				C33C95BD1C7C5BE8000C84B4 /* SimpleRender.cpp in Sources */,
+				18A614E11C7898D300BC40DF /* LevelScene.cpp in Sources */,
 				C31B63AF1C5A1D0500755914 /* GLESBaseProgram.cpp in Sources */,
 				C31B63A11C5A1D0500755914 /* ReadFile-ios.mm in Sources */,
-				182550BC1C6C4C3D002E6ECF /* TouchTestObject.cpp in Sources */,
 				C31B63A21C5A1D0500755914 /* Font-ios.mm in Sources */,
+				C34F15361C7EF2A5003B9B29 /* Scroll.cpp in Sources */,
 				C31B63A31C5A1D0500755914 /* Image-ios.mm in Sources */,
 				18EB826C1C6C531C0050A824 /* DrawObject.cpp in Sources */,
 				C31B63AC1C5A1D0500755914 /* Object.cpp in Sources */,
 				C31B63A51C5A1D0500755914 /* BasicData2d.cpp in Sources */,
+				18A614E01C7898D300BC40DF /* GameScene.cpp in Sources */,
 				C3882B441C4F8B6100871F16 /* AppDelegate.m in Sources */,
 				C31B63A41C5A1D0500755914 /* TimeSchedule.cpp in Sources */,
 				C36A85391BD2144C0045B7D3 /* main.m in Sources */,
+				C3635D301C853BE200410343 /* DiskCache.mm in Sources */,
 				C31B63A61C5A1D0500755914 /* MathUtil.cpp in Sources */,
+				C3664ADC1C8444B9008565E0 /* MapObject.cpp in Sources */,
 				C31B63A91C5A1D0500755914 /* Singleton.cpp in Sources */,
 				C31B639E1C5A1D0500755914 /* BasicPtrClass.cpp in Sources */,
+				18A614E41C78990600BC40DF /* People.cpp in Sources */,
+				C3635D291C85285B00410343 /* SelectSprite.cpp in Sources */,
+				18DE51481C7858E600458C9E /* TouchSprite.cpp in Sources */,
+				18DE51451C7858D200458C9E /* TouchLabel.cpp in Sources */,
 				C31B639F1C5A1D0500755914 /* ResourceManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,7 +744,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
@@ -597,7 +770,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;

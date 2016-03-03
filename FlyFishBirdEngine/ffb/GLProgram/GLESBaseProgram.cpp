@@ -38,6 +38,11 @@ namespace ffb {
         BasicPtrClass::Clear();
     }
     
+    void GLESBaseProgram::Destory()
+    {   
+        BasicPtrClass::Destory();
+    }
+    
     bool GLESBaseProgram::Create()
     {
         if (!BasicPtrClass::Create()) {
@@ -73,11 +78,6 @@ namespace ffb {
         
         m_programObject = LoadGLESProgram(vertecShader, vertecShader);
         return true;
-    }
-    
-    void GLESBaseProgram::Destory()
-    {
-        BasicPtrClass::Destory();
     }
     
 #pragma mark - render

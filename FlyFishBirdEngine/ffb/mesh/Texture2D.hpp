@@ -11,10 +11,19 @@
 
 
 #include <stdio.h>
-#include "Renderer.hpp"
+#include "SimpleRender.hpp"
 
 namespace ffb {
-    class Texture2D: public Renderer {
+    
+    typedef enum {
+        
+        TextureWrapModelRepeat              =   GL_REPEAT,
+        TextureWrapModelClampToEdge         =   GL_CLAMP_TO_EDGE,
+        TextureWrapModelMirroredRepeat     =   GL_MIRRORED_REPEAT
+        
+    }TextureWrapModel;
+    
+    class Texture2D: public SimpleRender {
         
     public:
     
@@ -28,24 +37,35 @@ namespace ffb {
         
         // texture for text
     
-        bool CreateStringTexture(const std::string &fontName,const std::string &text, float fontSize);
+        bool CreateStringTexture(const std::string &fontName,const std::string &text, float fontSize, Color color);
         void updateStirngTexture();
-        void SetString(const std::string &text);
-        void SetStringColor(float r, float g, float b, float a);
         
         void SetTexture2d(unsigned char * data, float width, float height);
         
         virtual void Render();
         
-        virtual float GetWidth();
-        virtual float GetHeight();
+        void SetTextureScale(Point textureScale);
+        void SetTextureScale(float x, float y);
+        Point GetTextureScale();
+        
+        Size GetSize();
+        
+        void SetTextureWrapModel(TextureWrapModel model);
+        TextureWrapModel GetTextureWrapModel();
         
     private:
         
         float m_Width;
         float m_Height;
         
+        float m_textureWidth;
+        float m_textureHeight;
+        
         GLuint m_textureId;
+        
+        Point m_textureScale;
+        
+        TextureWrapModel m_textureWrap;
     };
 }
 

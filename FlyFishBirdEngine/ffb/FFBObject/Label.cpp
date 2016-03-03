@@ -14,15 +14,20 @@ namespace ffb {
     
     void Label::Clear()
     {
+        m_Texture = FFBMalloc(Texture2D);
+        m_touchEnable = false;
         Object::Clear();
     }
     
+    void Label::Destory()
+    {
+        FFBSaveFree(m_Texture);
+        Object::Destory();
+    }
+
     bool Label::Create()
     {
-        if (!Object::Create()) {
-            return false;
-        }
-        return true;
+        return Create("Helvetica", "", 17);
     }
     
     bool Label::Create(const std::string &text)
@@ -37,8 +42,7 @@ namespace ffb {
     
     bool Label::Create(const std::string &fontName,const std::string & text, float size)
     {
-        m_Texture = FFBMalloc(Texture2D);
-        if (!m_Texture->CreateStringTexture(fontName, text, size))
+        if (!m_Texture->CreateStringTexture(fontName, text, size, ColorMake(1, 1, 1, 1)))
         {
             m_Texture->release();
             return false;
@@ -46,7 +50,9 @@ namespace ffb {
         
         m_fontName = fontName;
         m_text = text;
-        m_fontName = size;
+        m_fontSize = size;
+        m_textColor = ColorMake(1, 1, 1, 1);
+        m_size = m_Texture->GetSize();
         
         SetRenderer(m_Texture);
         
@@ -57,26 +63,37 @@ namespace ffb {
     {
         m_text = text;
         m_Texture->Destory();
-        m_Texture->CreateStringTexture(m_fontName, m_text, m_fontSize);
+        m_Texture->Clear();
+        m_Texture->CreateStringTexture(m_fontName, m_text, m_fontSize, m_textColor);
+        m_size = m_Texture->GetSize();
     }
     
-    void Label::SetColor(float r, float g, float b, float a)
+    void Label::SetTextColor(Color color)
     {
-        m_Texture->SetStringColor(r, g, b, a);
+        SetTextColor(color.r, color.g, color.b, color.a);
+    }
+    
+    void Label::SetTextColor(float r, float g, float b, float a)
+    {
+        m_textColor = ColorMake(r, g, b, a);
+        m_Texture->Destory();
+        m_Texture->Clear();
+        m_Texture->CreateStringTexture(m_fontName, m_text, m_fontSize, m_textColor);
+    }
+    
+    Color Label::GetTextColor()
+    {
+        return m_textColor;
     }
     
     std::string Label::GetText()
     {
         return m_text;
     }
-    
-    void Label::Destory()
-    {
-        
-        Object::Destory();
-    }
-    
 
-    
+    Size Label::GetSize()
+    {
+        return m_size;
+    }
     
 }

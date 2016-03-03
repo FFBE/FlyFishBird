@@ -23,23 +23,6 @@
 #define VERTEX_POS_INDX     0
 
 namespace ffb {
-   
-    typedef enum
-    {
-        FFBDrawTypeLines            =  GL_LINES,
-        FFBDrawTypeLine_Loop        =  GL_LINE_LOOP,
-        FFBDrawTypeLIne_Strip       =  GL_LINE_STRIP,
-        FFBDrawTypeTriangles        =  GL_TRIANGLES,
-        FFBDrawTypeTriangle_Strip   =  GL_TRIANGLE_STRIP,
-        FFBDrawTypeTriangle_Fan     =  GL_TRIANGLE_FAN,
-        FFBDrawTypePoints           =  FFBDrawTypeTriangle_Fan+1,
-    }FFBDrawType;
-    
-    typedef enum
-    {
-        VerticesStepTwo = 2,            //x, y
-        VerticesStepThree = 3           //x, y, z
-    }VerticesStep;
     
     class Mesh : public Renderer {
         
@@ -54,6 +37,7 @@ namespace ffb {
             FFBDrawType     drawType;
             VerticesStep    verticesStep;
             GLfloat         lineWidth;
+            Color           color;
         };
         
         
@@ -75,6 +59,7 @@ namespace ffb {
         void SetColor(Color color);
         Color GetColor();
         
+        void RemoveAllShap();
         
     private:
         

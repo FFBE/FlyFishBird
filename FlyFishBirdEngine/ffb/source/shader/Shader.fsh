@@ -41,9 +41,8 @@ void main()
             texColor = texture(s_texcoord0, v_texcoord[indx_zero]);
         else if (enable_tex[indx_one])
             texColor = texture(s_texcoord1, v_texcoord[indx_one]);
-        if (texColor.a == 0.0) {
-            discard;
-        }
+        
+        
         outColor = texColor;
     }
 }

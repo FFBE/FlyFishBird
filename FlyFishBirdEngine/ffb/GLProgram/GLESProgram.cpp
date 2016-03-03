@@ -23,6 +23,12 @@ namespace ffb {
         GLESBaseProgram::Clear();
     }
     
+    void GLESProgram::Destory()
+    {
+        GLESBaseProgram::Destory();
+    }
+
+    
     bool GLESProgram::Create()
     {
         std::string fshader("Shader.fsh");
@@ -100,12 +106,6 @@ namespace ffb {
         
         return true;
     }
-    
-    void GLESProgram::Destory()
-    {        
-        GLESBaseProgram::Destory();
-    }
-    
     
 #pragma mark - shader state
     

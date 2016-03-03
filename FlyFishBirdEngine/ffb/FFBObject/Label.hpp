@@ -30,13 +30,22 @@ namespace ffb {
         void SetText(const std::string &text);
         std::string GetText();
         
-        void SetColor(float r, float g, float b, float a);
-        Color GetColor();
+        void SetTextColor(float r, float g, float b, float a);
+        void SetTextColor(Color color);
+        Color GetTextColor();
+        
+        Size GetSize();
+        
+    protected:
+        
+        Size        m_size;
+        
     private:
         
         std::string m_text;
         std::string m_fontName;
         float       m_fontSize;
+        Color       m_textColor;
         
         Texture2D * m_Texture;
 

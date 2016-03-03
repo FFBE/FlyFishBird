@@ -13,7 +13,7 @@
 #include <UIKit/UIKit.h>
 #include <CoreText/CoreText.h>
 
-bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned char ** fontData, float * width, float * height)
+bool GetFontInfo(const char * text, const char * fontNameC, float size, unsigned char ** fontData, float * width, float * height, float r, float g, float b, float a)
 {
     NSString * string = [NSString stringWithUTF8String:text] ;
     NSString * fontName = [NSString stringWithUTF8String:fontNameC];
@@ -25,7 +25,10 @@ bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned 
     
     CGSize boundingSize = CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX);
     CGSize dimensions = [string boundingRectWithSize:boundingSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
-
+    
+    *width = dimensions.width;
+    *height = dimensions.height;
+    
     *fontData = (unsigned char *)malloc(dimensions.height*dimensions.width*4);
     memset(*fontData, 0, dimensions.height*dimensions.width*4);
     
@@ -43,7 +46,7 @@ bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned 
         return false;
     }
     
-    CGContextSetRGBFillColor(context, 0, 0, 0, 1);
+    CGContextSetRGBFillColor(context, r, g, b, a);
     CGContextTranslateCTM(context, 0.0f, dimensions.height);
     CGContextScaleCTM(context, 1.0f, -1.0f);
     
@@ -57,9 +60,6 @@ bool GetFontInfo(const char * text,const char * fontNameC, float size, unsigned 
     UIGraphicsPopContext();
     CGContextRelease(context);
     
-    *width = dimensions.width;
-    *height = dimensions.height;
-        
     return true;
 }
 

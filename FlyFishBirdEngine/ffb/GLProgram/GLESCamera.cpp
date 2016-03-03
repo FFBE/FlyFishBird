@@ -11,17 +11,6 @@
 
 namespace ffb {
     
-    bool GLESCamera::Create()
-    {
-        if (!BasicPtrClass::Create()) {
-            return false;
-        }
-        
-        MatrixLoadIdentity(&m_cameraMatrix);
-
-        return true;
-    }
-    
     void GLESCamera::Destory()
     {
         BasicPtrClass::Destory();
@@ -30,6 +19,17 @@ namespace ffb {
     void GLESCamera::Clear()
     {
         BasicPtrClass::Clear();
+    }
+    
+    bool GLESCamera::Create()
+    {
+        if (!BasicPtrClass::Create()) {
+            return false;
+        }
+        
+        MatrixLoadIdentity(&m_cameraMatrix);
+        
+        return true;
     }
     
     Matrix GLESCamera::GetCameraMatrix()

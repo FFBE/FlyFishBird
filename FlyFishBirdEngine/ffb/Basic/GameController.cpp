@@ -13,6 +13,8 @@
 #include "ResourceManager.hpp"
 #include "AutoReleasePool.hpp"
 #include "TimeSchedule.hpp"
+#include "Sprite.hpp"
+#include "Action.hpp"
 
 namespace ffb {
     
@@ -156,51 +158,87 @@ namespace ffb {
             {
                 sc->release();
             }
+            m_sceneVector.clear();
         }
         if (scene != nullptr) {
-            PushScene(scene);
+            scene->retain();
+            m_sceneVector.push_back(scene);
         }
-        
+        LoadLaunchImage();
+    }
+    
+    void GameController::LoadLaunchImage()
+    {
+        Sprite * launchImage = FFBMalloc(Sprite);
+        launchImage->CreateLaunchImageForApple();
+        launchImage->SetPosition(PointMake(m_device->GetScreenWidth()/2, m_device->GetScreenHeight()/2));
+        GetCurrentScene()->GetRootObject()->AddObject(launchImage);
+        TimeSchedule::GetSingletonPtr()->AddSchedule(function0st(Object::RemoveFromSuperObject, launchImage), 3.0);
+        launchImage->release();
     }
     
     Scene * GameController::GetCurrentScene()
     {
-        if (m_sceneVector.empty()) {
-            return nullptr;
-        }
+        FFBAssert(!m_sceneVector.empty(), "scene connot be empty");
+        
         return m_sceneVector.back();
     }
     
-    void GameController::PushScene(ffb::Scene *scene)
+    void GameController::PushScene(ffb::TransformScene *scene)
     {
         scene->retain();
+
+        scene->SceneStartPush();
+        double time = scene->PushAction();
+        
+        scene->SetSubScene(GetCurrentScene());
         m_sceneVector.push_back(scene);
+        
+        TimeSchedule::GetSingletonPtr()->AddSchedule(function0st(TransformScene::SceneEndPush, scene), time);
     }
     
     void GameController::PopScene()
     {
-        m_sceneVector[m_sceneVector.size()-1]->release();
-        m_sceneVector.pop_back();
+        FFBAssert(!m_sceneVector.empty(), "scene cannot be empty");
+        
+        TransformScene * scene = static_cast<TransformScene *>( m_sceneVector.back() );
+        
+        scene->SceneStartPop();
+        double time = scene->PopAction();
+        
+        TimeSchedule::GetSingletonPtr()->AddSchedule(function0st(TransformScene::SceneEndPop, scene), time);
     }
     
     
 #pragma mark - update
     
     
-    void GameController::update(double dt)
+    void GameController::Update(double dt)
     {
+        //update action
+        ActionManager::GetSingletonPtr()->Update(dt);
+        
+        //update time schedule
         TimeSchedule::GetSingletonPtr()->Update(dt);
         
+        //update object
         Scene * currentScene = GetCurrentScene();
-        if (currentScene) {
-            currentScene->update(dt);
-        }
+        currentScene->Update(dt);
         
+#if FFBDEBUG
+//        if (dt > 0.02) {
+//            printf("%f", dt);
+//        }
+#endif
+        
+        // render
         glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glClearColor(1.0, 1.0, 1.0, 1.0);
         if (currentScene) {
-            currentScene->render();
+            currentScene->Render();
         }
+        
+        // clear autorelease pool
         PoolManager::GetSingletonPtr()->GetMainPool()->Clear();
 
     }

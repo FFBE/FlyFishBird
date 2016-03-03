@@ -19,18 +19,18 @@ namespace ffb {
         m_rotate = 0;
         m_scale = PointMake(1, 1);
         m_point = PointMake(0, 0);
+        BasicPtrClass::Clear();
     }
     
+    void Renderer::Destory()
+    {   
+        BasicPtrClass::Destory();
+    }
+
     
     bool Renderer::Create()
     {
-        if (!BasicPtrClass::Create()) {
-            return false;
-        }
-        
-        Create(defaultProgram);
-        
-        return true;
+        return Create(defaultProgram);
     }
     
     bool Renderer::Create(short key)
@@ -55,10 +55,6 @@ namespace ffb {
         return true;
     }
 
-    void Renderer::Destory()
-    {
-        BasicPtrClass::Destory();
-    }
     
     void Renderer::SetPosition(Point point)
     {
@@ -110,5 +106,13 @@ namespace ffb {
 
     void Renderer::Render()
     {
+        Matrix camera = GameController::GetSingletonPtr()->GetCameraMatrix();
+        
+        float scale = Device::GetSingleton().GetScreenScale();
+        MatrixLoadIdentity(&m_mvpMatrix);
+        Translate(&m_mvpMatrix, m_point.x*scale, m_point.y*scale, 0);
+        Rotate(&m_mvpMatrix, m_rotate, 0, 0, 1);
+        Scale(&m_mvpMatrix, m_scale.x, m_scale.y, 1);
+        MatrixMultiply(&m_mvpMatrix, &m_mvpMatrix, &camera);
     }
 }

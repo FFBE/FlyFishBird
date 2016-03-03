@@ -27,6 +27,8 @@ namespace ffb {
     typedef std::map < short, GLESProgram * > ESProgramMap;
     
     class GameController:public Singleton<GameController> {
+        
+        friend class TransformScene;
 
     public:
         
@@ -55,12 +57,13 @@ namespace ffb {
         
         //root scene controller
         void SetRootScene(Scene *rootScene);
+        void LoadLaunchImage();
         Scene * GetCurrentScene();
-        void PushScene(Scene * scene);
+        void PushScene(TransformScene * scene);
         void PopScene();
         
         //update
-        void update(double dt);
+        void Update(double dt);
         
         typedef std::vector<Scene *> SceneVector;
         

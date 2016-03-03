@@ -14,11 +14,18 @@ namespace ffb {
     
     void Mesh::Clear()
     {
+        Renderer::Clear();
+
         m_shaderColor = ColorMake(0, 0, 0, 1);
         
         m_vboids = nullptr;
         
-        Renderer::Clear();
+    }
+    
+    void Mesh::Destory()
+    {
+        RemoveAllShap();
+        Renderer::Destory();
     }
     
     bool Mesh::Create()
@@ -31,16 +38,17 @@ namespace ffb {
         
         return true;
     }
-
-    void Mesh::Destory()
+    
+    void Mesh::RemoveAllShap()
     {
         for (MeshAttribute mesh : m_meshVector) {
             FFBSaveFreeBaseType(mesh.vertices);
             FFBSaveFreeBaseType(mesh.indices);
         }
+        
+        glDeleteBuffers((GLsizei)m_meshVector.size(), m_vboids);
         FFBSaveFreeBaseType(m_vboids);
         m_meshVector.clear();
-        Renderer::Destory();
     }
     
 #pragma mark - Render
@@ -51,19 +59,13 @@ namespace ffb {
         {
             return;
         }
+                
+        Renderer::Render();
         
         // Use the program object
         glUseProgram ( m_glprogram->GetProgram() );
         
-        MatrixLoadIdentity(&m_mvpMatrix);
-        Translate(&m_mvpMatrix, m_point.x, m_point.y, 0);
-        Scale(&m_mvpMatrix, m_scale.x, m_scale.y, 1);
-        Rotate(&m_mvpMatrix, m_rotate, 0, 0, 1);
-        Matrix camera = GameController::GetSingleton().GetCameraMatrix();
-        MatrixMultiply(&m_mvpMatrix, &m_mvpMatrix, &camera);
-        
         m_glprogram->SetMvpMatrix(m_mvpMatrix);
-        
         
         glVertexAttrib4f(m_glprogram->GetColorIndex(), m_shaderColor.r, m_shaderColor.g, m_shaderColor.b, m_shaderColor.a);
         
@@ -71,7 +73,7 @@ namespace ffb {
         // Load the vertex data
         if (m_vboids == nullptr) {
             
-            int i = 0, number = m_meshVector.size()*2;
+            int i = 0, number = (int)m_meshVector.size()*2;
             m_vboids = (GLuint *)malloc(sizeof(GLuint) * number);
             glGenBuffers(number, m_vboids);
             
@@ -139,6 +141,11 @@ namespace ffb {
     
     void Mesh::AddShapData(GLuint *indices, int numberOfIndeices, GLfloat *vertices, int numberOfVertices, FFBDrawType type, VerticesStep verticesStep, GLfloat lineWidth)
     {
+        if (m_vboids != nullptr) {
+            glDeleteBuffers((GLsizei)m_meshVector.size(), m_vboids);
+            m_vboids = nullptr;
+        }
+        
         MeshAttribute meshAttribute;
         
         meshAttribute.lineWidth = lineWidth;

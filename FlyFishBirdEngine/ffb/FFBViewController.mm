@@ -11,7 +11,9 @@
 #import <OpenGLES/ES2/glext.h>
 
 #import "GameController.hpp"
-#import "GameScene.hpp"
+#import "ChoseScene.hpp"
+
+#import <CoreLocation/CoreLocation.h>
 
 using namespace ffb;
 
@@ -49,7 +51,7 @@ using namespace ffb;
             return;
         }
     }
-
+    
     GLKView * view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
@@ -95,10 +97,11 @@ using namespace ffb;
     controller->GetDevice()->SetScreenScale(scale * [UIScreen mainScreen].scale);
     controller->GetDevice()->SetScreenSize(self.view.frame.size.width/scale, 320);
 
-    GameScene * scene = FFBMalloc(GameScene);
+    ChoseScene * scene = FFBMalloc(ChoseScene);
     scene->Create();
     controller->SetRootScene(scene);
     scene->release();
+    
 }
 
 - (void)tearDownGL
@@ -108,43 +111,57 @@ using namespace ffb;
 
 - (void)update
 {
-    controller->update(self.timeSinceLastUpdate);
+    controller->Update(self.timeSinceLastUpdate);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     UITouch * touch = [event allTouches].anyObject;
     ffb::Point point = [self converViewPointToGamePoint:[touch locationInView:self.view]];
-    Object * touchObject = controller->GetCurrentScene()->GetRootObject()->TouchCheck(point);
-    controller->GetCurrentScene()->SetTouchObject(touchObject);
+    
+    ffb::Touch * itouch = FFBMalloc(Touch);
+    itouch -> Create(point, touch.timestamp);
+    controller->GetCurrentScene()->CheckTouchObject(itouch);
+    itouch->release();
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    Object * touchObject = controller->GetCurrentScene()->GetTouchObject();
+    if (touchObject == nullptr) {
+        return;
+    }
+    
     UITouch * touch = [event allTouches].anyObject;
     ffb::Point point = [self converViewPointToGamePoint:[touch locationInView:self.view]];
-    Object * touchObject = controller->GetCurrentScene()->GetTouchObject();
-    if(touchObject != nullptr)
-    {
-        touchObject->TouchMoved(point);
-    }
+    
+    ffb::Touch * itouch = FFBMalloc(Touch);
+    itouch -> Create(point, touch.timestamp);
+    touchObject->TouchMoved(itouch);
+    itouch->release();
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    Object * touchObject = controller->GetCurrentScene()->GetTouchObject();
+    if (touchObject == nullptr) {
+        return;
+    }
+    
     UITouch * touch = [event allTouches].anyObject;
     ffb::Point point = [self converViewPointToGamePoint:[touch locationInView:self.view]];
-    Object * touchObject = controller->GetCurrentScene()->GetTouchObject();
-    if(touchObject != nullptr)
-    {
-        touchObject->TouchEnd(point);
-    }
+    
+    ffb::Touch * itouch = FFBMalloc(Touch);
+    itouch -> Create(point, touch.timestamp);
+    touchObject->TouchEnd(itouch);
+    controller->GetCurrentScene()->ResetTouchObject();
+    itouch->release();
 }
 
 - (ffb::Point)converViewPointToGamePoint:(CGPoint)viewPoint
 {
     ffb::Size screenSize = controller->GetDevice()->GetScreenSize();
-    return PointMake(viewPoint.x, screenSize.height-viewPoint.y);
+    return PointMake(viewPoint.x-screenSize.width/2, screenSize.height/2-viewPoint.y);
 }
 
 @end

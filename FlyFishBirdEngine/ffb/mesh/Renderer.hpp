@@ -16,6 +16,25 @@
 #include "BasicPtrClass.hpp"
 
 namespace ffb {
+    
+    typedef enum
+    {
+        FFBDrawTypeLines            =  GL_LINES,
+        FFBDrawTypeLine_Loop        =  GL_LINE_LOOP,
+        FFBDrawTypeLIne_Strip       =  GL_LINE_STRIP,
+        FFBDrawTypeTriangles        =  GL_TRIANGLES,
+        FFBDrawTypeTriangle_Strip   =  GL_TRIANGLE_STRIP,
+        FFBDrawTypeTriangle_Fan     =  GL_TRIANGLE_FAN,
+        FFBDrawTypePoints           =  FFBDrawTypeTriangle_Fan+1,
+    }FFBDrawType;
+    
+    typedef enum
+    {
+        VerticesStepTwo = 2,            //x, y
+        VerticesStepThree = 3           //x, y, z
+    }VerticesStep;
+    
+    
     class Renderer:public BasicPtrClass  {
         
         
@@ -29,10 +48,6 @@ namespace ffb {
         void SetPosition(Point point);
         void SetPosition(float x, float y);
         Point  GetPosition();
-        
-        void SetSize(Size size);
-        void SetSize(float width, float height);
-        Size  GetSize();
         
         void SetScale(float scale);
         void SetScale(float scaleX, float scaleY);
